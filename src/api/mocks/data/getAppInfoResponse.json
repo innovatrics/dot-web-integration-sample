@@ -1,0 +1,19 @@
+{
+  "build": {
+    "artifact": "dot-document-server",
+    "name": "dot-document-server",
+    "version": "5.36.0-SNAPSHOT",
+    "group": "com.innovatrics.dot"
+  },
+  "sam": {
+    "version": "1.28.10"
+  },
+  "iface": {
+    "version": "4.15.0",
+    "license": {
+      "year": "2023",
+      "month": "5",
+      "day": "17"
+    }
+  }
+}

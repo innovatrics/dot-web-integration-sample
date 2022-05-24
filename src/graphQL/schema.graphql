@@ -1,0 +1,603 @@
+scalar Void
+
+enum CreateDocumentPageResponseWarning {
+  DOCUMENT_TYPE_NOT_RECOGNIZED
+}
+
+enum CreateDocumentPageResponseErrorCode {
+  NO_CARD_CORNERS_DETECTED
+  PAGE_DOESNT_MATCH_DOCUMENT_TYPE_OF_PREVIOUS_PAGE
+}
+
+enum DetectSelfieWarnings {
+  MULTIPLE_FACES_DETECTED
+}
+
+enum DetectSelfieErrorCode {
+  NO_FACE_DETECTED
+}
+
+enum CreateCustomerLivenessSelfieWarning {
+  MULTIPLE_FACES_DETECTED
+}
+
+enum CreateCustomerLivenessSelfieErrorCode {
+  NO_FACE_DETECTED
+}
+
+enum AssertionType {
+  EYE_GAZE_TOP_LEFT
+  EYE_GAZE_TOP_RIGHT
+  EYE_GAZE_BOTTOM_LEFT
+  EYE_GAZE_BOTTOM_RIGHT
+  NONE
+}
+
+enum DetectFaceResponseWarnings {
+  MULTIPLE_FACES_DETECTED
+}
+
+enum DetectFaceResponseErrorCode {
+  MULTIPLE_FACES_DETECTED
+  NO_FACE_DETECTED
+}
+
+enum FaceDetectionPropertiesMode {
+  FREE
+  STRICT
+}
+
+enum EvaluateLivenessErrorCode {
+  NOT_ENOUGH_DATA
+  INVALID_DATA
+}
+
+enum EvaluateLivenessType {
+  EYE_GAZE_LIVENESS
+  PASSIVE_LIVENESS
+}
+
+enum Source {
+  VIZ
+  MRZ
+  BARCODE
+  DOCUMENT_PORTRAIT
+}
+
+enum TravelDocumentType {
+  td1
+  td2
+  td3
+}
+
+type SelfLinks {
+  self: String!
+}
+
+type CustomerLinks {
+  customer: String!
+}
+
+type Links {
+  customer: String!
+  self: String!
+}
+
+type Point {
+  x: Int!
+  y: Int!
+}
+
+enum StoreCustomerOnboardingStatus {
+  IN_PROGRESS
+  FINISHED
+}
+
+input Pages {
+  front: String
+  back: String
+  unknown: String
+}
+
+input ImageDimensions {
+  height: Int
+  width: Int
+}
+
+input ImageLink {
+  link: String!
+  dimensions: ImageDimensions
+}
+
+input CroppedImageLinks {
+  portrait: ImageLink
+  ghostPortrait: ImageLink
+  fingerprint: ImageLink
+  signature: ImageLink
+}
+
+input Image {
+  data: String
+  url: String
+}
+
+input DocumentPageClassificationAdvice {
+  pageTypes: String
+}
+
+type MrzInspection {
+  valid: Boolean
+}
+
+type TextConsistencyWith {
+  inconsistentTexts: [String!]
+}
+
+input DocumentPageAdvice {
+  classification: DocumentPageClassificationAdvice
+}
+
+input DocumentPageRequest {
+  image: Image!
+  advice: DocumentPageAdvice!
+}
+
+input DocumentClassificationAdvice {
+  countries: [String!]
+  types: [String!]
+  editions: [String!]
+  machineReadableTravelDocuments: [String!]
+}
+
+input DocumentAdvice {
+  classification: DocumentClassificationAdvice
+}
+
+input FaceSizeRatio {
+  min: Float!
+  max: Float!
+}
+
+input FaceDetectionProperties {
+  mode: FaceDetectionPropertiesMode
+  faceSizeRatio: FaceSizeRatio
+}
+
+type CreateDocumentResponse {
+  links: SelfLinks!
+}
+
+type Roi {
+  topLeft: Point
+  topRight: Point
+  bottomRight: Point
+  bottomLeft: Point
+}
+
+type DocumentType {
+  country: String
+  edition: String
+  type: String
+  machineReadableTravelDocument: String
+}
+
+type ParsedDocumentType {
+  country: String
+  edition: String
+  type: String
+  machineReadableTravelDocument: TravelDocumentType
+  isDocumentSupported: Boolean
+}
+
+type DocumentCoordinates {
+  topLeftCorner: Point!
+  topRightCorner: Point!
+  bottomLeftCorner: Point!
+  bottomRightCorner: Point!
+}
+
+type DocumentDetection {
+  confidence: Float!
+  coordinates: DocumentCoordinates!
+}
+
+type BiometricMultiValueAttribute {
+  visualZone: String
+  mrz: String
+  selfie: String
+  documentPortrait: String
+}
+
+type MultiValueAttribute {
+  visualZone: String
+  mrz: String
+  barcode: String
+}
+
+type MultivalueAttributeWithoutMrz {
+  name: String!
+  visualZone: String
+  barcode: String
+}
+
+type OcrConfidence {
+  confidence: Float!
+  lowOcrConfidenceTexts: [String!]
+}
+
+type VisualZoneConsistencyWith {
+  mrz: TextConsistencyWith
+  barcodes: TextConsistencyWith
+}
+
+type VisualZoneConsistency {
+  consistent: Boolean
+  consistencyWith: VisualZoneConsistencyWith
+}
+
+union CheckDigitsValidity = CheckDigitsValidityTd1Td2 | CheckDigitsValidityTd3
+
+type CheckDigitsValidityTd1Td2 {
+  documentNumberCheckDigitValid: Boolean!
+  dateOfBirthCheckDigitValid: Boolean!
+  dateOfExpiryCheckDigitValid: Boolean!
+  compositeCheckDigitValid: Boolean!
+}
+
+type CheckDigitsValidityTd3 {
+  documentNumberCheckDigitValid: Boolean!
+  dateOfBirthCheckDigitValid: Boolean!
+  dateOfExpiryCheckDigitValid: Boolean!
+  compositeCheckDigitValid: Boolean!
+  personalNumberCheckDigitValid: Boolean!
+}
+
+interface MrzAttributes {
+  documentCode: String!
+  issuingAuthority: String!
+  surname: String!
+  givenNames: String!
+  documentNumber: String!
+  nationality: String!
+  dateOfBirth: String!
+  gender: String!
+  dateOfExpiry: String!
+  checkDigitsValidity: CheckDigitsValidity!
+}
+
+type Td1Mrz implements MrzAttributes {
+  documentCode: String!
+  issuingAuthority: String!
+  surname: String!
+  givenNames: String!
+  documentNumber: String!
+  nationality: String!
+  dateOfBirth: String!
+  gender: String!
+  dateOfExpiry: String!
+  optionalDataFirstLine: String
+  optionalDataSecondLine: String
+  checkDigitsValidity: CheckDigitsValidityTd1Td2!
+}
+
+type Td2Mrz implements MrzAttributes {
+  documentCode: String!
+  issuingAuthority: String!
+  surname: String!
+  givenNames: String!
+  documentNumber: String!
+  nationality: String!
+  dateOfBirth: String!
+  gender: String!
+  dateOfExpiry: String!
+  optionalDataSecondLine: String
+  checkDigitsValidity: CheckDigitsValidityTd1Td2!
+}
+
+type Td3Mrz implements MrzAttributes {
+  documentCode: String!
+  issuingAuthority: String!
+  surname: String!
+  givenNames: String!
+  documentNumber: String!
+  nationality: String!
+  dateOfBirth: String!
+  gender: String!
+  dateOfExpiry: String!
+  personalNumberOrOptionalDataSecondLine: String
+  checkDigitsValidity: CheckDigitsValidityTd3!
+}
+
+type Mrz {
+  td1: Td1Mrz
+  td2: Td2Mrz
+  td3: Td3Mrz
+}
+
+type CustomerDocumentPages {
+  front: String
+  back: String
+  unknown: String
+}
+
+type CustomerDocumentLinks {
+  pages: CustomerDocumentPages
+  portrait: String
+  ghostPortrait: String
+  signature: String
+  fingerprint: String
+}
+
+type CustomerDocument {
+  parsedType: ParsedDocumentType!
+  type: DocumentType!
+  pageTypes: [String!]!
+  dateOfIssue: MultiValueAttribute
+  dateOfExpiry: MultiValueAttribute
+  documentNumber: MultiValueAttribute
+  issuingAuthority: MultiValueAttribute
+  additionalTexts: [MultivalueAttributeWithoutMrz!]
+  mrz: Mrz
+  links: CustomerDocumentLinks
+}
+
+type Customer {
+  age: BiometricMultiValueAttribute
+  gender: BiometricMultiValueAttribute
+  givenNames: MultiValueAttribute
+  surname: MultiValueAttribute
+  fullName: MultiValueAttribute
+  dateOfBirth: MultiValueAttribute
+  personalNumber: MultiValueAttribute
+  citizenship: MultiValueAttribute
+  nationality: MultiValueAttribute
+  document: CustomerDocument
+}
+
+type FaceDetection {
+  confidence: Float
+  faceRectangle: Roi
+}
+
+type CreateCustomerResponse {
+  links: SelfLinks!
+}
+
+type InspectDocumentPortrait {
+  genderEstimate: String
+  genderConsistency: DocumentGenderConsistency
+  ageEstimate: Int
+  ageDifferenceWith: DocumentAgeDifferenceWith
+}
+
+type InspectDocumentVisualZone {
+  ocrConfidence: OcrConfidence
+  textConsistency: VisualZoneConsistency
+}
+
+type DetectFaceResponse {
+  detection: FaceDetection
+  links: SelfLinks
+  errorCode: DetectFaceResponseErrorCode
+  warnings: [DetectFaceResponseWarnings!]
+}
+
+type FaceAttribute {
+  score: Float!
+  preconditionsMet: Boolean!
+}
+
+type HeadPoseAttribute {
+  angle: Float!
+  preconditionsMet: Boolean!
+}
+
+type FaceQualityResponse {
+  sharpness: FaceAttribute
+  brightness: FaceAttribute
+  contrast: FaceAttribute
+  uniqueIntensityLevels: FaceAttribute
+  shadow: FaceAttribute
+  noseShadow: FaceAttribute
+  specularity: FaceAttribute
+  backgroundUniformity: FaceAttribute
+  redRightEye: FaceAttribute
+  redLeftEye: FaceAttribute
+  roll: HeadPoseAttribute
+  yaw: HeadPoseAttribute
+  pitch: HeadPoseAttribute
+  eyeDistance: FaceAttribute
+  eyeGaze: FaceAttribute
+  rightEye: FaceAttribute
+  leftEye: FaceAttribute
+  mouth: FaceAttribute
+  heavyFrame: FaceAttribute
+  faceSize: FaceAttribute
+  faceRelativeArea: FaceAttribute
+  faceRelativeAreaInImage: FaceAttribute
+  links: SelfLinks!
+}
+
+type CreateDocumentPageResponse {
+  documentType: DocumentType
+  pageType: String
+  detection: DocumentDetection
+  warnings: [CreateDocumentPageResponseWarning!]
+  errorCode: CreateDocumentPageResponseErrorCode
+  links: CustomerLinks!
+}
+
+type GetCustomerResponse {
+  customer: Customer
+  links: CustomerLinks!
+}
+
+type DetectSelfieResponse {
+  detection: FaceDetection
+  errorCode: DetectSelfieErrorCode
+  warnings: [DetectSelfieWarnings!]
+  links: Links!
+}
+
+type CreateCustomerLivenessSelfieResponse {
+  errorCode: CreateCustomerLivenessSelfieErrorCode
+  links: CustomerLinks!
+}
+
+type PageTamperingInspection {
+  colorProfileChangeDetected: Boolean
+  looksLikeScreenshot: Boolean
+}
+
+type InspectDocumentResponse {
+  expired: Boolean
+  pageTampering: [PageTamperingInspection!]
+  mrzInspection: MrzInspection
+  portraitInspection: InspectDocumentPortrait
+  visualZoneInspection: InspectDocumentVisualZone
+  links: CustomerLinks!
+}
+type SimilarityWith {
+  documentPortrait: Boolean
+  livenessSelfies: Boolean
+}
+
+type GenderConsistency {
+  documentPortrait: Boolean
+  viz: Boolean
+  mrz: Boolean
+}
+
+type DocumentGenderConsistency {
+  viz: Boolean
+  mrz: Boolean
+}
+
+type AgeDifferenceWith {
+  documentPortrait: Int
+  dateOfBirth: Int
+}
+
+type DocumentAgeDifferenceWith {
+  dateOfBirth: Int!
+}
+
+type CustomerSelfieInspection {
+  similarityWith: SimilarityWith
+  genderEstimate: String
+  genderConsistency: GenderConsistency
+  ageEstimate: Int
+  ageDifferenceWith: AgeDifferenceWith
+  hasMask: Boolean
+}
+
+type InspectCustomerLinks {
+  documentInspection: String!
+  customer: String!
+}
+
+type InspectCustomerResponse {
+  selfieInspection: CustomerSelfieInspection
+  links: InspectCustomerLinks!
+}
+
+type CustomerLiveness {
+  score: Float
+  errorCode: EvaluateLivenessErrorCode
+}
+
+type EvaluateCustomerLivenessResponse {
+  liveness: CustomerLiveness
+  links: CustomerLinks!
+}
+
+type MetadataDocumentType {
+  country: String
+  edition: String
+  type: String
+  machineReadableTravelDocument: String
+}
+
+type MetadataTextField {
+  name: String!
+  label: String
+  valueNormalized: Boolean
+}
+
+type MetadataDocumentPage {
+  name: String!
+  visualZone: [MetadataTextField!]!
+}
+
+type MetadataDocument {
+  documentType: MetadataDocumentType
+  pages: [MetadataDocumentPage!]!
+}
+
+type GetMetadataResponse {
+  documents: [MetadataDocument!]!
+}
+
+type CroppedImagesResponse {
+  portrait: String
+  ghostPortrait: String
+  fingerprint: String
+  signature: String
+}
+
+type CroppedSelfieResponse {
+  selfie: String
+}
+
+type StoreCustomerApiError {
+  status: Int
+  error: String
+  path: String
+}
+
+type StoreCustomerResponse {
+  apiError: StoreCustomerApiError
+}
+
+type GetAppInfoResponse {
+  disVersion: String
+  samVersion: String
+  iFaceVersion: String
+}
+
+type Query {
+  customer(customerApiLink: String!): GetCustomerResponse
+  inspectDocument(customerApiLink: String!): InspectDocumentResponse
+  inspectCustomer(customerApiLink: String!): InspectCustomerResponse
+  faceQuality(faceApiLink: String!): FaceQualityResponse
+  metadata: GetMetadataResponse
+  normalizedDocumentImages(pages: Pages!, dimensions: ImageDimensions): CustomerDocumentPages
+  croppedImages(imageLinks: CroppedImageLinks!): CroppedImagesResponse
+  croppedSelfie(faceApiLink: String!, dimensions: ImageDimensions): CroppedSelfieResponse
+  evaluateCustomerLiveness(type: EvaluateLivenessType!, customerApiLink: String!): EvaluateCustomerLivenessResponse
+  storeCustomer(customerApiLink: String!, onboardingStatus: StoreCustomerOnboardingStatus!): StoreCustomerResponse
+  appInfo: GetAppInfoResponse
+}
+
+scalar Void
+
+type Mutation {
+  deleteCustomer(customerApiLink: String!): Void
+  createDocumentPage(
+    image: String!
+    isDocumentCreated: Boolean!
+    pageType: String
+    documentAdvice: DocumentAdvice
+    customerApiLink: String
+    sources: [Source!]
+  ): CreateDocumentPageResponse
+  createSelfie(image: String!, customerApiLink: String): DetectSelfieResponse
+  createCustomerLiveness(
+    image: String
+    isLivenessCreated: Boolean
+    assertionType: AssertionType
+    customerApiLink: String
+    selfieLink: String
+  ): CreateCustomerLivenessSelfieResponse
+  createFace(image: String!, detection: FaceDetectionProperties): DetectFaceResponse
+}

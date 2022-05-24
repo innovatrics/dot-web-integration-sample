@@ -1,0 +1,23 @@
+{
+  "selfieInspection": {
+    "similarityWith": {
+      "documentPortrait": true,
+      "livenessSelfies": true
+    },
+    "genderEstimate": "M",
+    "genderConsistency": {
+      "documentPortrait": true,
+      "viz": true,
+      "mrz": true
+    },
+    "ageEstimate": 24,
+    "ageDifferenceWith": {
+      "documentPortrait": 10,
+      "dateOfBirth": 7,
+      "hasMask": false
+    },
+    "links": {
+      "documentInspection": "string"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "image": {
+    "url": "http://localhost/example.png"
+  },
+  "detection": {
+    "mode": "FREE"
+  }
+}

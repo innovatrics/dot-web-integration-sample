@@ -1,0 +1,5 @@
+{
+  "links": {
+    "self": "/api/v1/customers/123/liveness"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "detection": {
+    "confidence": 0.7246,
+    "faceRectangle": {
+      "topLeft": {
+        "x": 178,
+        "y": 99
+      },
+      "topRight": {
+        "x": 303,
+        "y": 91
+      },
+      "bottomRight": {
+        "x": 318,
+        "y": 328
+      },
+      "bottomLeft": {
+        "x": 193,
+        "y": 336
+      }
+    }
+  },
+  "links": {
+    "self": "/api/v1/customers/123/selfie"
+  }
+}

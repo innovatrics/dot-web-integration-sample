@@ -1,0 +1,52 @@
+{
+  "customer": {
+    "age": {
+      "visualZone": "36",
+      "selfie": "32",
+      "documentPortrait": "30"
+    },
+    "gender": {
+      "visualZone": "M",
+      "selfie": "M",
+      "documentPortrait": "F"
+    },
+    "givenNames": {
+      "visualZone": "Bell"
+    },
+    "surname": {
+      "visualZone": "Brian"
+    },
+    "dateOfBirth": {
+      "visualZone": "1985-08-06"
+    },
+    "nationality": {
+      "visualZone": "SVK"
+    },
+    "document": {
+      "type": {
+        "country": "ino",
+        "edition": "2020",
+        "type": "identity-card",
+        "machineReadableTravelDocument": "td1"
+      },
+      "additionalTexts": [],
+      "pageTypes": ["front"],
+      "dateOfIssue": {
+        "visualZone": "2020-11-24"
+      },
+      "dateOfExpiry": {
+        "visualZone": "2024-11-24"
+      },
+      "documentNumber": {
+        "visualZone": "BB656987"
+      },
+      "links": {
+        "portrait": "/api/v1/customers/123/document/portrait",
+        "signature": "/api/v1/customers/123/document/signature",
+        "pages": {
+          "front": "/api/v1/customers/123/document/pages/front"
+        }
+      }
+    }
+  }
+}

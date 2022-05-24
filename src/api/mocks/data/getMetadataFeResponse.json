@@ -1,0 +1,76 @@
+{
+  "documents": [
+    {
+      "documentType": {
+        "country": "VNM",
+        "edition": "2021-01-01",
+        "type": "identity-card",
+        "machineReadableTravelDocument": "TD1"
+      },
+      "pages": [
+        {
+          "name": "FRONT",
+          "visualZone": [
+            {
+              "name": "document_number",
+              "label": "Số / No.:",
+              "valueNormalized": false
+            },
+            {
+              "name": "full_name",
+              "label": "Ho và tên / Full name:",
+              "valueNormalized": false
+            },
+            {
+              "name": "date_of_birth",
+              "label": "Ngày sinh / Date of birth:",
+              "valueNormalized": true
+            },
+            {
+              "name": "sex",
+              "label": "Giới tính / Sex:",
+              "valueNormalized": false
+            },
+            {
+              "name": "nationality",
+              "label": "Quốc tịch / Nationality:",
+              "valueNormalized": false
+            },
+            {
+              "name": "place_of_birth",
+              "label": "Quê quán / Place of origin: (1/2)",
+              "valueNormalized": false
+            },
+            {
+              "name": "address",
+              "label": "Nơi thường trú / Place of residence: (1/2)",
+              "valueNormalized": false
+            },
+            {
+              "name": "date_of_expiry",
+              "label": "Date of expiry",
+              "valueNormalized": true
+            }
+          ]
+        },
+        {
+          "name": "BACK",
+          "visualZone": [
+            {
+              "name": "notes",
+              "valueNormalized": false
+            },
+            {
+              "name": "date_of_issue",
+              "valueNormalized": true
+            },
+            {
+              "name": "machine_readable_zone",
+              "valueNormalized": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

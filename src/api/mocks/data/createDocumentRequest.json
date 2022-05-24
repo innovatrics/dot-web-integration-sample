@@ -1,0 +1,12 @@
+{
+  "advice": {
+    "classification": {
+      "countries": ["INO"],
+      "types": [],
+      "editions": [],
+      "machineReadableTravelDocuments": [],
+      "pageTypes": []
+    }
+  },
+  "sources": ["VIZ", "MRZ", "BARCODE", "DOCUMENT_PORTRAIT"]
+}

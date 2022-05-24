@@ -1,0 +1,37 @@
+{
+  "expired": true,
+  "mrzInspection": { "valid": true },
+  "pageTampering": [
+    {
+      "name": "front",
+      "colorProfileChangeDetected": true,
+      "looksLikeScreenshot": true
+    },
+    {
+      "name": "back",
+      "colorProfileChangeDetected": true,
+      "looksLikeScreenshot": true
+    }
+  ],
+  "portraitInspection": {
+    "genderEstimate": "M",
+    "genderConsistency": { "viz": true, "mrz": true },
+    "ageEstimate": 24,
+    "ageDifferenceWith": { "dateOfBirth": 7 }
+  },
+  "visualZoneInspection": {
+    "ocrConfidence": { "confidence": 0, "lowOcrConfidenceTexts": ["string"] },
+    "textConsistency": {
+      "consistencyWith": {
+        "barcodes": {
+          "inconsistentTexts": ["string"]
+        },
+        "mrz": {
+          "inconsistentTexts": ["string"]
+        }
+      },
+      "consistent": true
+    }
+  },
+  "links": { "customer": "/api/v1/customers/123" }
+}

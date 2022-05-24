@@ -1,0 +1,90 @@
+{
+  "sharpness": {
+      "score": 0.4872,
+      "preconditionsMet": true
+  },
+  "brightness": {
+      "score": 0.3098,
+      "preconditionsMet": true
+  },
+  "contrast": {
+      "score": 0.6595,
+      "preconditionsMet": true
+  },
+  "uniqueIntensityLevels": {
+      "score": 0.8949,
+      "preconditionsMet": true
+  },
+  "shadow": {
+      "score": 0.9762,
+      "preconditionsMet": true
+  },
+  "noseShadow": {
+      "score": 0.5336,
+      "preconditionsMet": true
+  },
+  "specularity": {
+      "score": 0.6406,
+      "preconditionsMet": true
+  },
+  "backgroundUniformity": {
+      "score": 0.4447,
+      "preconditionsMet": true
+  },
+  "redRightEye": {
+      "score": 0.3388,
+      "preconditionsMet": true
+  },
+  "redLeftEye": {
+      "score": 0.3923,
+      "preconditionsMet": true
+  },
+  "roll": {
+      "angle": 5,
+      "preconditionsMet": true
+  },
+  "yaw": {
+      "angle": 4,
+      "preconditionsMet": true
+  },
+  "pitch": {
+      "angle": 2,
+      "preconditionsMet": true
+  },
+  "eyeDistance": {
+      "score": 52.9043,
+      "preconditionsMet": true
+  },
+  "eyeGaze": {
+      "score": 0.7643,
+      "preconditionsMet": true
+  },
+  "rightEye": {
+      "score": 0.6180,
+      "preconditionsMet": true
+  },
+  "leftEye": {
+      "score": 0.7786,
+      "preconditionsMet": true
+  },
+  "mouth": {
+      "score": 0.1464,
+      "preconditionsMet": true
+  },
+  "heavyFrame": {
+      "score": 0.3565,
+      "preconditionsMet": true
+  },
+  "faceSize": {
+      "score": 52.9043,
+      "preconditionsMet": true
+  },
+  "faceRelativeArea": {
+      "score": 0.0827,
+      "preconditionsMet": true
+  },
+  "faceRelativeAreaInImage": {
+      "score": 1.0000,
+      "preconditionsMet": true
+  }
+}
