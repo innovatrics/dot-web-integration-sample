@@ -1,6 +1,6 @@
 {
   "name": "dot-web-demo-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NodeJS GraphQL demo server.",
   "main": "dist/server.js",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "build": "rimraf dist && yarn codegen && tsc && cp src/graphQL/schema.graphql dist/graphQL/schema.graphql",
     "codegen": "graphql-codegen --config ./graphql-codegen.yml",
     "test": "mocha --config .mocharc.json src/**/*.spec.ts",
-    "lint": "eslint 'src/**/*.ts' --max-warnings 0"
+    "lint": "eslint \"src/**/*.ts\" --max-warnings 0"
   },
   "dependencies": {
     "apollo-server-express": "^3.6.2",
