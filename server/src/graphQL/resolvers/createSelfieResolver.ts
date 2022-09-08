@@ -16,7 +16,7 @@ export const createSelfieResolver = async (image: string, customerApiLink?: stri
   return {
     ...rest,
     links: {
-      self: links?.self,
+      self: links?.self || '',
       customer,
     },
   };
