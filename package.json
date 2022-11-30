@@ -4,9 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
     "dev": "yarn server:dev & yarn web-demo-client:dev & yarn ocr-demo-client:dev",
     "web-demo:dev": "yarn server:dev & yarn web-demo-client:dev",
@@ -18,7 +16,7 @@
     "web-demo-client:build": "yarn codegen && yarn workspace dot-web-demo-client build",
     "ocr-demo-client:dev": "yarn workspace dot-web-ocr-demo-client dev",
     "ocr-demo-client:build": "yarn codegen && yarn workspace dot-web-ocr-demo-client build",
-    "codegen": "yarn workspace dot-web-common-client codegen && yarn workspace dot-web-demo-server codegen",
+    "codegen": "yarn workspace dot-web-demo-server codegen",
     "build": "yarn workspaces run build",
     "prettier:check": "prettier -l \"packages/**/*.{ts,tsx,js,md}\"",
     "prettier": "prettier  --write \"packages/**/*.{ts,tsx,js,md}\"",
