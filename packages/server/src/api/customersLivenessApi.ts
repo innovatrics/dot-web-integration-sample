@@ -7,7 +7,7 @@ import {
   CreateCustomerLivenessSelfieRestResponse,
   EvaluateCustomerLivenessRestResponse,
 } from '../types/restResponseTypes';
-import serverConnection from './rest/serverConnection';
+import { serverConnection } from './rest/serverConnection';
 
 export const createCustomerLivenessApi = async (
   customerApiLink: string,

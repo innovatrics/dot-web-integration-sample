@@ -5,12 +5,12 @@ describe('#deleteCustomer', () => {
   it('should delete customer correctly', async () => {
     const result = resolvers.Mutation.deleteCustomer(null, { customerApiLink });
 
-    return result.should.eventually.be.fulfilled;
+    await expect(result).resolves.toBeUndefined();
   });
 
   it('should throw error when customerApiLink is invalid', async () => {
     const result = resolvers.Mutation.deleteCustomer(null, { customerApiLink: customerApiLinkError });
 
-    return result.should.eventually.be.rejected;
+    await expect(result).rejects.toThrow();
   });
 });

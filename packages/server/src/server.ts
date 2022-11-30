@@ -1,11 +1,9 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
-import { GraphQLError } from 'graphql';
 import { hostname } from 'os';
 
-import HttpServerError from './api/error/HttpServerError';
-import { initMocks, isMockAdapterEnabled } from './api/mocks/mockAdapter';
-import serverConnection from './api/rest/serverConnection';
+import { initServerMocks, isMockAdapterEnabled } from './api/mocks/serverMockAdapter';
+import { serverConnection } from './api/rest/serverConnection';
 import env from './dotenv';
 import resolvers from './graphQL/resolvers';
 import typeDefs from './graphQL/schema';
@@ -17,24 +15,7 @@ const main = async () => {
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
-    formatError: (error: GraphQLError) => {
-      if (error.originalError?.name === 'HttpServerError') {
-        const { message, extensions } = error;
-        const code = extensions.code as string;
-
-        if (!message || !code) {
-          console.error(error);
-
-          return error;
-        }
-
-        return new HttpServerError(message, code);
-      }
-
-      console.error(error);
-
-      return error;
-    },
+    debug: false,
   });
 
   await apolloServer.start();
@@ -42,7 +23,7 @@ const main = async () => {
   apolloServer.applyMiddleware({ app, bodyParserConfig: { limit: '20mb' } });
 
   if (isMockAdapterEnabled()) {
-    initMocks(serverConnection);
+    initServerMocks(serverConnection);
   }
 
   app.use('/_alive', probeRouter);
@@ -53,5 +34,5 @@ const main = async () => {
 };
 
 export default main().catch((error) => {
-  console.log('Error starting server', error);
+  console.error('Error starting server', error);
 });

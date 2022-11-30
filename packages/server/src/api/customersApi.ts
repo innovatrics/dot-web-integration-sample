@@ -5,7 +5,7 @@ import {
   InspectCustomerRestResponse,
   StoreCustomerRestResponse,
 } from '../types/restResponseTypes';
-import serverConnection from './rest/serverConnection';
+import { serverConnection } from './rest/serverConnection';
 
 export const createCustomerApi = async (): Promise<CreateCustomerRestResponse> => {
   const apiPath = `/api/v1/customers`;

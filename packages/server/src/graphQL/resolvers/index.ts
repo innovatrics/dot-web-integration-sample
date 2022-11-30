@@ -22,6 +22,7 @@ import {
   StoreCustomerResponse,
   StoreCustomerOnboardingStatus,
   GetAppInfoResponse,
+  ContactFormRequest,
 } from '../../types/graphqlTypes';
 import { createCustomerLivenessResolver } from './createCustomerLivenessResolver';
 import { createDocumentPageResolver } from './createDocumentPageResolver';
@@ -38,6 +39,7 @@ import { getMetadataResolver } from './getMetadataResolver';
 import { inspectCustomerResolver } from './inspectCustomerResolver';
 import { inspectDocumentResolver } from './inspectDocumentResolver';
 import { normalizedDocumentImagesResolver } from './normalizedDocumentImagesResolver';
+import { postContactFormResolver } from './postContactFormResolver';
 import { storeCustomerResolver } from './storeCustomerResolver';
 
 const resolvers = {
@@ -137,6 +139,9 @@ const resolvers = {
     },
     createFace(_: unknown, args: { image: string; detection?: FaceDetectionProperties }): Promise<DetectFaceResponse> {
       return createFaceResolver(args.image, args.detection);
+    },
+    postContactForm(_: unknown, args: { contactFormData: ContactFormRequest; recaptchaToken: string }): Promise<void> {
+      return postContactFormResolver(args.contactFormData, args.recaptchaToken);
     },
   },
 };

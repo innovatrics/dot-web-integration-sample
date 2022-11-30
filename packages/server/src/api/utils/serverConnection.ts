@@ -1,27 +1,41 @@
+import { AxiosError } from 'axios';
+
 import { DEFAULT_ERROR } from '../../constants';
-import { ErrorData } from '../../types/serverTypes';
+import { ParsedError } from '../../types/serverTypes';
 
-export const parseApiError = (errorData: ErrorData) => {
-  let { message, code } = DEFAULT_ERROR;
-
-  // business logic error message
-  if (errorData.errorMessage) {
-    message = errorData.errorMessage;
-    // spring default error message
-  } else if (errorData.error) {
-    message = errorData.error;
+export const parseApiError = (error: AxiosError<{ errorMessage?: string; errorCode?: string }>): ParsedError => {
+  // when axios instance was not able to call service at all
+  if (!error.response) {
+    return {
+      errorMessage: error.message,
+      errorCode: error.code,
+      code: DEFAULT_ERROR.CODE,
+    };
   }
 
-  // business logic error code
-  if (errorData.errorCode) {
-    code = errorData.errorCode;
-    // spring default error code
-  } else if (errorData.status) {
-    code = errorData.status.toString();
+  let errorMessage = DEFAULT_ERROR.MESSAGE;
+  let errorCode;
+
+  // parsing business error message
+  if (error.response.data.errorMessage) {
+    errorMessage = error.response.data?.errorMessage;
+    // parsing system error message
+  } else if (error.response.statusText) {
+    errorMessage = error.response.statusText;
   }
+
+  // parsing business error code
+  if (error.response.data.errorCode) {
+    errorCode = error.response.data.errorCode;
+  }
+
+  const { url, method } = error.config || {};
 
   return {
-    message,
-    code,
+    errorMessage,
+    errorCode,
+    path: url,
+    method,
+    code: error.response.status ?? DEFAULT_ERROR.CODE,
   };
 };

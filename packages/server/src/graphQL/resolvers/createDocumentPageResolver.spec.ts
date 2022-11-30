@@ -10,7 +10,7 @@ describe('#createDocumentPage', () => {
       customerApiLink,
     });
 
-    return result.should.eventually.be.deep.equal({ ...createDocumentPageResponse, ...customerLinks });
+    await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
   });
 
   it('should get correct response when document is created', async () => {
@@ -20,7 +20,7 @@ describe('#createDocumentPage', () => {
       customerApiLink,
     });
 
-    return result.should.eventually.be.deep.equal({ ...createDocumentPageResponse, ...customerLinks });
+    await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
   });
 
   it('should get correct response when advice is present', async () => {
@@ -40,7 +40,7 @@ describe('#createDocumentPage', () => {
       documentAdvice,
     });
 
-    return result.should.eventually.be.deep.equal({ ...createDocumentPageResponse, ...customerLinks });
+    await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
   });
 
   it('should throw error when customerApiLink is invalid', async () => {
@@ -50,6 +50,6 @@ describe('#createDocumentPage', () => {
       customerApiLink: customerApiLinkError,
     });
 
-    return result.should.eventually.be.rejectedWith('Some error.');
+    await expect(result).rejects.toThrow();
   });
 });

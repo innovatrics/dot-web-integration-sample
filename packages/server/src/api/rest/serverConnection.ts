@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 import env from '../../dotenv';
-import HttpServerError from '../error/HttpServerError';
-import { isStoreEndpoint, isTestRunning } from '../utils';
-import { parseApiError } from '../utils/serverConnection';
+import { onContactFormConnectionFulfilled, onContactFormConnectionRejected } from './interceptors/contactForm';
+import { onRecaptchaConnectionFulfilled, onRecaptchaConnectionRejected } from './interceptors/recaptcha';
+import { onServerConnectionFulfilled, onServerConnectionRejected } from './interceptors/server';
 
 const serverConnection = axios.create({
   baseURL: env.DOCUMENT_IDENTITY_SERVICE,
@@ -13,37 +13,18 @@ const serverConnection = axios.create({
   },
 });
 
-serverConnection.interceptors.response.use(
-  (response) => {
-    const { config, status } = response;
+const contactFormConnection = axios.create({
+  baseURL: env.CONTACT_FORM_URL,
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' },
+});
 
-    if (!isTestRunning()) {
-      console.log(`Request: ${config.method?.toUpperCase()} ${config.url} -> response status: ${status} `);
-    }
+const googleRecaptchaConnection = axios.create({
+  baseURL: env.GOOGLE_RECAPTCHA_SITE_VERIFY_URL,
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' },
+});
 
-    return response;
-  },
-  (error) => {
-    const { message, code } = parseApiError(error.response.data);
-    const serverError = new HttpServerError(message, code);
+serverConnection.interceptors.response.use(onServerConnectionFulfilled, onServerConnectionRejected);
+contactFormConnection.interceptors.response.use(onContactFormConnectionFulfilled, onContactFormConnectionRejected);
+googleRecaptchaConnection.interceptors.response.use(onRecaptchaConnectionFulfilled, onRecaptchaConnectionRejected);
 
-    const { method, url } = error.config;
-
-    if (!isTestRunning()) {
-      console.error(
-        `Response error: ${method.toUpperCase()} ${url} -> status: ${
-          error.response.data.status
-        } with ${serverError.toString()}`,
-      );
-    }
-
-    // don't throw error on /store endpoints
-    if (isStoreEndpoint(url.toString())) {
-      return { data: error.response.data };
-    }
-
-    throw serverError;
-  },
-);
-
-export default serverConnection;
+export { serverConnection, contactFormConnection, googleRecaptchaConnection };

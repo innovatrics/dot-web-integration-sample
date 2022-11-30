@@ -12,7 +12,7 @@ describe('#evaluateCustomerLiveness', () => {
 
     const expectedResult = { ...customerLinks, liveness: { ...evaluateCustomerLivenessResponse } };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should throw error when customerApiLink is invalid', async () => {
@@ -21,6 +21,6 @@ describe('#evaluateCustomerLiveness', () => {
       customerApiLink: customerApiLinkError,
     });
 
-    return result.should.eventually.be.rejected;
+    await expect(result).rejects.toThrow();
   });
 });

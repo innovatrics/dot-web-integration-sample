@@ -1,11 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": ".",
     "outDir": "./dist",
     "module": "commonjs",
     "declaration": false,
     "declarationMap": false
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "vitest.config.ts"]
 }

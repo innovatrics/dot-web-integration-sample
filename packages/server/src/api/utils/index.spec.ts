@@ -1,6 +1,3 @@
-import * as chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-
 import base64TestString from './data/base64TestString';
 import imageBase64TestString from './data/imageBase64TestString';
 import nestableOutputArray from './data/nestableOutputArray';
@@ -8,22 +5,21 @@ import nestedInputMap from './data/nestedInputMap';
 import nestedOutputArray from './data/nestedOutputArray';
 import objectInputMap from './data/objectInputMap';
 import objectOutputArray from './data/objectOutputArray';
-import { isStringUrl, createImage, mapToArray, isStoreEndpoint } from './index';
+import { isStringUrl, createImage, mapToArray, isStoreEndpoint, convertJsonToUrlencoded } from './index';
 
-chai.use(chaiAsPromised).should();
 describe('#Utils', () => {
   describe('createImage', () => {
     describe('should return object with data field filled for non-URL', () => {
       it('regular string', () => {
         const imageString = 'alphabet';
 
-        createImage(imageString).should.have.property('data').that.equals(imageString);
+        expect(createImage(imageString)).toHaveProperty('data', imageString);
       });
 
       it('base64 string', () => {
         const imageString = imageBase64TestString;
 
-        createImage(imageString).should.have.property('data').that.equals(imageString);
+        expect(createImage(imageString)).toHaveProperty('data', imageString);
       });
     });
 
@@ -31,13 +27,13 @@ describe('#Utils', () => {
       it('regular url', () => {
         const urlString = 'https://dot-stg.innovatrics.com';
 
-        createImage(urlString).should.have.property('url').that.equals(urlString);
+        expect(createImage(urlString)).toHaveProperty('url', urlString);
       });
 
       it('url with query parameters', () => {
         const urlString = 'https://dot-stg.innovatrics.com/identity/customer?id=47';
 
-        createImage(urlString).should.have.property('url').that.equals(urlString);
+        expect(createImage(urlString)).toHaveProperty('url', urlString);
       });
     });
   });
@@ -47,37 +43,37 @@ describe('#Utils', () => {
       it('IP address url', () => {
         const urlString = 'https://1.2.3.4';
 
-        isStringUrl(urlString).should.be.equal(true);
+        expect(isStringUrl(urlString)).toBe(true);
       });
 
       it('localhost url', () => {
         const urlString = 'http://localhost';
 
-        isStringUrl(urlString).should.be.equal(true);
+        expect(isStringUrl(urlString)).toBe(true);
       });
 
-      it('ergular domain url', () => {
+      it('regular domain url', () => {
         const urlString = 'https://innovatrics.com';
 
-        isStringUrl(urlString).should.be.equal(true);
+        expect(isStringUrl(urlString)).toBe(true);
       });
 
       it('url with subdomain', () => {
         const urlString = 'https://dot-stg.innovatrics.com';
 
-        isStringUrl(urlString).should.be.equal(true);
+        expect(isStringUrl(urlString)).toBe(true);
       });
 
       it('url with path after domain', () => {
         const urlString = 'https://dot-stg.innovatrics.com/identity/customer';
 
-        isStringUrl(urlString).should.be.equal(true);
+        expect(isStringUrl(urlString)).toBe(true);
       });
 
       it('url with query parameters', () => {
         const urlString = 'https://dot-stg.innovatrics.com/identity/customer?id=47';
 
-        isStringUrl(urlString).should.be.equal(true);
+        expect(isStringUrl(urlString)).toBe(true);
       });
     });
 
@@ -85,34 +81,34 @@ describe('#Utils', () => {
       it('url with a typo', () => {
         const notUrlString = 'https://1 2.3.4';
 
-        isStringUrl(notUrlString).should.be.equal(false);
+        expect(isStringUrl(notUrlString)).toBe(false);
       });
 
       it('regular string', () => {
         const notUrlString = 'alphabet';
 
-        isStringUrl(notUrlString).should.be.equal(false);
+        expect(isStringUrl(notUrlString)).toBe(false);
       });
 
       it('base64 string', () => {
         const notUrlString = base64TestString;
 
-        isStringUrl(notUrlString).should.be.equal(false);
+        expect(isStringUrl(notUrlString)).toBe(false);
       });
     });
   });
 
   describe('mapToArray', () => {
     it('should handle empty input', () => {
-      mapToArray().should.deep.equal([]);
+      expect(mapToArray()).toEqual([]);
     });
 
     it('should convert map of objects', () => {
-      mapToArray(objectInputMap).should.deep.equal(objectOutputArray);
+      expect(mapToArray(objectInputMap)).toEqual(objectOutputArray);
     });
 
     it('should convert nested map', () => {
-      mapToArray(nestedInputMap).should.deep.equal(nestedOutputArray);
+      expect(mapToArray(nestedInputMap)).toEqual(nestedOutputArray);
     });
 
     it('should be nestable itself', () => {
@@ -123,7 +119,7 @@ describe('#Utils', () => {
         };
       });
 
-      res.should.deep.equal(nestableOutputArray);
+      expect(res).toEqual(nestableOutputArray);
     });
   });
 
@@ -131,15 +127,34 @@ describe('#Utils', () => {
     const customerId = '604ae77d-d121-4f13-9c68-d507582c2843';
 
     it('should return true, when url ends with /store', () => {
-      isStoreEndpoint(`/api/v1/customers/${customerId}/store`).should.be.equal(true);
+      expect(isStoreEndpoint(`/api/v1/customers/${customerId}/store`)).toBe(true);
     });
 
     it('should return true, when url is correct and /store is in path', () => {
-      isStoreEndpoint(`/api/v1/customers/${customerId}/store/something`).should.be.equal(true);
+      expect(isStoreEndpoint(`/api/v1/customers/${customerId}/store/something`)).toBe(true);
     });
 
     it('should return false, when url is not in customer onboarding collection ', () => {
-      isStoreEndpoint(`/something/${customerId}/store/something`).should.be.equal(false);
+      expect(isStoreEndpoint(`/something/${customerId}/store/something`)).toBe(false);
+    });
+  });
+
+  describe('convertJsonToUrlencoded', () => {
+    const values = {
+      'contact-form-name': 'Tester',
+      'contact-form-company': 'Innovatrics',
+      'contact-form-mail': 'tester@innovatrics.com',
+      'contact-form-text': 'One handy unit test',
+      'acceptance-472': '1',
+      'contact-form-lead-source-detail': 'DOT OCR demo',
+      'contact-form-products': 'DOT',
+    };
+
+    it('should return valid encoded string when valid object is provided', () => {
+      const validResult =
+        'contact-form-name=Tester&contact-form-company=Innovatrics&contact-form-mail=tester%40innovatrics.com&contact-form-text=One%20handy%20unit%20test&acceptance-472=1&contact-form-lead-source-detail=DOT%20OCR%20demo&contact-form-products=DOT';
+
+      expect(convertJsonToUrlencoded(values)).toEqual(validResult);
     });
   });
 });

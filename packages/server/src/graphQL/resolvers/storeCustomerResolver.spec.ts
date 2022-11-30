@@ -1,15 +1,15 @@
 import resolvers from '.';
-import { customerApiLink, mock } from '../../test';
+import { customerApiLink, serverConnectionMock } from '../../test';
 import { StoreCustomerOnboardingStatus } from '../../types/graphqlTypes';
 
 describe('#storeCustomer', () => {
-  it('should get correct response"', async () => {
+  it('should get correct response', async () => {
     const result = resolvers.Query.storeCustomer(null, {
       customerApiLink,
       onboardingStatus: StoreCustomerOnboardingStatus.FINISHED,
     });
 
-    return result.should.eventually.be.fulfilled;
+    await expect(result).resolves.toBeDefined();
   });
 
   it('should have property "apiError"', async () => {
@@ -20,13 +20,13 @@ describe('#storeCustomer', () => {
       path: '/api/v1/customers/123/document/store',
     };
 
-    mock.onPost(`${customerApiLink}/store`).reply(() => [404, apiError]);
+    serverConnectionMock.onPost(`${customerApiLink}/store`).reply(() => [404, apiError]);
 
     const result = resolvers.Query.storeCustomer(null, {
       customerApiLink,
       onboardingStatus: StoreCustomerOnboardingStatus.FINISHED,
     });
 
-    return result.should.eventually.have.property('apiError').to.be.deep.equal(apiError);
+    await expect(result).rejects.toThrow();
   });
 });

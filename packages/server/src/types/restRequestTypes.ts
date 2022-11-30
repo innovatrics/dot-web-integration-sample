@@ -270,3 +270,20 @@ export type StoreCustomerRequest = {
   onboardingStatus: StoreCustomerOnboardingStatus;
   externalId?: string;
 };
+
+/**
+ * ContactFormRestRequest is an object with a name, company, email, message, and checked property,
+ * where name, company, email, and message are strings, and checked is a boolean.
+ * @property {string} name - The name of the person who is contacting you.
+ * @property {string} company - The company name of the person filling out the form.
+ * @property {string} email - The email address of the person who filled out the form.
+ * @property {string} message - string;
+ * @property {boolean} checked - boolean;
+ */
+export type ContactFormRestRequest = {
+  name: string;
+  company: string;
+  email: string;
+  message: string;
+  checked: boolean;
+};

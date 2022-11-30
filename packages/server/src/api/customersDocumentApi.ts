@@ -10,7 +10,7 @@ import {
   NormalizedDocumentImagesRestResponse,
   CroppedImageRestResponse,
 } from '../types/restResponseTypes';
-import serverConnection from './rest/serverConnection';
+import { serverConnection } from './rest/serverConnection';
 
 export const createDocumentPageApi = async (
   customerApiLink: string,

@@ -7,14 +7,14 @@ describe('#createCustomerLiveness', () => {
     const result = resolvers.Mutation.createCustomerLiveness(null, { image: 'image.jpg' });
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should get correct response when customerApiLink is present', async () => {
     const result = resolvers.Mutation.createCustomerLiveness(null, { image: 'image.jpg', customerApiLink });
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should get correct response when liveness is not created ', async () => {
@@ -26,7 +26,7 @@ describe('#createCustomerLiveness', () => {
 
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should get correct response when liveness is created ', async () => {
@@ -38,7 +38,7 @@ describe('#createCustomerLiveness', () => {
 
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should get correct response with assertion type ', async () => {
@@ -51,7 +51,7 @@ describe('#createCustomerLiveness', () => {
 
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should get correct response with assertion type is NONE', async () => {
@@ -64,7 +64,7 @@ describe('#createCustomerLiveness', () => {
 
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should throw error when customerApiLink is invalid', async () => {
@@ -73,7 +73,7 @@ describe('#createCustomerLiveness', () => {
       customerApiLink: customerApiLinkError,
     });
 
-    return result.should.eventually.be.rejected;
+    await expect(result).rejects.toThrow();
   });
 
   it('should get correct response when selfieLink is provided', async () => {
@@ -85,7 +85,7 @@ describe('#createCustomerLiveness', () => {
 
     const expectedResult = { ...customerLinks, errorCode: undefined };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should throw Error when image and selfieLink are not provided', async () => {
@@ -94,6 +94,6 @@ describe('#createCustomerLiveness', () => {
       isLivenessCreated: true,
     });
 
-    return result.should.eventually.be.rejectedWith('One of "image" or "selfieLink" argument must be provided.');
+    await expect(result).rejects.toThrow('One of "image" or "selfieLink" argument must be provided.');
   });
 });

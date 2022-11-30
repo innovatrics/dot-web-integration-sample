@@ -19,7 +19,8 @@
     "declarationMap": true,
     "paths": {
       "dot-web-*": ["packages/*/src/index.ts"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
-  "exclude": ["node_modules", "dist", "*.d.ts"]
+  "exclude": ["*.d.ts"]
 }

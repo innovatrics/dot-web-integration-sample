@@ -40,3 +40,22 @@ export const isStoreEndpoint = (url: string) => {
 export const isTestRunning = () => {
   return process.env.npm_lifecycle_event === 'test';
 };
+
+/**
+ * It takes an object and returns a string that is the object's key-value pairs in URL-encoded format
+ * @param obj - The object to be converted to a URL-encoded string.
+ * @returns A string
+ */
+export const convertJsonToUrlencoded = (obj: Record<string, string | undefined>) => {
+  const str: string[] = [];
+
+  Object.keys(obj).forEach((key) => {
+    const value = obj[key];
+
+    if (value) {
+      str.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+    }
+  });
+
+  return str.join('&');
+};

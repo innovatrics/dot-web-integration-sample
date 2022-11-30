@@ -1,5 +1,5 @@
 import { GetAppInfoRestResponse } from '../types/restResponseTypes';
-import serverConnection from './rest/serverConnection';
+import { serverConnection } from './rest/serverConnection';
 
 export const getAppInfoApi = async (): Promise<GetAppInfoRestResponse> => {
   const apiPath = `/api/v1/info`;

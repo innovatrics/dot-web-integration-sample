@@ -10,26 +10,26 @@ import createCustomer, {
 
 describe('#createCustomer', () => {
   describe('createCustomer', () => {
-    it('should return same customerApiLink as provided in argument', async () => {
+    it('should return the same customerApiLink as provided in argument', async () => {
       const customerApiLink = '/customer/cf4e8e44-3dd1-432d-9f96-753d0ace2d09';
 
-      return createCustomer(customerApiLink).should.eventually.equal(customerApiLink);
+      await expect(createCustomer(customerApiLink)).resolves.toEqual(customerApiLink);
     });
 
-    it('should return same customerApiLink as provided in argument, non-sensical string', async () => {
+    it('should return the same customerApiLink as provided in argument, non-sensical string', async () => {
       const customerApiLink = 'foo.bar';
 
-      return createCustomer(customerApiLink).should.eventually.equal(customerApiLink);
+      await expect(createCustomer(customerApiLink)).resolves.toEqual(customerApiLink);
     });
 
     it('should create new customer, when no customerApiLink was provided in argument', async () => {
-      return createCustomer().should.eventually.be.equal(createCustomerResponse.links.self);
+      await expect(createCustomer()).resolves.toEqual(createCustomerResponse.links.self);
     });
 
     it('should create new customer, when provided customerApiLink was empty string', async () => {
       const customerApiLink = '';
 
-      return createCustomer(customerApiLink).should.eventually.be.equal(createCustomerResponse.links.self);
+      await expect(createCustomer(customerApiLink)).resolves.toEqual(createCustomerResponse.links.self);
     });
   });
 
@@ -42,7 +42,7 @@ describe('#createCustomer', () => {
         pageTypes: ['front'],
       };
 
-      getCountry(document)?.should.be.equal('Innovatrics');
+      expect(getCountry(document)).toEqual('Innovatrics');
     });
 
     it('should get correct country from list of countries, when country is not specified in document.type', () => {
@@ -54,11 +54,11 @@ describe('#createCustomer', () => {
         pageTypes: ['front'],
       };
 
-      getCountry(document)?.should.be.equal('Innovatrics');
+      expect(getCountry(document)).toEqual('Innovatrics');
     });
 
     it('should return empty string when input is undefined', () => {
-      getCountry(undefined)?.should.be.equal('');
+      expect(getCountry(undefined)).toBeUndefined();
     });
   });
 
@@ -81,7 +81,7 @@ describe('#createCustomer', () => {
         isDocumentSupported: true,
       };
 
-      getDocumentTypeDetails(document).should.be.deep.equal(expectedResult);
+      expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
     });
 
     it('should render type, edition', () => {
@@ -101,7 +101,7 @@ describe('#createCustomer', () => {
         isDocumentSupported: true,
       };
 
-      getDocumentTypeDetails(document).should.be.deep.equal(expectedResult);
+      expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
     });
 
     it('should render country, type', () => {
@@ -121,7 +121,7 @@ describe('#createCustomer', () => {
         isDocumentSupported: true,
       };
 
-      getDocumentTypeDetails(document).should.be.deep.equal(expectedResult);
+      expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
     });
 
     it('should render country, fallback type, edition', () => {
@@ -142,7 +142,7 @@ describe('#createCustomer', () => {
         isDocumentSupported: true,
       };
 
-      getDocumentTypeDetails(document).should.be.deep.equal(expectedResult);
+      expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
     });
 
     it('should render country received from issuingAuthority, fallback type', () => {
@@ -164,10 +164,10 @@ describe('#createCustomer', () => {
         isDocumentSupported: true,
       };
 
-      getDocumentTypeDetails(document).should.be.deep.equal(expectedResult);
+      expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
     });
 
-    it('should be unsupported documentn when type is undefined', () => {
+    it('should be unsupported document when type is undefined', () => {
       const expectedResult = {
         country: undefined,
         type: undefined,
@@ -176,29 +176,29 @@ describe('#createCustomer', () => {
         isDocumentSupported: false,
       };
 
-      getDocumentTypeDetails(undefined).should.be.deep.equal(expectedResult);
+      expect(getDocumentTypeDetails(undefined)).toEqual(expectedResult);
     });
   });
 
   describe('getUnsupportedDocumentType', () => {
     it('should return "Passport" only for type: "td3" and code: "P"', () => {
-      getUnsupportedDocumentType(TravelDocumentType.TD3, 'P').should.be.equal('Passport');
+      expect(getUnsupportedDocumentType(TravelDocumentType.TD3, 'P')).toEqual('Passport');
     });
 
     it('should not return "Passport"', () => {
-      getUnsupportedDocumentType(TravelDocumentType.TD2, 'P').should.not.be.equal('Passport');
+      expect(getUnsupportedDocumentType(TravelDocumentType.TD2, 'P')).not.toEqual('Passport');
     });
 
     it('should return "National ID"', () => {
-      getUnsupportedDocumentType(TravelDocumentType.TD2, 'IA').should.be.equal('National ID');
+      expect(getUnsupportedDocumentType(TravelDocumentType.TD2, 'IA')).toEqual('National ID');
     });
 
     it('should return "National ID"', () => {
-      getUnsupportedDocumentType(TravelDocumentType.TD1, 'I').should.be.equal('National ID');
+      expect(getUnsupportedDocumentType(TravelDocumentType.TD1, 'I')).toEqual('National ID');
     });
 
     it('should return "Foreigner Residence"', () => {
-      getUnsupportedDocumentType(TravelDocumentType.TD1, 'IF').should.be.equal('Foreigner Residence');
+      expect(getUnsupportedDocumentType(TravelDocumentType.TD1, 'IF')).toEqual('Foreigner Residence');
     });
   });
 
@@ -211,7 +211,7 @@ describe('#createCustomer', () => {
         pageTypes: ['front'],
       };
 
-      getDocumentType(document, undefined)?.should.be.equal('Visa');
+      expect(getDocumentType(document, undefined)).toEqual('Visa');
     });
 
     it('should return correct document type for supported document', () => {
@@ -222,7 +222,7 @@ describe('#createCustomer', () => {
         pageTypes: ['front'],
       };
 
-      getDocumentType(document, undefined)?.should.be.equal('National ID');
+      expect(getDocumentType(document, undefined)).toEqual('National ID');
     });
 
     it('should return correct document type for unsupported document', () => {
@@ -250,11 +250,11 @@ describe('#createCustomer', () => {
         pageTypes: ['back'],
       };
 
-      getDocumentType(document, TravelDocumentType.TD1)?.should.be.equal('National ID');
+      expect(getDocumentType(document, TravelDocumentType.TD1)).toEqual('National ID');
     });
 
     it('should return empty string, when document and TravelDocumentType are undefined', () => {
-      getDocumentType(undefined, undefined)?.should.be.equal('');
+      expect(getDocumentType(undefined, undefined)).toBeUndefined();
     });
   });
 });

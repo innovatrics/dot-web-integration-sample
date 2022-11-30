@@ -1,6 +1,6 @@
 import { DetectFaceRestRequest } from '../types/restRequestTypes';
 import { DetectFaceRestResponse, FaceQualityRestResponse } from '../types/restResponseTypes';
-import serverConnection from './rest/serverConnection';
+import { serverConnection } from './rest/serverConnection';
 
 export const createFaceApi = async (request: DetectFaceRestRequest): Promise<DetectFaceRestResponse> => {
   const apiPath = `/api/v1/faces`;

@@ -10,6 +10,6 @@ describe('#appInfo', () => {
       iFaceVersion: '4.15.0',
     };
 
-    return result.should.eventually.be.deep.equal(expectedResponse);
+    await expect(result).resolves.toEqual(expectedResponse);
   });
 });

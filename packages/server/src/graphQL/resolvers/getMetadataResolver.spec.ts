@@ -5,6 +5,6 @@ describe('#metadata', () => {
   it('should get correct response', async () => {
     const result = resolvers.Query.metadata(null);
 
-    return result.should.eventually.be.deep.equal(getMetadataFeResponse);
+    await expect(result).resolves.toEqual(getMetadataFeResponse);
   });
 });

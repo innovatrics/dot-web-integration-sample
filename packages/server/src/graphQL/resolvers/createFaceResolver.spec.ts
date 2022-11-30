@@ -7,7 +7,7 @@ describe('#createFace', () => {
   it('should get correct response when FaceDetectionProperties is not set', async () => {
     const result = resolvers.Mutation.createFace(null, { image: 'image.jpg' });
 
-    return result.should.eventually.be.deep.equal({ ...createFaceResponse, ...faceLinks });
+    await expect(result).resolves.toEqual({ ...createFaceResponse, ...faceLinks });
   });
 
   it('should get correct response when FaceDetectionProperties is set', async () => {
@@ -21,6 +21,6 @@ describe('#createFace', () => {
       detection,
     });
 
-    return result.should.eventually.be.deep.equal({ ...createFaceResponse, ...faceLinks });
+    await expect(result).resolves.toEqual({ ...createFaceResponse, ...faceLinks });
   });
 });

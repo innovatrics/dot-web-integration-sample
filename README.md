@@ -57,7 +57,7 @@ yarn server:dev
 To build and start _NodeJS_ server.
 
 ```
-yarn server:local
+yarn server:build
 ```
 
 ### Environment variables
@@ -67,4 +67,3 @@ Specify envrionment variables in your `.env` file. Available variables are:
 - DOCUMENT_IDENTITY_SERVICE - url to [DOT Document server](https://developers.innovatrics.com/digital-onboarding/technical/remote/document-server/latest/documentation/.)
 - SERVER_PORT - [apollo-server-express](https://www.npmjs.com/package/apollo-server-express) port. Default value is 8000
 - AUTH_TOKEN - Authorization token for DIS API calls. In order to obtain AUTH_TOKEN, please [contact](https://developers.innovatrics.com/digital-onboarding/#contact-us) our sales department
-

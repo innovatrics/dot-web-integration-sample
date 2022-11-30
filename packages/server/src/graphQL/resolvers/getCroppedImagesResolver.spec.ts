@@ -11,10 +11,12 @@ describe('#croppedImages', () => {
 
     const result = await resolvers.Query.croppedImages(null, { imageLinks });
 
-    result.should.have.property('portrait').and.include('data:image/png;base64,');
-    result.should.have.property('signature').and.include('data:image/png;base64,');
-    result.should.not.have.property('fingerprint');
-    result.should.not.have.property('ghostPortrait');
+    expect(result).toHaveProperty('portrait');
+    expect(result.portrait).toMatch(/data:image\/png;base64,/);
+    expect(result).toHaveProperty('signature');
+    expect(result.signature).toMatch(/data:image\/png;base64,/);
+    expect(result).not.toHaveProperty('fingerprint');
+    expect(result).not.toHaveProperty('ghostPortrait');
   });
 
   it('should get correct response object when dimensions are provided', async () => {
@@ -25,9 +27,11 @@ describe('#croppedImages', () => {
 
     const result = await resolvers.Query.croppedImages(null, { imageLinks });
 
-    result.should.have.property('portrait').and.include('data:image/png;base64,');
-    result.should.have.property('signature').and.include('data:image/png;base64,');
-    result.should.not.have.property('fingerprint');
-    result.should.not.have.property('ghostPortrait');
+    expect(result).toHaveProperty('portrait');
+    expect(result.portrait).toMatch(/data:image\/png;base64,/);
+    expect(result).toHaveProperty('signature');
+    expect(result.signature).toMatch(/data:image\/png;base64,/);
+    expect(result).not.toHaveProperty('fingerprint');
+    expect(result).not.toHaveProperty('ghostPortrait');
   });
 });

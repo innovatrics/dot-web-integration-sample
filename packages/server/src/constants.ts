@@ -26,7 +26,6 @@ export const DOCUMENT_CODE_PASSPORT = 'P';
 // IL, IC, IA  - ino card specific
 export const DOCUMENT_CODES_ID = ['I', 'ID', 'IL', 'IC', 'IA'];
 
-export const DEFAULT_ERROR = {
-  message: 'Unexpected error occurred without more specific cause.',
-  code: 'UNKNOWN',
-};
+export const DEFAULT_ERROR = { MESSAGE: 'Unexpected error occurred without more specific cause.', CODE: 500 };
+
+export const RECAPTCHA_FULFILLED_SCORE = 0.8;

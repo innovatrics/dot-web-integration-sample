@@ -1,95 +1,111 @@
-import { ErrorData } from '../../types/serverTypes';
 import { parseApiError } from './serverConnection';
 
 describe('#Server connection utils', () => {
   describe('parseApiError', () => {
-    it('should return business logic error', () => {
-      const error: ErrorData = {
+    it('should return business error', () => {
+      const error = {
+        response: {
+          headers: {},
+          config: {},
+          status: 404,
+          statusText: 'Error',
+          data: { errorMessage: 'Customer was not found', errorCode: 'NOT_FOUND' },
+        },
+        config: {
+          url: '/test/123',
+          method: 'post',
+        },
+        name: 'Error',
+        message: 'Error',
+        isAxiosError: true,
+        toJSON: () => Object,
+      };
+
+      const expectedResult = {
         errorMessage: 'Customer was not found',
         errorCode: 'NOT_FOUND',
+        code: 404,
+        method: 'post',
+        path: '/test/123',
       };
 
-      const expectedResult = {
-        message: 'Customer was not found',
-        code: 'NOT_FOUND',
-      };
-
-      parseApiError(error).should.be.deep.equal(expectedResult);
+      expect(parseApiError(error)).toEqual(expectedResult);
     });
 
-    it('should return business logic error message and default code', () => {
-      const error: ErrorData = {
-        errorMessage: 'Customer was not found',
+    it('should return system logic error message', () => {
+      const error = {
+        response: {
+          status: 500,
+          statusText: 'System error',
+          headers: {},
+          config: {},
+          data: {},
+        },
+        config: {
+          url: '/test/123',
+          method: 'post',
+        },
+        name: 'Error',
+        message: 'Error',
+        isAxiosError: true,
+        toJSON: () => Object,
       };
 
       const expectedResult = {
-        message: 'Customer was not found',
-        code: 'UNKNOWN',
+        errorMessage: 'System error',
+        errorCode: undefined,
+        code: 500,
+        method: 'post',
+        path: '/test/123',
       };
 
-      parseApiError(error).should.be.deep.equal(expectedResult);
+      expect(parseApiError(error)).toEqual(expectedResult);
     });
 
-    it('should return business logic error code and default message', () => {
-      const error: ErrorData = {
-        errorCode: 'NOT_FOUND',
+    it('should return system error if error.config does not exist', () => {
+      const error = {
+        response: {
+          status: 500,
+          data: {},
+          headers: {},
+          config: {},
+          statusText: 'Error',
+        },
+        name: 'Error',
+        message: 'Error',
+        isAxiosError: true,
+        toJSON: () => Object,
       };
 
       const expectedResult = {
-        message: 'Unexpected error occurred without more specific cause.',
-        code: 'NOT_FOUND',
+        errorMessage: 'Error',
+        errorCode: undefined,
+        code: 500,
+        method: undefined,
+        path: undefined,
       };
 
-      parseApiError(error).should.be.deep.equal(expectedResult);
+      expect(parseApiError(error)).toEqual(expectedResult);
     });
 
-    it('should return spring error', () => {
-      const error: ErrorData = {
-        error: 'Forbidden',
-        status: 403,
+    it('should return system error with default code when response is missing', () => {
+      const error = {
+        message: 'System error',
+        code: 'INTERNAL_SERVER_ERROR',
+        name: 'Error',
+        isAxiosError: false,
+        toJSON: () => Object,
       };
 
       const expectedResult = {
-        message: 'Forbidden',
-        code: '403',
+        errorMessage: 'System error',
+        errorCode: 'INTERNAL_SERVER_ERROR',
+        code: 500,
+        method: undefined,
+        path: undefined,
       };
 
-      parseApiError(error).should.be.deep.equal(expectedResult);
-    });
-
-    it('should return spring error message and default code', () => {
-      const error: ErrorData = {
-        error: 'Forbidden',
-      };
-
-      const expectedResult = {
-        message: 'Forbidden',
-        code: 'UNKNOWN',
-      };
-
-      parseApiError(error).should.be.deep.equal(expectedResult);
-    });
-
-    it('should return spring error code and default message', () => {
-      const error: ErrorData = {
-        status: 403,
-      };
-
-      const expectedResult = {
-        message: 'Unexpected error occurred without more specific cause.',
-        code: '403',
-      };
-
-      parseApiError(error).should.be.deep.equal(expectedResult);
-    });
-
-    it('should return default error', () => {
-      const expectedResult = {
-        message: 'Unexpected error occurred without more specific cause.',
-        code: 'UNKNOWN',
-      };
-
-      parseApiError({}).should.be.deep.equal(expectedResult);
+      expect(parseApiError(error)).toEqual(expectedResult);
     });
   });
 });

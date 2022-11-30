@@ -23,12 +23,12 @@ describe('#customer', () => {
       ...customerLinks,
     };
 
-    return result.should.eventually.be.deep.equal(expectedResult);
+    await expect(result).resolves.toEqual(expectedResult);
   });
 
   it('should throw error when customerApiLink is invalid', async () => {
     const result = resolvers.Query.customer(null, { customerApiLink: customerApiLinkError });
 
-    return result.should.eventually.be.rejectedWith('Some error.');
+    await expect(result).rejects.toThrow();
   });
 });

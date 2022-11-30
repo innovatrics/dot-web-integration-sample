@@ -565,6 +565,16 @@ type GetAppInfoResponse {
   iFaceVersion: String
 }
 
+scalar Void
+
+input ContactFormRequest {
+  name: String!
+  company: String!
+  email: String!
+  message: String!
+  checked: Boolean!
+}
+
 type Query {
   customer(customerApiLink: String!): GetCustomerResponse
   inspectDocument(customerApiLink: String!): InspectDocumentResponse
@@ -578,8 +588,6 @@ type Query {
   storeCustomer(customerApiLink: String!, onboardingStatus: StoreCustomerOnboardingStatus!): StoreCustomerResponse
   appInfo: GetAppInfoResponse
 }
-
-scalar Void
 
 type Mutation {
   deleteCustomer(customerApiLink: String!): Void
@@ -600,4 +608,5 @@ type Mutation {
     selfieLink: String
   ): CreateCustomerLivenessSelfieResponse
   createFace(image: String!, detection: FaceDetectionProperties): DetectFaceResponse
+  postContactForm(contactFormData: ContactFormRequest!, recaptchaToken: String!): Void
 }

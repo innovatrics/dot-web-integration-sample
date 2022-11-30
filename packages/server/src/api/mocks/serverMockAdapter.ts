@@ -120,7 +120,7 @@ export const isMockAdapterEnabled = (): boolean => {
   return env.MOCKS_ENABLED ? env.MOCKS_ENABLED === 'true' : false;
 };
 
-export const initMocks = (axios: AxiosInstance): MockAdapter => {
+export const initServerMocks = (axios: AxiosInstance): MockAdapter => {
   const mock = new MockAdapter(axios);
   const customerApiLink = '/api/v1/customers/123';
   const faceApiLink = '/api/v1/faces/123';

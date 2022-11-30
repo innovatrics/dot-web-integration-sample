@@ -1,5 +1,5 @@
 #build app
-FROM node:gallium-slim as builder
+FROM node:hydrogen-alpine as builder
 
 WORKDIR /build
 
@@ -11,7 +11,7 @@ RUN yarn --frozen-lockfile
 RUN yarn server:build
 
 #build prod image
-FROM node:gallium-slim 
+FROM node:hydrogen-alpine
 
 WORKDIR /usr/src/app
 

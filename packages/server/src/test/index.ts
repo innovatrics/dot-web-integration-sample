@@ -1,7 +1,11 @@
-import { initMocks } from '../api/mocks/mockAdapter';
-import serverConnection from '../api/rest/serverConnection';
+import { initContactFormaMocks } from '../api/mocks/contactFormMockAdapter';
+import { initRecaptchaMocks } from '../api/mocks/recaptchaMockAdapter';
+import { initServerMocks } from '../api/mocks/serverMockAdapter';
+import { contactFormConnection, googleRecaptchaConnection, serverConnection } from '../api/rest/serverConnection';
 
-export const mock = initMocks(serverConnection);
+export const serverConnectionMock = initServerMocks(serverConnection);
+export const recaptchaConnectionMock = initRecaptchaMocks(googleRecaptchaConnection);
+export const contactFormConnectionMock = initContactFormaMocks(contactFormConnection);
 
 export const faceApiLink = '/api/v1/faces/123';
 export const faceApiLinkError = `${faceApiLink}error`;

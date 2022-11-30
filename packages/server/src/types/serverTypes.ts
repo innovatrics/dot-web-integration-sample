@@ -6,9 +6,16 @@ export type Countries = {
   [key: string]: string;
 };
 
-export type ErrorData = {
-  errorMessage?: string;
+export type ParsedError = {
+  errorMessage: string;
   errorCode?: string;
-  error?: string;
-  status?: number;
+  code?: number;
+  path?: string;
+  method?: string;
 };
+
+export enum Connection {
+  SERVER = 'SERVER',
+  CONTACT_FORM = 'CONTACT_FORM',
+  RECAPTCHA = 'RECAPTCHA',
+}
