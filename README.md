@@ -43,7 +43,7 @@ yarn
 To generate GraphQL types from schema:
 
 ```
-yarn codegen
+yarn server:codegen
 ```
 
 > **_Note:_** Types will be generated to _/packages/server/src/graphqlTypes.ts_ from schema located in _packages/server/src/graphQL/schema.graphql_.
