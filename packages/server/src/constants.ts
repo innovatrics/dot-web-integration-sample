@@ -28,4 +28,4 @@ export const DOCUMENT_CODES_ID = ['I', 'ID', 'IL', 'IC', 'IA'];
 
 export const DEFAULT_ERROR = { MESSAGE: 'Unexpected error occurred without more specific cause.', CODE: 500 };
 
-export const RECAPTCHA_FULFILLED_SCORE = 0.8;
+export const RECAPTCHA_FULFILLED_SCORE = 0.5;

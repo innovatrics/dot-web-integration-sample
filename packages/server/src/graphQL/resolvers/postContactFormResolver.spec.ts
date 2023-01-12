@@ -34,7 +34,7 @@ describe('#postContactForm', () => {
   it('should throw error when recaptcha score is below threshold', async () => {
     const apiError = {
       success: true,
-      score: 0.7,
+      score: 0.4,
     };
 
     recaptchaConnectionMock.onPost().reply(() => [200, apiError]);
