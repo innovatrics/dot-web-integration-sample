@@ -1,6 +1,8 @@
+import type { ContactFormRestRequest } from '../types/restRequestTypes';
+
 import env from '../dotenv';
-import { ContactFormRestRequest } from '../types/restRequestTypes';
-import { googleRecaptchaConnection, contactFormConnection } from './rest/serverConnection';
+
+import { contactFormConnection, googleRecaptchaConnection } from './rest/serverConnection';
 import { convertJsonToUrlencoded } from './utils';
 
 const validateRecaptcha = async (recaptchaToken: string) => {
@@ -15,7 +17,7 @@ const validateRecaptcha = async (recaptchaToken: string) => {
 export const postContactForm = async (contactFormData: ContactFormRestRequest, recaptchaToken: string) => {
   await validateRecaptcha(recaptchaToken);
 
-  const { name, company, email, message, checked } = contactFormData;
+  const { checked, company, email, message, name } = contactFormData;
 
   const body = {
     'contact-form-name': name.trim(),

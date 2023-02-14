@@ -1,8 +1,10 @@
-import { AxiosError, AxiosResponse } from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
+
 import { GraphQLError } from 'graphql';
 
 import { Connection } from '../../../types/serverTypes';
 import { isTestRunning } from '../../utils';
+
 import { onRejected } from './common';
 
 /**
@@ -10,7 +12,7 @@ import { onRejected } from './common';
  * returned by the server.
  * @param error - AxiosError<{ errorMessage?: string; errorCode?: string }>
  */
-export const onContactFormConnectionRejected = (error: AxiosError<{ errorMessage?: string; errorCode?: string }>) => {
+export const onContactFormConnectionRejected = (error: AxiosError<{ errorCode?: string; errorMessage?: string }>) => {
   onRejected(error, Connection.CONTACT_FORM);
 };
 
@@ -21,7 +23,7 @@ export const onContactFormConnectionRejected = (error: AxiosError<{ errorMessage
  */
 export const onContactFormConnectionFulfilled = (response: AxiosResponse) => {
   const {
-    data: { status, invalid_fields },
+    data: { invalid_fields, status },
   } = response;
 
   if (status === 'validation_failed') {

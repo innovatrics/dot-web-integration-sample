@@ -1,4 +1,5 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+
 import MockAdapter from 'axios-mock-adapter';
 
 import postContactFormResponse from './data/postContactFormResponse.json';

@@ -1,5 +1,6 @@
-import resolvers from '.';
 import { customerApiLink, customerApiLinkError } from '../../test';
+
+import resolvers from '.';
 
 describe('#deleteCustomer', () => {
   it('should delete customer correctly', async () => {

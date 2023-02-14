@@ -1,8 +1,9 @@
+import type { CreateDocumentPageResponse, DocumentAdvice, Source } from '../../types/graphqlTypes';
+import type { CreateCustomerDocumentRestRequest, CreateDocumentPageRestRequest } from '../../types/restRequestTypes';
+
 import { createDocumentApi, createDocumentPageApi } from '../../api/customersDocumentApi';
 import { createImage } from '../../api/utils';
 import createCustomer from '../../api/utils/createCustomer';
-import { CreateDocumentPageResponse, DocumentAdvice, Source } from '../../types/graphqlTypes';
-import { CreateCustomerDocumentRestRequest, CreateDocumentPageRestRequest } from '../../types/restRequestTypes';
 
 export const createDocumentPageResolver = async (
   image: string,

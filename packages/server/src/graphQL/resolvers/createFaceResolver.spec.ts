@@ -1,7 +1,10 @@
-import resolvers from '.';
+import type { FaceDetectionProperties } from '../../types/graphqlTypes';
+
 import createFaceResponse from '../../api/mocks/data/createFaceResponse.json';
 import { faceLinks } from '../../test';
-import { FaceDetectionProperties, FaceDetectionPropertiesMode } from '../../types/graphqlTypes';
+import { FaceDetectionPropertiesMode } from '../../types/graphqlTypes';
+
+import resolvers from '.';
 
 describe('#createFace', () => {
   it('should get correct response when FaceDetectionProperties is not set', async () => {

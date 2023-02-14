@@ -1,7 +1,10 @@
-import resolvers from '.';
+import type { Customer } from '../../types/graphqlTypes';
+
 import getCustomerResponse from '../../api/mocks/data/getCustomerResponse.json';
-import { customerApiLink, customerLinks, customerApiLinkError } from '../../test';
-import { Customer, TravelDocumentType } from '../../types/graphqlTypes';
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
+import { TravelDocumentType } from '../../types/graphqlTypes';
+
+import resolvers from '.';
 
 describe('#customer', () => {
   it('should get correct response when customerApiLink is present', async () => {

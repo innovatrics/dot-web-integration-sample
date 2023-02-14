@@ -1,29 +1,29 @@
-import {
+import type {
   BiometricMultiValueAttribute,
-  Mrz,
-  MultiValueAttribute,
-  DocumentType,
-  FaceAttribute,
-  HeadPoseAttribute,
-  InspectCustomerLinks,
-  CustomerSelfieInspection,
-  InspectDocumentPortrait,
-  InspectDocumentVisualZone,
-  DocumentDetection,
+  CreateCustomerLivenessSelfieErrorCode,
   CreateDocumentPageResponseErrorCode,
   CreateDocumentPageResponseWarning,
-  SelfLinks,
-  FaceDetection,
-  DetectSelfieErrorCode,
-  DetectSelfieWarnings,
-  CreateCustomerLivenessSelfieErrorCode,
+  CustomerDocumentLinks,
+  CustomerSelfieInspection,
   DetectFaceResponseErrorCode,
   DetectFaceResponseWarnings,
+  DetectSelfieErrorCode,
+  DetectSelfieWarnings,
+  DocumentDetection,
+  DocumentType,
   EvaluateLivenessErrorCode,
+  FaceAttribute,
+  FaceDetection,
+  HeadPoseAttribute,
+  InspectCustomerLinks,
+  InspectDocumentPortrait,
+  InspectDocumentVisualZone,
   MetadataDocumentType,
-  CustomerDocumentLinks,
-  PageTamperingInspection,
+  Mrz,
   MrzInspection,
+  MultiValueAttribute,
+  PageTamperingInspection,
+  SelfLinks,
 } from './graphqlTypes';
 
 /**
@@ -48,12 +48,6 @@ type Customer = {
    * @type {MultiValueAttribute}
    * @memberof Customer
    */
-  personalNumber?: MultiValueAttribute;
-  /**
-   *
-   * @type {MultiValueAttribute}
-   * @memberof Customer
-   */
   dateOfBirth?: MultiValueAttribute;
   /**
    *
@@ -61,6 +55,12 @@ type Customer = {
    * @memberof Customer
    */
   document?: CustomerDocument;
+  /**
+   *
+   * @type {MultiValueAttribute}
+   * @memberof Customer
+   */
+  fullName?: MultiValueAttribute;
   /**
    *
    * @type {BiometricMultiValueAttribute}
@@ -84,13 +84,13 @@ type Customer = {
    * @type {MultiValueAttribute}
    * @memberof Customer
    */
-  surname?: MultiValueAttribute;
+  personalNumber?: MultiValueAttribute;
   /**
    *
    * @type {MultiValueAttribute}
    * @memberof Customer
    */
-  fullName?: MultiValueAttribute;
+  surname?: MultiValueAttribute;
 };
 
 /**
@@ -140,7 +140,19 @@ export type CustomerDocument = {
    * @type {MultiValueAttribute}
    * @memberof CustomerDocument
    */
+  documentNumber?: MultiValueAttribute;
+  /**
+   *
+   * @type {MultiValueAttribute}
+   * @memberof CustomerDocument
+   */
   issuingAuthority?: MultiValueAttribute;
+  /**
+   *
+   * @type {CustomerDocumentLinks}
+   * @memberof CustomerDocument
+   */
+  links?: CustomerDocumentLinks;
   /**
    *
    * @type {Mrz}
@@ -148,23 +160,11 @@ export type CustomerDocument = {
    */
   mrz?: Mrz;
   /**
-   *
-   * @type {MultiValueAttribute}
-   * @memberof CustomerDocument
-   */
-  documentNumber?: MultiValueAttribute;
-  /**
    * Document's page types
    * @type {Array<string>}
    * @memberof CustomerDocument
    */
   pageTypes: Array<string>;
-  /**
-   *
-   * @type {CustomerDocumentLinks}
-   * @memberof CustomerDocument
-   */
-  links?: CustomerDocumentLinks;
   /**
    *
    * @type {DocumentType}
@@ -375,16 +375,16 @@ export type InspectDocumentRestResponse = {
   expired?: boolean;
   /**
    *
-   * @type { { [key: string]: PageTamperingInspection }}
-   * @memberof InspectDocumentRestResponse
-   */
-  pageTampering?: { [key: string]: PageTamperingInspection };
-  /**
-   *
    * @type {MrzInspection}
    * @memberof InspectDocumentRestResponse
    */
   mrzInspection?: MrzInspection;
+  /**
+   *
+   * @type { { [key: string]: PageTamperingInspection }}
+   * @memberof InspectDocumentRestResponse
+   */
+  pageTampering?: { [key: string]: PageTamperingInspection };
   /**
    *
    * @type {InspectDocumentPortrait}
@@ -670,16 +670,6 @@ export type CroppedImageRestResponse = {
  */
 export type StoreCustomerRestResponse = {
   /**
-   * @type {number}
-   * @memberof StoreCustomerRestResponse
-   */
-  timestamp: number;
-  /**
-   * @type {number}
-   * @memberof StoreCustomerRestResponse
-   */
-  status: number;
-  /**
    * @type {string}
    * @memberof StoreCustomerRestResponse
    */
@@ -689,30 +679,40 @@ export type StoreCustomerRestResponse = {
    * @memberof StoreCustomerRestResponse
    */
   path: string;
+  /**
+   * @type {number}
+   * @memberof StoreCustomerRestResponse
+   */
+  status: number;
+  /**
+   * @type {number}
+   * @memberof StoreCustomerRestResponse
+   */
+  timestamp: number;
 };
 
 type AppInfoBuild = {
   artifact: string;
+  group: string;
   name: string;
   version: string;
-  group: string;
 };
 
 type AppInfoSam = { version: string };
 
 type AppInfoIFaceLicense = {
-  year: string;
-  month: string;
   day: string;
+  month: string;
+  year: string;
 };
 
 type AppInfoIFace = {
-  version: string;
   license: AppInfoIFaceLicense;
+  version: string;
 };
 
 export type GetAppInfoRestResponse = {
   build: AppInfoBuild;
-  sam: AppInfoSam;
   iface: AppInfoIFace;
+  sam: AppInfoSam;
 };

@@ -1,6 +1,7 @@
-import resolvers from '.';
 import inspectCustomerResponse from '../../api/mocks/data/inspectCustomerResponse.json';
-import { customerApiLink, customerLinks, customerApiLinkError } from '../../test';
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
+
+import resolvers from '.';
 
 describe('#inspectCustomer', () => {
   it('should get correct response when customerApiLink is present', async () => {

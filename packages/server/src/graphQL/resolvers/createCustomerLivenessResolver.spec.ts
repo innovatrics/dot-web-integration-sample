@@ -1,6 +1,7 @@
-import resolvers from '.';
-import { customerApiLink, customerLinks, customerApiLinkError } from '../../test';
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
 import { AssertionType } from '../../types/graphqlTypes';
+
+import resolvers from '.';
 
 describe('#createCustomerLiveness', () => {
   it('should get correct response when only image is present', async () => {

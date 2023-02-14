@@ -1,7 +1,8 @@
+import type { DetectFaceResponse, FaceDetectionProperties } from '../../types/graphqlTypes';
+import type { DetectFaceRestRequest } from '../../types/restRequestTypes';
+
 import { createFaceApi } from '../../api/faceOperationsApi';
 import { createImage } from '../../api/utils';
-import { DetectFaceResponse, FaceDetectionProperties } from '../../types/graphqlTypes';
-import { DetectFaceRestRequest } from '../../types/restRequestTypes';
 
 export const createFaceResolver = async (
   image: string,

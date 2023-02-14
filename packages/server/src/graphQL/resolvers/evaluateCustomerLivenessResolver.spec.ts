@@ -1,7 +1,8 @@
-import resolvers from '.';
 import evaluateCustomerLivenessResponse from '../../api/mocks/data/evaluateCustomerLivenessResponse.json';
-import { customerApiLink, customerLinks, customerApiLinkError } from '../../test';
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
 import { EvaluateLivenessType } from '../../types/graphqlTypes';
+
+import resolvers from '.';
 
 describe('#evaluateCustomerLiveness', () => {
   it('should get correct response', async () => {

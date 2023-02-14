@@ -1,15 +1,16 @@
-import {
-  CreateDocumentPageRestRequest,
+import type {
   CreateCustomerDocumentRestRequest,
+  CreateDocumentPageRestRequest,
   ImageDimensionsRestRequest,
 } from '../types/restRequestTypes';
-import {
+import type {
   CreateDocumentPageRestResponse,
-  InspectDocumentRestResponse,
   CreateDocumentRestResponse,
-  NormalizedDocumentImagesRestResponse,
   CroppedImageRestResponse,
+  InspectDocumentRestResponse,
+  NormalizedDocumentImagesRestResponse,
 } from '../types/restResponseTypes';
+
 import { serverConnection } from './rest/serverConnection';
 
 export const createDocumentPageApi = async (

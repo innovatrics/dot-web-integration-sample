@@ -1,7 +1,9 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+
 import MockAdapter from 'axios-mock-adapter';
 
 import env from '../../dotenv';
+
 import createCustomerLivenessResponse from './data/createCustomerLivenessResponse.json';
 import createCustomerLivenessSelfieResponse from './data/createCustomerLivenessSelfieResponse.json';
 import createCustomerResponse from './data/createCustomerResponse.json';

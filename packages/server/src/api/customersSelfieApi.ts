@@ -1,5 +1,6 @@
-import { DetectSelfieRestRequest, ImageDimensionsRestRequest } from '../types/restRequestTypes';
-import { CroppedSelfieImageRestResponse, DetectSelfieRestResponse } from '../types/restResponseTypes';
+import type { DetectSelfieRestRequest, ImageDimensionsRestRequest } from '../types/restRequestTypes';
+import type { CroppedSelfieImageRestResponse, DetectSelfieRestResponse } from '../types/restResponseTypes';
+
 import { serverConnection } from './rest/serverConnection';
 
 export const createCustomerSelfieApi = async (

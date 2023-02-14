@@ -1,10 +1,11 @@
-import { StoreCustomerRequest } from '../types/restRequestTypes';
-import {
+import type { StoreCustomerRequest } from '../types/restRequestTypes';
+import type {
   CreateCustomerRestResponse,
   GetCustomerRestResponse,
   InspectCustomerRestResponse,
   StoreCustomerRestResponse,
 } from '../types/restResponseTypes';
+
 import { serverConnection } from './rest/serverConnection';
 
 export const createCustomerApi = async (): Promise<CreateCustomerRestResponse> => {

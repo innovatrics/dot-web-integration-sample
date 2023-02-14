@@ -1,5 +1,6 @@
+import type { CroppedImageLinks, CroppedImagesResponse } from '../../types/graphqlTypes';
+
 import { getCroppedImage } from '../../api/customersDocumentApi';
-import { CroppedImageLinks, CroppedImagesResponse } from '../../types/graphqlTypes';
 
 export const getCroppedImagesResolver = async (imageLinks: CroppedImageLinks): Promise<CroppedImagesResponse> => {
   const arrayOfPromises = Object.entries(imageLinks).map(async ([imageKey, imageLink]) => {

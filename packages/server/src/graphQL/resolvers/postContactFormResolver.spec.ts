@@ -1,5 +1,6 @@
-import resolvers from '.';
 import { contactFormConnectionMock, recaptchaConnectionMock } from '../../test';
+
+import resolvers from '.';
 
 describe('#postContactForm', () => {
   const contactFormData = {

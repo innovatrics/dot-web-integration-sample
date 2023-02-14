@@ -1,6 +1,7 @@
+import type { ContactFormRequest } from '../../types/graphqlTypes';
+import type { ContactFormRestRequest } from '../../types/restRequestTypes';
+
 import { postContactForm } from '../../api/contactFormApi';
-import { ContactFormRequest } from '../../types/graphqlTypes';
-import { ContactFormRestRequest } from '../../types/restRequestTypes';
 
 export const postContactFormResolver = async (contactFormData: ContactFormRequest, recaptchaToken: string) => {
   const contactFormRestRequest: ContactFormRestRequest = {

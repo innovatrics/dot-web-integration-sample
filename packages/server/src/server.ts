@@ -1,4 +1,7 @@
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer } from '@apollo/server';
+import { expressMiddleware } from '@apollo/server/express4';
+import { json } from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import { hostname } from 'os';
 
@@ -12,15 +15,21 @@ import probeRouter from './router/probeRouter';
 const main = async () => {
   const { SERVER_PORT = 8000 } = env;
   const app = express();
-  const apolloServer = new ApolloServer({
+  const apolloServer = new ApolloServer<{ token?: string }>({
     typeDefs,
     resolvers,
-    debug: false,
   });
 
   await apolloServer.start();
 
-  apolloServer.applyMiddleware({ app, bodyParserConfig: { limit: '20mb' } });
+  app.use(
+    '/graphql',
+    cors<cors.CorsRequest>(),
+    json({ limit: '20mb' }),
+    expressMiddleware(apolloServer, {
+      context: async ({ req }) => ({ token: req.headers.token }),
+    }),
+  );
 
   if (isMockAdapterEnabled()) {
     initServerMocks(serverConnection);

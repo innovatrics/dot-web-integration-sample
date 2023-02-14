@@ -1,9 +1,9 @@
-import {
+import type {
   AssertionType,
   EvaluateLivenessType,
   FaceDetectionPropertiesMode,
-  Source,
   ImageDimensions,
+  Source,
   StoreCustomerOnboardingStatus,
 } from './graphqlTypes';
 
@@ -40,12 +40,6 @@ export type DocumentClassificationAdvice = {
    */
   countries?: Array<string>;
   /**
-   * The list of the identity document types
-   * @type {Array<string>}
-   * @memberof DocumentClassificationAdvice
-   */
-  types?: Array<string>;
-  /**
    * The list of the document editions
    * @type {Array<string>}
    * @memberof DocumentClassificationAdvice
@@ -57,6 +51,12 @@ export type DocumentClassificationAdvice = {
    * @memberof DocumentClassificationAdvice
    */
   machineReadableTravelDocuments?: Array<string>;
+  /**
+   * The list of the identity document types
+   * @type {Array<string>}
+   * @memberof DocumentClassificationAdvice
+   */
+  types?: Array<string>;
 };
 
 /**
@@ -108,17 +108,17 @@ export type DocumentPageAdvice = {
  */
 export type FaceSizeRatio = {
   /**
-   * The minimum face size ratio
-   * @type {number}
-   * @memberof FaceSizeRatio
-   */
-  min: number;
-  /**
    * The maximum face size ratio
    * @type {number}
    * @memberof FaceSizeRatio
    */
   max: number;
+  /**
+   * The minimum face size ratio
+   * @type {number}
+   * @memberof FaceSizeRatio
+   */
+  min: number;
 };
 
 /**
@@ -128,17 +128,17 @@ export type FaceSizeRatio = {
  */
 export type FaceDetectionProperties = {
   /**
-   * The face detection mode. The `strict` detection detects face but returns error if multiple faces are detected in the image. The `free` detection detects faces in the image and returns the biggest one with warning if there are multiple faces detected.
-   * @type {FaceDetectionPropertiesMode}
-   * @memberof FaceDetectionProperties
-   */
-  mode?: FaceDetectionPropertiesMode;
-  /**
    *
    * @type {FaceSizeRatio | null}
    * @memberof FaceDetectionProperties
    */
   faceSizeRatio?: FaceSizeRatio | null;
+  /**
+   * The face detection mode. The `strict` detection detects face but returns error if multiple faces are detected in the image. The `free` detection detects faces in the image and returns the biggest one with warning if there are multiple faces detected.
+   * @type {FaceDetectionPropertiesMode}
+   * @memberof FaceDetectionProperties
+   */
+  mode?: FaceDetectionPropertiesMode;
 };
 
 /**
@@ -169,16 +169,16 @@ export type CreateCustomerDocumentRestRequest = {
 export type CreateDocumentPageRestRequest = {
   /**
    *
-   * @type {Image}
-   * @memberof CreateDocumentPageRestRequest
-   */
-  image: Image;
-  /**
-   *
    * @type {DocumentPageAdvice}
    * @memberof CreateDocumentPageRestRequest
    */
   advice?: DocumentPageAdvice;
+  /**
+   *
+   * @type {Image}
+   * @memberof CreateDocumentPageRestRequest
+   */
+  image: Image;
 };
 
 /**
@@ -202,16 +202,16 @@ export type CustomerLivenessSelfieOrigin = {
 export type CreateCustomerLivenessSelfieRestRequest = {
   /**
    *
-   * @type {Image}
-   * @memberof CreateCustomerLivenessSelfieRestRequest
-   */
-  image?: Image;
-  /**
-   *
    * @enum {AssertionType}
    * @memberof CreateCustomerLivenessSelfieRestRequest
    */
   assertion?: AssertionType;
+  /**
+   *
+   * @type {Image}
+   * @memberof CreateCustomerLivenessSelfieRestRequest
+   */
+  image?: Image;
   /**
    *
    * @type {CustomerLivenessSelfieOrigin}}
@@ -228,16 +228,16 @@ export type CreateCustomerLivenessSelfieRestRequest = {
 export type DetectFaceRestRequest = {
   /**
    *
-   * @type {Image}
-   * @memberof DetectFaceRestRequest
-   */
-  image: Image;
-  /**
-   *
    * @type {FaceDetectionProperties}
    * @memberof DetectFaceRestRequest
    */
   detection?: FaceDetectionProperties;
+  /**
+   *
+   * @type {Image}
+   * @memberof DetectFaceRestRequest
+   */
+  image: Image;
 };
 
 /**
@@ -267,8 +267,8 @@ export type ImageDimensionsRestRequest = ImageDimensions;
  * @type StoreCustomerRequest
  */
 export type StoreCustomerRequest = {
-  onboardingStatus: StoreCustomerOnboardingStatus;
   externalId?: string;
+  onboardingStatus: StoreCustomerOnboardingStatus;
 };
 
 /**
@@ -281,9 +281,9 @@ export type StoreCustomerRequest = {
  * @property {boolean} checked - boolean;
  */
 export type ContactFormRestRequest = {
-  name: string;
+  checked: boolean;
   company: string;
   email: string;
   message: string;
-  checked: boolean;
+  name: string;
 };

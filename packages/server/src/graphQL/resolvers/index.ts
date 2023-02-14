@@ -1,29 +1,30 @@
-import {
-  GetCustomerResponse,
-  CreateDocumentPageResponse,
-  DocumentAdvice,
-  DetectSelfieResponse,
-  InspectDocumentResponse,
-  InspectCustomerResponse,
-  CreateCustomerLivenessSelfieResponse,
-  DetectFaceResponse,
-  FaceQualityResponse,
-  FaceDetectionProperties,
-  EvaluateCustomerLivenessResponse,
-  GetMetadataResponse,
-  Source,
-  EvaluateLivenessType,
+import type {
   AssertionType,
-  ImageDimensions,
-  CroppedImagesResponse,
-  CroppedImageLinks,
-  CustomerDocumentPages,
-  CroppedSelfieResponse,
-  StoreCustomerResponse,
-  StoreCustomerOnboardingStatus,
-  GetAppInfoResponse,
   ContactFormRequest,
+  CreateCustomerLivenessSelfieResponse,
+  CreateDocumentPageResponse,
+  CroppedImageLinks,
+  CroppedImagesResponse,
+  CroppedSelfieResponse,
+  CustomerDocumentPages,
+  DetectFaceResponse,
+  DetectSelfieResponse,
+  DocumentAdvice,
+  EvaluateCustomerLivenessResponse,
+  EvaluateLivenessType,
+  FaceDetectionProperties,
+  FaceQualityResponse,
+  GetAppInfoResponse,
+  GetCustomerResponse,
+  GetMetadataResponse,
+  ImageDimensions,
+  InspectCustomerResponse,
+  InspectDocumentResponse,
+  Source,
+  StoreCustomerOnboardingStatus,
+  StoreCustomerResponse,
 } from '../../types/graphqlTypes';
+
 import { createCustomerLivenessResolver } from './createCustomerLivenessResolver';
 import { createDocumentPageResolver } from './createDocumentPageResolver';
 import { createFaceResolver } from './createFaceResolver';
@@ -58,7 +59,7 @@ const resolvers = {
     },
     normalizedDocumentImages(
       _: unknown,
-      args: { pages?: CustomerDocumentPages; dimensions?: ImageDimensions },
+      args: { dimensions?: ImageDimensions; pages?: CustomerDocumentPages },
     ): Promise<CustomerDocumentPages> {
       return normalizedDocumentImagesResolver(args.pages, args.dimensions);
     },
@@ -67,13 +68,13 @@ const resolvers = {
     },
     croppedSelfie(
       _: unknown,
-      args: { faceApiLink: string; dimensions?: ImageDimensions },
+      args: { dimensions?: ImageDimensions; faceApiLink: string },
     ): Promise<CroppedSelfieResponse> {
       return getCroppedSelfieResolver(args.faceApiLink, args.dimensions);
     },
     evaluateCustomerLiveness(
       _: unknown,
-      args: { type: `${EvaluateLivenessType}`; customerApiLink: string },
+      args: { customerApiLink: string; type: `${EvaluateLivenessType}` },
     ): Promise<EvaluateCustomerLivenessResponse> {
       return evaluateCustomerLivenessResolver(args.type, args.customerApiLink);
     },
@@ -99,11 +100,11 @@ const resolvers = {
     createDocumentPage(
       _: unknown,
       args: {
+        customerApiLink?: string;
+        documentAdvice?: DocumentAdvice;
         image: string;
         isDocumentCreated: boolean;
         pageType?: string;
-        documentAdvice?: DocumentAdvice;
-        customerApiLink?: string;
         sources?: Source[];
       },
     ): Promise<CreateDocumentPageResponse> {
@@ -116,16 +117,16 @@ const resolvers = {
         args.sources,
       );
     },
-    createSelfie(_: unknown, args: { image: string; customerApiLink?: string }): Promise<DetectSelfieResponse> {
+    createSelfie(_: unknown, args: { customerApiLink?: string; image: string }): Promise<DetectSelfieResponse> {
       return createSelfieResolver(args.image, args.customerApiLink);
     },
     createCustomerLiveness(
       _: unknown,
       args: {
-        image?: string;
-        isLivenessCreated?: boolean;
         assertionType?: `${AssertionType}`;
         customerApiLink?: string;
+        image?: string;
+        isLivenessCreated?: boolean;
         selfieLink?: string;
       },
     ): Promise<CreateCustomerLivenessSelfieResponse> {
@@ -137,7 +138,7 @@ const resolvers = {
         args.selfieLink,
       );
     },
-    createFace(_: unknown, args: { image: string; detection?: FaceDetectionProperties }): Promise<DetectFaceResponse> {
+    createFace(_: unknown, args: { detection?: FaceDetectionProperties; image: string }): Promise<DetectFaceResponse> {
       return createFaceResolver(args.image, args.detection);
     },
     postContactForm(_: unknown, args: { contactFormData: ContactFormRequest; recaptchaToken: string }): Promise<void> {

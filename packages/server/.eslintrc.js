@@ -18,23 +18,11 @@ module.exports = {
     __PACKAGE_JSON_VERSION__: true,
   },
   root: true,
-  // 'prettier' here disables formatting-only-rules that come from the innovatrics-side,
-  // that might conflict with the prettier-settings
   extends: [
-    '@innovatrics/eslint-config-typescript-react',
-    'prettier',
+    '@dot/eslint-config-typescript',
   ],
   plugins: ['graphql'],
   rules: {
-    'import/extensions': [
-      'error',
-      'always',
-      {
-        js: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
     "no-console": "off",
     "@typescript-eslint/naming-convention": ["error",
       {

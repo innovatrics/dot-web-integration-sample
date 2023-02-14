@@ -1,14 +1,15 @@
-import { AxiosError, AxiosResponse } from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
 
 import { Connection } from '../../../types/serverTypes';
 import { isTestRunning } from '../../utils';
+
 import { onRejected } from './common';
 
 /**
  * If the error is a server error, then log the error message and error code
  * @param error - AxiosError<{ errorMessage?: string; errorCode?: string }>
  */
-export const onServerConnectionRejected = (error: AxiosError<{ errorMessage?: string; errorCode?: string }>) => {
+export const onServerConnectionRejected = (error: AxiosError<{ errorCode?: string; errorMessage?: string }>) => {
   onRejected(error, Connection.SERVER);
 };
 

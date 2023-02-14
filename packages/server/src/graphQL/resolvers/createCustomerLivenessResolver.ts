@@ -1,8 +1,10 @@
+import type { CreateCustomerLivenessSelfieResponse } from '../../types/graphqlTypes';
+import type { CreateCustomerLivenessSelfieRestRequest } from '../../types/restRequestTypes';
+
 import { createCustomerLivenessApi, createCustomerLivenessSelfieApi } from '../../api/customersLivenessApi';
 import { createImage } from '../../api/utils';
 import createCustomer from '../../api/utils/createCustomer';
-import { AssertionType, CreateCustomerLivenessSelfieResponse } from '../../types/graphqlTypes';
-import { CreateCustomerLivenessSelfieRestRequest } from '../../types/restRequestTypes';
+import { AssertionType } from '../../types/graphqlTypes';
 
 export const createCustomerLivenessResolver = async (
   image?: string,

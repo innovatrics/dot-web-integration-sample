@@ -1,8 +1,9 @@
+import type { DetectSelfieResponse } from '../../types/graphqlTypes';
+import type { DetectSelfieRestRequest } from '../../types/restRequestTypes';
+
 import { createCustomerSelfieApi } from '../../api/customersSelfieApi';
 import { createImage } from '../../api/utils';
 import createCustomer from '../../api/utils/createCustomer';
-import { DetectSelfieResponse } from '../../types/graphqlTypes';
-import { DetectSelfieRestRequest } from '../../types/restRequestTypes';
 
 export const createSelfieResolver = async (image: string, customerApiLink?: string): Promise<DetectSelfieResponse> => {
   const customer = await createCustomer(customerApiLink);

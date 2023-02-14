@@ -1,7 +1,8 @@
-import { AxiosError } from 'axios';
+import type { Connection } from '../../../types/serverTypes';
+import type { AxiosError } from 'axios';
+
 import { GraphQLError } from 'graphql';
 
-import { Connection } from '../../../types/serverTypes';
 import { isTestRunning } from '../../utils';
 import { parseApiError } from '../../utils/serverConnection';
 
@@ -12,10 +13,10 @@ import { parseApiError } from '../../utils/serverConnection';
  * @param {Connection} connection - Connection - The connection object that was passed to the resolver.
  */
 export const onRejected = (
-  error: AxiosError<{ errorMessage?: string; errorCode?: string }>,
+  error: AxiosError<{ errorCode?: string; errorMessage?: string }>,
   connection: Connection,
 ) => {
-  const { errorCode, errorMessage, code, path, method } = parseApiError(error);
+  const { code, errorCode, errorMessage, method, path } = parseApiError(error);
 
   const extensions = { path, code, errorCode, connection };
 

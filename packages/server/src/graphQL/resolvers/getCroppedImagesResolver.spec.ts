@@ -1,6 +1,8 @@
-import resolvers from '.';
+import type { CroppedImageLinks } from '../../types/graphqlTypes';
+
 import { customerApiLink } from '../../test';
-import { CroppedImageLinks } from '../../types/graphqlTypes';
+
+import resolvers from '.';
 
 describe('#croppedImages', () => {
   it('should get correct response object', async () => {

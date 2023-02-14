@@ -5,7 +5,7 @@ import nestedInputMap from './data/nestedInputMap';
 import nestedOutputArray from './data/nestedOutputArray';
 import objectInputMap from './data/objectInputMap';
 import objectOutputArray from './data/objectOutputArray';
-import { isStringUrl, createImage, mapToArray, isStoreEndpoint, convertJsonToUrlencoded } from './index';
+import { convertJsonToUrlencoded, createImage, isStoreEndpoint, isStringUrl, mapToArray } from './index';
 
 describe('#Utils', () => {
   describe('createImage', () => {

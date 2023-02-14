@@ -1,5 +1,6 @@
+import type { CroppedSelfieResponse, ImageDimensions } from '../../types/graphqlTypes';
+
 import { getCroppedSelfieApi } from '../../api/customersSelfieApi';
-import { CroppedSelfieResponse, ImageDimensions } from '../../types/graphqlTypes';
 
 export const getCroppedSelfieResolver = async (
   faceApiLink: string,

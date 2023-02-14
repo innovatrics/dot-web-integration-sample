@@ -1,4 +1,5 @@
-import { MetadataRestResponse } from '../types/restResponseTypes';
+import type { MetadataRestResponse } from '../types/restResponseTypes';
+
 import { serverConnection } from './rest/serverConnection';
 
 export const getMetadataApi = async (): Promise<MetadataRestResponse> => {

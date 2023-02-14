@@ -1,6 +1,8 @@
+import type { EvaluateCustomerLivenessResponse } from '../../types/graphqlTypes';
+import type { EvaluateCustomerLivenessRestRequest } from '../../types/restRequestTypes';
+
 import { evaluateCustomerLivenessApi } from '../../api/customersLivenessApi';
-import { EvaluateCustomerLivenessResponse, EvaluateLivenessType } from '../../types/graphqlTypes';
-import { EvaluateCustomerLivenessRestRequest } from '../../types/restRequestTypes';
+import { EvaluateLivenessType } from '../../types/graphqlTypes';
 
 export const evaluateCustomerLivenessResolver = async (
   type: `${EvaluateLivenessType}`,

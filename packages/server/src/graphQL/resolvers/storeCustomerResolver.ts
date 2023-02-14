@@ -1,5 +1,6 @@
+import type { StoreCustomerOnboardingStatus, StoreCustomerResponse } from '../../types/graphqlTypes';
+
 import { storeCustomerApi } from '../../api/customersApi';
-import { StoreCustomerOnboardingStatus, StoreCustomerResponse } from '../../types/graphqlTypes';
 
 export const storeCustomerResolver = async (
   customerApiLink: string,

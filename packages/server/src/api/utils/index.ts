@@ -1,4 +1,4 @@
-import { Image } from '../../types/restRequestTypes';
+import type { Image } from '../../types/restRequestTypes';
 
 export const isStringUrl = (string: string): boolean => {
   try {
@@ -53,7 +53,7 @@ export const convertJsonToUrlencoded = (obj: Record<string, string | undefined>)
     const value = obj[key];
 
     if (value) {
-      str.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+      str.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
     }
   });
 

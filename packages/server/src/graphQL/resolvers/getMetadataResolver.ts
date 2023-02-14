@@ -1,6 +1,7 @@
+import type { GetMetadataResponse } from '../../types/graphqlTypes';
+
 import { getMetadataApi } from '../../api/getMetadataApi';
 import { mapToArray } from '../../api/utils';
-import { GetMetadataResponse } from '../../types/graphqlTypes';
 
 export const getMetadataResolver = async (): Promise<GetMetadataResponse> => {
   const response = await getMetadataApi();

@@ -1,6 +1,7 @@
-import resolvers from '.';
 import createDocumentPageResponse from '../../api/mocks/data/createDocumentPageResponse.json';
-import { customerApiLink, customerLinks, customerApiLinkError } from '../../test';
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
+
+import resolvers from '.';
 
 describe('#createDocumentPage', () => {
   it('should get correct response when document is not created', async () => {

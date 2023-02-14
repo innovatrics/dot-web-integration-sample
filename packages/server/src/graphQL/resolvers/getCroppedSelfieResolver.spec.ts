@@ -1,5 +1,6 @@
-import resolvers from '.';
 import { faceApiLink } from '../../test';
+
+import resolvers from '.';
 
 describe('#croppedSelfie', () => {
   it('should get correct response object', async () => {

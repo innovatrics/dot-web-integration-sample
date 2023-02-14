@@ -1,5 +1,6 @@
-import resolvers from '.';
 import { customerApiLink } from '../../test';
+
+import resolvers from '.';
 
 describe('#normalizedDocumentImage', () => {
   it('should get correct response object with front and back keys', async () => {

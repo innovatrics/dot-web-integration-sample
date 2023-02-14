@@ -1,9 +1,8 @@
-import { AxiosError } from 'axios';
+import type { AxiosApiError, ParsedError } from '../../types/serverTypes';
 
 import { DEFAULT_ERROR } from '../../constants';
-import { ParsedError } from '../../types/serverTypes';
 
-export const parseApiError = (error: AxiosError<{ errorMessage?: string; errorCode?: string }>): ParsedError => {
+export const parseApiError = (error: AxiosApiError): ParsedError => {
   // when axios instance was not able to call service at all
   if (!error.response) {
     return {
@@ -25,11 +24,13 @@ export const parseApiError = (error: AxiosError<{ errorMessage?: string; errorCo
   }
 
   // parsing business error code
+
   if (error.response.data.errorCode) {
+    // eslint-disable-next-line prefer-destructuring
     errorCode = error.response.data.errorCode;
   }
 
-  const { url, method } = error.config || {};
+  const { method, url } = error.config || {};
 
   return {
     errorMessage,

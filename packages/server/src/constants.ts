@@ -1,4 +1,4 @@
-import { DocumentTypeMap } from './types/serverTypes';
+import type { DocumentTypeMap } from './types/serverTypes';
 
 // ignore DOCUMENT_TYPE so every property key will be wrapped in ''
 // prettier-ignore

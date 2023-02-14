@@ -1,4 +1,5 @@
-import { GetAppInfoRestResponse } from '../types/restResponseTypes';
+import type { GetAppInfoRestResponse } from '../types/restResponseTypes';
+
 import { serverConnection } from './rest/serverConnection';
 
 export const getAppInfoApi = async (): Promise<GetAppInfoRestResponse> => {

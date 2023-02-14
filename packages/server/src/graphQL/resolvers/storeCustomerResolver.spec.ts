@@ -1,6 +1,7 @@
-import resolvers from '.';
 import { customerApiLink, serverConnectionMock } from '../../test';
 import { StoreCustomerOnboardingStatus } from '../../types/graphqlTypes';
+
+import resolvers from '.';
 
 describe('#storeCustomer', () => {
   it('should get correct response', async () => {

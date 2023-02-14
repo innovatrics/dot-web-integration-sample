@@ -1,12 +1,13 @@
-import {
+import type {
   CreateCustomerLivenessSelfieRestRequest,
   EvaluateCustomerLivenessRestRequest,
 } from '../types/restRequestTypes';
-import {
+import type {
   CreateCustomerLivenessRestResponse,
   CreateCustomerLivenessSelfieRestResponse,
   EvaluateCustomerLivenessRestResponse,
 } from '../types/restResponseTypes';
+
 import { serverConnection } from './rest/serverConnection';
 
 export const createCustomerLivenessApi = async (
