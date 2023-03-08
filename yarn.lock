@@ -1795,30 +1795,30 @@
   resolved "https://registry.npmjs.org/@iarna/toml/-/toml-2.2.5.tgz"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
-"@innovatrics/dot-auto-capture-ui@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@innovatrics/dot-auto-capture-ui/-/dot-auto-capture-ui-4.0.1.tgz#8b81ceb04c3197babdd466481f474299f442e0d1"
-  integrity sha512-HjdtsjMRWPzRcY0K7SMdxwLnEhjsL0F+l7A7S8qnwphCVI5NqL6ZHv1wtujKAF8HhFMdkrIGCv+OZZ0ZDeEaBQ==
+"@innovatrics/dot-auto-capture-ui@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-auto-capture-ui/-/dot-auto-capture-ui-4.0.3.tgz#622e29a606dfabef3ba4106b4bea6cbeb6b68f69"
+  integrity sha512-l89fqdtT4ndeKRxgSri0f0ka1hwjCITB4Ol4c3OrVeOTsbD/QKMvwyBkS5GggDchF3gIF+Oi8Q50CNX+gWa7Zw==
   dependencies:
-    preact "^10.11.2"
+    preact "^10.11.3"
     preact-custom-element "^4.2.1"
     styled-components "^5.3.6"
 
-"@innovatrics/dot-document-auto-capture@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@innovatrics/dot-document-auto-capture/-/dot-document-auto-capture-4.0.1.tgz#f177f1ee9adc1945b8795b86af2e984a7f2ca252"
-  integrity sha512-6nQOBqB5xNmiNl2PLx3DynlD34+aMVgtJaJXbBuTLL8Fqgg7Yd8I3TJSl2Rn/UfvkvaNs+YQeFcs6bAdkWTVcw==
+"@innovatrics/dot-document-auto-capture@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-document-auto-capture/-/dot-document-auto-capture-4.0.3.tgz#7b8893d2c64b1c6f2c12ed17a81e40768bebfc9e"
+  integrity sha512-3ugQ1Jw+eRdBIXHK/hzFYarKHqJkPYK045J+3l0tQm1HR63sJ2R0yaMJGAHN/nQVRrv6yYJSbgXjYID0UcnI0w==
   dependencies:
-    preact "^10.11.2"
+    preact "^10.11.3"
     preact-custom-element "^4.2.1"
     styled-components "^5.3.6"
 
-"@innovatrics/dot-face-auto-capture@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@innovatrics/dot-face-auto-capture/-/dot-face-auto-capture-4.0.1.tgz#4b2d44e1729b60509ab72857b64e01350b6f19f1"
-  integrity sha512-M9xJaoSqxmNLAI/3Uw5mODrgSBR18aXCwT8oQMJNm4FcLfXUXXbX/IQJgYOcrK2+bUSCPNFxYK8In2ZaZMkBFg==
+"@innovatrics/dot-face-auto-capture@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-face-auto-capture/-/dot-face-auto-capture-4.0.3.tgz#92f46c4c017d7062baa14edbbc340f47bac79f67"
+  integrity sha512-yl9VXWW7SUY2Mb17KDvp0DQKRmbx5UIytpkYhyjuQ/gYC/oRRukavwkwclKyXNCteUfZCZ8NU4+j4CdqzIm/3w==
   dependencies:
-    preact "^10.11.2"
+    preact "^10.11.3"
     preact-custom-element "^4.2.1"
     styled-components "^5.3.6"
 
@@ -7470,10 +7470,10 @@ preact-custom-element@^4.2.1:
   resolved "https://registry.npmjs.org/preact-custom-element/-/preact-custom-element-4.2.1.tgz"
   integrity sha512-/fiEEAyC+MXRlCBRmv/owoN5BLpO2nF/MF3YBHLtp4C2lNqlhV+a4he74A5DhfDoRmxDHm0sYVgQzWFEyzTDsw==
 
-preact@^10.11.2:
-  version "10.11.3"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.11.3.tgz#8a7e4ba19d3992c488b0785afcc0f8aa13c78d19"
-  integrity sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==
+preact@^10.11.3:
+  version "10.13.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.13.0.tgz#f8bd3cf257a4dbe41da71a52131b79916d4ca89d"
+  integrity sha512-ERdIdUpR6doqdaSIh80hvzebHB7O6JxycOhyzAeLEchqOq/4yueslQbfnPwXaNhAYacFTyCclhwkEbOumT0tHw==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
