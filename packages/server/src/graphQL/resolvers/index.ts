@@ -3,6 +3,7 @@ import type {
   ContactFormRequest,
   CreateCustomerLivenessSelfieResponse,
   CreateDocumentPageResponse,
+  CreateMagnifeyeLivenessSelfieResponse,
   CroppedImageLinks,
   CroppedImagesResponse,
   CroppedSelfieResponse,
@@ -28,6 +29,7 @@ import type {
 import { createCustomerLivenessResolver } from './createCustomerLivenessResolver';
 import { createDocumentPageResolver } from './createDocumentPageResolver';
 import { createFaceResolver } from './createFaceResolver';
+import { createMagnifeyeLivenessResolver } from './createMagnifeyeLivenessResolver';
 import { createSelfieResolver } from './createSelfieResolver';
 import { deleteCustomerResolver } from './deleteCustomerResolver';
 import { evaluateCustomerLivenessResolver } from './evaluateCustomerLivenessResolver';
@@ -117,8 +119,11 @@ const resolvers = {
         args.sources,
       );
     },
-    createSelfie(_: unknown, args: { customerApiLink?: string; image: string }): Promise<DetectSelfieResponse> {
-      return createSelfieResolver(args.image, args.customerApiLink);
+    createSelfie(
+      _: unknown,
+      args: { customerApiLink?: string; image?: string; selfieLink?: string },
+    ): Promise<DetectSelfieResponse> {
+      return createSelfieResolver(args.image, args.customerApiLink, args.selfieLink);
     },
     createCustomerLiveness(
       _: unknown,
@@ -137,6 +142,16 @@ const resolvers = {
         args.customerApiLink,
         args.selfieLink,
       );
+    },
+    createMagnifeyeLiveness(
+      _: unknown,
+      args: {
+        customerApiLink?: string;
+        isLivenessCreated?: boolean;
+        magnifeyeMessage: string;
+      },
+    ): Promise<CreateMagnifeyeLivenessSelfieResponse> {
+      return createMagnifeyeLivenessResolver(args.magnifeyeMessage, args.customerApiLink, args.isLivenessCreated);
     },
     createFace(_: unknown, args: { detection?: FaceDetectionProperties; image: string }): Promise<DetectFaceResponse> {
       return createFaceResolver(args.image, args.detection);

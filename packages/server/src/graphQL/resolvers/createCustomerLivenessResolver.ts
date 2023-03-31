@@ -9,13 +9,13 @@ import { AssertionType } from '../../types/graphqlTypes';
 export const createCustomerLivenessResolver = async (
   image?: string,
   assertionType?: `${AssertionType}`,
-  isDocumentCreated?: boolean,
+  isLivenessCreated?: boolean,
   customerApiLink?: string,
   selfieLink?: string,
 ): Promise<CreateCustomerLivenessSelfieResponse> => {
   const customer = await createCustomer(customerApiLink);
 
-  if (!isDocumentCreated) {
+  if (!isLivenessCreated) {
     await createCustomerLivenessApi(customer);
   }
 
@@ -23,12 +23,20 @@ export const createCustomerLivenessResolver = async (
     assertion: AssertionType[assertionType || AssertionType.NONE],
   };
 
+  if (image && selfieLink) {
+    throw new Error('Only one of "image" or "selfieLink" arguments must be provided.');
+  }
+
+  if (!image && !selfieLink) {
+    throw new Error('One of "image" or "selfieLink" argument must be provided.');
+  }
+
   if (image) {
     createCustomerLivenessSelfieRequest.image = createImage(image);
-  } else if (selfieLink) {
+  }
+
+  if (selfieLink) {
     createCustomerLivenessSelfieRequest.selfieOrigin = { link: selfieLink };
-  } else {
-    throw new Error('One of "image" or "selfieLink" argument must be provided.');
   }
 
   const response = await createCustomerLivenessSelfieApi(customer, createCustomerLivenessSelfieRequest);

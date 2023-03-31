@@ -905,6 +905,19 @@
     styled-components "^5.3.6"
     swiper "^8.4.4"
 
+"@dot/design-system@1.0.5-snapshot.3":
+  version "1.0.5-snapshot.3"
+  resolved "https://gitlab.ba.innovatrics.net/api/v4/projects/1415/packages/npm/@dot/design-system/-/@dot/design-system-1.0.5-snapshot.3.tgz#d5831352393ead7f9c3a55c74af766fe3f67d2f5"
+  integrity sha1-1YMTUjk+rX+cOlXHSvdm/j9n0vU=
+  dependencies:
+    "@radix-ui/react-dropdown-menu" "^2.0.2"
+    "@radix-ui/react-switch" "^1.0.2"
+    framer-motion "^8.5.5"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    styled-components "^5.3.6"
+    swiper "^8.4.7"
+
 "@dot/eslint-config-react@^0.0.2":
   version "0.0.2"
   resolved "https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/@dot/eslint-config-react/-/@dot/eslint-config-react-0.0.2.tgz#ab5b8f1cea7ea637827d20e82736100fff89d25b"
@@ -1795,29 +1808,39 @@
   resolved "https://registry.npmjs.org/@iarna/toml/-/toml-2.2.5.tgz"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
-"@innovatrics/dot-auto-capture-ui@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@innovatrics/dot-auto-capture-ui/-/dot-auto-capture-ui-4.0.3.tgz#622e29a606dfabef3ba4106b4bea6cbeb6b68f69"
-  integrity sha512-l89fqdtT4ndeKRxgSri0f0ka1hwjCITB4Ol4c3OrVeOTsbD/QKMvwyBkS5GggDchF3gIF+Oi8Q50CNX+gWa7Zw==
+"@innovatrics/dot-auto-capture-ui@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-auto-capture-ui/-/dot-auto-capture-ui-4.1.2.tgz#6233c92e3d86f781064c4fb563252d07b52f93c2"
+  integrity sha512-Xlb7RiQSqp6gq+zU7NpFebiwFqfMb7CCS1S0xbXwtDJhOf8LkiHhuQ+MTXuFE1aBcoueITawg0CmG9TVsBTp1A==
   dependencies:
     preact "^10.11.3"
     preact-custom-element "^4.2.1"
     styled-components "^5.3.6"
 
-"@innovatrics/dot-document-auto-capture@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@innovatrics/dot-document-auto-capture/-/dot-document-auto-capture-4.0.3.tgz#7b8893d2c64b1c6f2c12ed17a81e40768bebfc9e"
-  integrity sha512-3ugQ1Jw+eRdBIXHK/hzFYarKHqJkPYK045J+3l0tQm1HR63sJ2R0yaMJGAHN/nQVRrv6yYJSbgXjYID0UcnI0w==
+"@innovatrics/dot-document-auto-capture@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-document-auto-capture/-/dot-document-auto-capture-4.1.2.tgz#0aa4d24eb3b4a7eecf187d840cc87ccdf3825ffb"
+  integrity sha512-WIN4PQpDbd1sL51LoKfYzTf89NagOtzW2TWPC1tlpgLqVauD8em+b6y3K1Rgq8GPPme9O6WJG1DBCj/xF09MJQ==
   dependencies:
     preact "^10.11.3"
     preact-custom-element "^4.2.1"
     styled-components "^5.3.6"
 
-"@innovatrics/dot-face-auto-capture@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@innovatrics/dot-face-auto-capture/-/dot-face-auto-capture-4.0.3.tgz#92f46c4c017d7062baa14edbbc340f47bac79f67"
-  integrity sha512-yl9VXWW7SUY2Mb17KDvp0DQKRmbx5UIytpkYhyjuQ/gYC/oRRukavwkwclKyXNCteUfZCZ8NU4+j4CdqzIm/3w==
+"@innovatrics/dot-face-auto-capture@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-face-auto-capture/-/dot-face-auto-capture-4.1.2.tgz#42c88ab8baf4ffc32b288f5ccb5dc9614a2522e5"
+  integrity sha512-B5TxvT1Kqwi0MKSh7Puhbu9/QksIVvJvuiOrGjNBb4/Rnj/vAlwoo4AfyZrAMqAbDFGZ6yoUHu0C3bywM59rEg==
   dependencies:
+    preact "^10.11.3"
+    preact-custom-element "^4.2.1"
+    styled-components "^5.3.6"
+
+"@innovatrics/dot-magnifeye-liveness@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@innovatrics/dot-magnifeye-liveness/-/dot-magnifeye-liveness-4.1.2.tgz#612052c4789ba8801a2441eee8051764c0ed62ae"
+  integrity sha512-MrSn5Kkgru9xE5l6cn2H4OmBcYhzLNub/BoIsAuglD8TOUu7wiKwY91/F14MiGX9dG7SLxec97AH9sd7cMsbrQ==
+  dependencies:
+    "@preact/signals" "^1.1.3"
     preact "^10.11.3"
     preact-custom-element "^4.2.1"
     styled-components "^5.3.6"
@@ -2069,6 +2092,18 @@
   version "1.0.0-next.21"
   resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.21.tgz"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
+
+"@preact/signals-core@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.2.3.tgz#36bf8b31027a5b9ade9e50cf9fba80614e8a2354"
+  integrity sha512-Kui4p7PMcEQevBgsTO0JBo3gyQ88Q3qzEvsVCuSp11t0JcN4DmGCTJcGRVSCq7Bn7lGxJBO+57jNSzDoDJ+QmA==
+
+"@preact/signals@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-1.1.3.tgz#8226d3001cc162c568225083275ed8d595f8bf1f"
+  integrity sha512-N09DuAVvc90bBZVRwD+aFhtGyHAmJLhS3IFoawO/bYJRcil4k83nBOchpCEoS0s5+BXBpahgp0Mjf+IOqP57Og==
+  dependencies:
+    "@preact/signals-core" "^1.2.3"
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
@@ -2343,6 +2378,14 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-slot" "1.0.1"
 
+"@radix-ui/react-primitive@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-1.0.2.tgz#54e22f49ca59ba88d8143090276d50b93f8a7053"
+  integrity sha512-zY6G5Qq4R8diFPNwtyoLRZBxzu1Z+SXMlfYpChN7Dv8gvmx9X3qhDqiLWvKseKVJMuedFeU/Sa0Sy/Ia+t06Dw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-slot" "1.0.1"
+
 "@radix-ui/react-roving-focus@1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@radix-ui/react-roving-focus/-/react-roving-focus-1.0.1.tgz"
@@ -2383,6 +2426,20 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-compose-refs" "1.0.0"
 
+"@radix-ui/react-switch@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-switch/-/react-switch-1.0.2.tgz#e3d1b9fe18b6b1173aadc8b8e6efdc96a28a70f8"
+  integrity sha512-BcG/LKehxt36NXG0wPnoCitIfSMtU9Xo7BmythYA1PAMLtsMvW7kALfBzmduQoHTWcKr0AVcFyh0gChBUp9TiQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-compose-refs" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.2"
+    "@radix-ui/react-use-controllable-state" "1.0.0"
+    "@radix-ui/react-use-previous" "1.0.0"
+    "@radix-ui/react-use-size" "1.0.0"
+
 "@radix-ui/react-use-callback-ref@1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@radix-ui/react-use-callback-ref/-/react-use-callback-ref-1.0.0.tgz"
@@ -2410,6 +2467,13 @@
   version "1.0.0"
   resolved "https://registry.npmjs.org/@radix-ui/react-use-layout-effect/-/react-use-layout-effect-1.0.0.tgz"
   integrity sha512-6Tpkq+R6LOlmQb1R5NNETLG0B4YP0wc+klfXafpUCj6JGyaUc8il7/kUZ7m59rGbXGczE9Bs+iz2qloqsZBduQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
+"@radix-ui/react-use-previous@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-previous/-/react-use-previous-1.0.0.tgz#e48a69c3a7d8078a967084038df66d0d181c56ac"
+  integrity sha512-RG2K8z/K7InnOKpq6YLDmT49HGjNmrK+fr82UCVKT2sW0GYfVnYp4wZWBooT/EYfQ5faA9uIjvsuMMhH61rheg==
   dependencies:
     "@babel/runtime" "^7.13.10"
 

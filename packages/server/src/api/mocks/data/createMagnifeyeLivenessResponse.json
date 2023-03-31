@@ -1,0 +1,31 @@
+{
+  "selfie": {
+    "detection": {
+      "confidence": 0.9174,
+      "faceRectangle": {
+        "topLeft": {
+          "x": 176,
+          "y": 405
+        },
+        "topRight": {
+          "x": 522,
+          "y": 381
+        },
+        "bottomRight": {
+          "x": 555,
+          "y": 842
+        },
+        "bottomLeft": {
+          "x": 209,
+          "y": 867
+        }
+      }
+    }
+  },
+  "links": {
+    "selfie": "api/v1/customers/123/liveness/records/456/selfie"
+  },
+  "customerLinks": {
+    "customer": "/api/v1/customers/123"
+  }
+}

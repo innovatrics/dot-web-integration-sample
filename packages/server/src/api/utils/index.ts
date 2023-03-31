@@ -59,3 +59,10 @@ export const convertJsonToUrlencoded = (obj: Record<string, string | undefined>)
 
   return str.join('&');
 };
+
+export const convertBase64ToByteArray = (base64String: string) => {
+  const buffer = Buffer.from(base64String, 'base64');
+  const byteArray = new Uint8Array(buffer);
+
+  return byteArray;
+};

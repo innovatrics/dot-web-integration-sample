@@ -10,6 +10,7 @@ import createCustomerResponse from './data/createCustomerResponse.json';
 import createDocumentPageResponse from './data/createDocumentPageResponse.json';
 import createDocumentResponse from './data/createDocumentResponse.json';
 import createfaceResponse from './data/createFaceResponse.json';
+import createMagnifeyeLivenessResponse from './data/createMagnifeyeLivenessResponse.json';
 import createSelfieResponse from './data/createSelfieResponse.json';
 import croppedSelfieResponse from './data/croppedSelfieResponse.json';
 import evaluateCustomerLivenessResponse from './data/evaluateCustomerLivenessResponse.json';
@@ -62,6 +63,10 @@ function inspectCustomer() {
 
 function createCustomerLiveness() {
   return [HTTP_OK, createCustomerLivenessResponse];
+}
+
+function createMagnifeyeLivenessSelfieApi() {
+  return [HTTP_OK, createMagnifeyeLivenessResponse];
 }
 
 function createCustomerLivenessSelfieApi() {
@@ -166,6 +171,10 @@ export const initServerMocks = (axios: AxiosInstance): MockAdapter => {
   const createCustomerLivenessSelfieUrl = `${customerApiLink}/liveness/selfies`;
 
   mock.onPost(createCustomerLivenessSelfieUrl).reply(createCustomerLivenessSelfieApi);
+
+  const createMagnifeyeLivenessSelfieLink = `${customerApiLink}/liveness/records`;
+
+  mock.onPost(createMagnifeyeLivenessSelfieLink).reply(createMagnifeyeLivenessSelfieApi);
 
   const createCustomerLivenessUrl = `${customerApiLink}/liveness`;
 

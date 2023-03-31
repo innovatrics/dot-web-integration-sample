@@ -27,4 +27,22 @@ describe('#createSelfie', () => {
 
     await expect(result).rejects.toThrow();
   });
+
+  it('should throw error when image and selfieLink are not provided', async () => {
+    const result = resolvers.Mutation.createSelfie(null, {
+      customerApiLink,
+    });
+
+    await expect(result).rejects.toThrow('One of "image" or "selfieLink" argument must be provided.');
+  });
+
+  it('should throw error when both image and selfieLink are provided', async () => {
+    const result = resolvers.Mutation.createSelfie(null, {
+      image: 'image.jpg',
+      customerApiLink,
+      selfieLink: `${customerApiLink}/liveness/records/456/selfie`,
+    });
+
+    await expect(result).rejects.toThrow('Only one of "image" or "selfieLink" arguments must be provided.');
+  });
 });

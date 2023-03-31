@@ -97,4 +97,15 @@ describe('#createCustomerLiveness', () => {
 
     await expect(result).rejects.toThrow('One of "image" or "selfieLink" argument must be provided.');
   });
+
+  it('should throw Error when both image and selfieLink are provided', async () => {
+    const result = resolvers.Mutation.createCustomerLiveness(null, {
+      image: 'image.png',
+      selfieLink: `${customerApiLink}/liveness/selfies`,
+      customerApiLink,
+      isLivenessCreated: true,
+    });
+
+    await expect(result).rejects.toThrow('Only one of "image" or "selfieLink" arguments must be provided.');
+  });
 });

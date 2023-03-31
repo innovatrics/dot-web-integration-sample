@@ -192,7 +192,13 @@ export type DetectSelfieRestRequest = {
    * @type {Image}
    * @memberof DetectSelfieRestRequest
    */
-  image: Image;
+  image?: Image;
+  /**
+   *
+   * @type {CustomerLivenessSelfieOrigin}}
+   * @memberof DetectSelfieRestRequest
+   */
+  selfieOrigin?: CustomerLivenessSelfieOrigin;
 };
 
 export type CustomerLivenessSelfieOrigin = {
@@ -218,6 +224,15 @@ export type CreateCustomerLivenessSelfieRestRequest = {
    * @memberof CreateCustomerLivenessSelfieRestRequest
    */
   selfieOrigin?: CustomerLivenessSelfieOrigin;
+};
+
+export type CreateMagnifeyeLivenessSelfieRestRequest = {
+  /**
+   *
+   * @type {Uint8Array}
+   * @memberof CreateMagnifeyeLivenessSelfieRestRequest
+   */
+  magnifeyeMessage?: Uint8Array;
 };
 
 /**

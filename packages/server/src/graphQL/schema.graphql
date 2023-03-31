@@ -55,6 +55,7 @@ enum EvaluateLivenessErrorCode {
 enum EvaluateLivenessType {
   EYE_GAZE_LIVENESS
   PASSIVE_LIVENESS
+  MAGNIFEYE_LIVENESS
 }
 
 enum Source {
@@ -72,6 +73,14 @@ enum TravelDocumentType {
 
 type SelfLinks {
   self: String!
+}
+
+type MagnifeyeSelfieLink {
+  selfie: String
+}
+
+type MagnifeyeDetection {
+  detection: FaceDetection
 }
 
 type CustomerLinks {
@@ -444,6 +453,13 @@ type CreateCustomerLivenessSelfieResponse {
   links: CustomerLinks!
 }
 
+type CreateMagnifeyeLivenessSelfieResponse {
+  errorCode: CreateCustomerLivenessSelfieErrorCode
+  selfie: MagnifeyeDetection
+  links: MagnifeyeSelfieLink!
+  customerLinks: CustomerLinks!
+}
+
 type PageTamperingInspection {
   colorProfileChangeDetected: Boolean
   looksLikeScreenshot: Boolean
@@ -599,7 +615,7 @@ type Mutation {
     customerApiLink: String
     sources: [Source!]
   ): CreateDocumentPageResponse
-  createSelfie(image: String!, customerApiLink: String): DetectSelfieResponse
+  createSelfie(image: String, customerApiLink: String, selfieLink: String): DetectSelfieResponse
   createCustomerLiveness(
     image: String
     isLivenessCreated: Boolean
@@ -607,6 +623,11 @@ type Mutation {
     customerApiLink: String
     selfieLink: String
   ): CreateCustomerLivenessSelfieResponse
+  createMagnifeyeLiveness(
+    magnifeyeMessage: String!
+    customerApiLink: String
+    isLivenessCreated: Boolean
+  ): CreateMagnifeyeLivenessSelfieResponse
   createFace(image: String!, detection: FaceDetectionProperties): DetectFaceResponse
   postContactForm(contactFormData: ContactFormRequest!, recaptchaToken: String!): Void
 }

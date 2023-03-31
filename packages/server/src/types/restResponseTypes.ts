@@ -18,6 +18,8 @@ import type {
   InspectCustomerLinks,
   InspectDocumentPortrait,
   InspectDocumentVisualZone,
+  MagnifeyeDetection,
+  MagnifeyeSelfieLink,
   MetadataDocumentType,
   Mrz,
   MrzInspection,
@@ -495,6 +497,32 @@ export type CreateCustomerLivenessSelfieRestResponse = {
    * @memberof CreateCustomerLivenessSelfieRestResponse
    */
   errorCode?: CreateCustomerLivenessSelfieErrorCode;
+};
+
+/**
+ *
+ * @export
+ * @type CreateMagnifeyeLivenessSelfieRestResponse
+ */
+export type CreateMagnifeyeLivenessSelfieRestResponse = {
+  /**
+   *
+   * @type {CreateCustomerLivenessSelfieErrorCode}
+   * @memberof CreateMagnifeyeLivenessSelfieRestResponse
+   */
+  errorCode?: CreateCustomerLivenessSelfieErrorCode;
+  /**
+   *
+   * @type {MagnifeyeSelfieLink}
+   * @memberof CreateMagnifeyeLivenessSelfieRestResponse
+   */
+  links: MagnifeyeSelfieLink;
+  /**
+   *
+   * @type {MagnifeyeDetection}
+   * @memberof CreateMagnifeyeLivenessSelfieRestResponse
+   */
+  selfie: MagnifeyeDetection;
 };
 
 /**
