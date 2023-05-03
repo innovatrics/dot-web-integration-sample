@@ -25,6 +25,10 @@ enum CreateCustomerLivenessSelfieErrorCode {
   NO_FACE_DETECTED
 }
 
+enum CreateMagnifeyeLivenessSelfieErrorCode {
+  INVALID_DATA
+}
+
 enum AssertionType {
   EYE_GAZE_TOP_LEFT
   EYE_GAZE_TOP_RIGHT
@@ -454,7 +458,7 @@ type CreateCustomerLivenessSelfieResponse {
 }
 
 type CreateMagnifeyeLivenessSelfieResponse {
-  errorCode: CreateCustomerLivenessSelfieErrorCode
+  errorCode: CreateMagnifeyeLivenessSelfieErrorCode
   selfie: MagnifeyeDetection
   links: MagnifeyeSelfieLink!
   customerLinks: CustomerLinks!

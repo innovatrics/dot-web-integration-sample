@@ -3,6 +3,7 @@ import type {
   CreateCustomerLivenessSelfieErrorCode,
   CreateDocumentPageResponseErrorCode,
   CreateDocumentPageResponseWarning,
+  CreateMagnifeyeLivenessSelfieErrorCode,
   CustomerDocumentLinks,
   CustomerSelfieInspection,
   DetectFaceResponseErrorCode,
@@ -507,10 +508,10 @@ export type CreateCustomerLivenessSelfieRestResponse = {
 export type CreateMagnifeyeLivenessSelfieRestResponse = {
   /**
    *
-   * @type {CreateCustomerLivenessSelfieErrorCode}
+   * @type {CreateMagnifeyeLivenessSelfieErrorCode}
    * @memberof CreateMagnifeyeLivenessSelfieRestResponse
    */
-  errorCode?: CreateCustomerLivenessSelfieErrorCode;
+  errorCode?: CreateMagnifeyeLivenessSelfieErrorCode;
   /**
    *
    * @type {MagnifeyeSelfieLink}
