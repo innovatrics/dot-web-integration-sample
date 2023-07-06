@@ -3,3 +3,4 @@ dist
 .eslintrc.js
 prettier.config.js
 graphqlTypes.ts
+pnpm-lock.yaml

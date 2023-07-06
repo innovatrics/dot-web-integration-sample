@@ -21,7 +21,6 @@ module.exports = {
   extends: [
     '@dot/eslint-config-typescript',
   ],
-  plugins: ['graphql'],
   rules: {
     "no-console": "off",
     "@typescript-eslint/naming-convention": ["error",
@@ -30,12 +29,6 @@ module.exports = {
         "filter": "__typename",
         "format": null
       }
-    ],
-    'graphql/template-strings': [
-      'error',
-      {
-        env: 'apollo',
-      },
     ],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
 

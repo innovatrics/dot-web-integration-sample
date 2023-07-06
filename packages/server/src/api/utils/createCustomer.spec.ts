@@ -183,8 +183,12 @@ describe('#createCustomer', () => {
   });
 
   describe('getUnsupportedDocumentType', () => {
-    it('should return "Passport" only for type: "td3" and code: "P"', () => {
+    it('should return "Passport" for type: "td3" and code: "P"', () => {
       expect(getUnsupportedDocumentType(TravelDocumentType.TD3, 'P')).toEqual('Passport');
+    });
+
+    it('should return "Passport" for type: "td3" and code: "PV"', () => {
+      expect(getUnsupportedDocumentType(TravelDocumentType.TD3, 'PV')).toEqual('Passport');
     });
 
     it('should not return "Passport"', () => {

@@ -15,7 +15,6 @@
   extends: [
     '@dot/eslint-config-react',
   ],
-  plugins: ['graphql'],
   ignorePatterns: ["graphqlTypes.ts"],
   rules: {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.tsx", "**/*.test.ts", "**/setupTests.ts", "**/testUtils.tsx", "**/vite.config.ts", "**/vitest.config.ts", "**/vitest-canvas.setup.ts"] }],

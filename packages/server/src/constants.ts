@@ -22,7 +22,6 @@ export const DOCUMENT_TYPE: DocumentTypeMap = {
   'work-permit': 'Work Permit',
 };
 
-export const DOCUMENT_CODE_PASSPORT = 'P';
 // IL, IC, IA  - ino card specific
 export const DOCUMENT_CODES_ID = ['I', 'ID', 'IL', 'IC', 'IA'];
 

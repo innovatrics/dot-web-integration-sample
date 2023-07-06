@@ -3,7 +3,7 @@ import type { CustomerDocument } from '../../types/restResponseTypes';
 import type { Countries } from '../../types/serverTypes';
 
 import countriesJson from '../../assets/countries.json';
-import { DOCUMENT_CODE_PASSPORT, DOCUMENT_CODES_ID, DOCUMENT_TYPE } from '../../constants';
+import { DOCUMENT_CODES_ID, DOCUMENT_TYPE } from '../../constants';
 import { TravelDocumentType } from '../../types/graphqlTypes';
 import { createCustomerApi } from '../customersApi';
 
@@ -26,10 +26,14 @@ export default createCustomer;
 export const getUnsupportedDocumentType = (travelDocumentType?: TravelDocumentType, documentCode?: string) => {
   /**
    * For Td3 documents:
-   * If documentCode is "P"
+   * If documentCode matches regex
    * document type is 'passport'
    */
-  if (travelDocumentType === 'td3' && documentCode === DOCUMENT_CODE_PASSPORT) {
+
+  // P or P with an uppercase letter A-Z
+  const passportRegex = /^P(?:[A-Z])?$/;
+
+  if (travelDocumentType === 'td3' && documentCode && passportRegex.test(documentCode)) {
     return DOCUMENT_TYPE.passport;
   }
 

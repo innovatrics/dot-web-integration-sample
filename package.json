@@ -1,35 +1,26 @@
 {
   "name": "dot-web-demo",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "yarn server:dev & yarn web-demo-client:dev & yarn ocr-demo-client:dev",
-    "web-demo:dev": "yarn server:dev & yarn web-demo-client:dev",
-    "ocr-demo:dev": "yarn server:dev & yarn ocr-demo-client:dev",
-    "server:dev": "yarn workspace dot-web-demo-server dev",
-    "server:start": "yarn workspace dot-web-demo-server start",
-    "server:build": "yarn workspace dot-web-demo-server build",
-    "web-demo-client:dev": "yarn workspace dot-web-demo-client dev",
-    "web-demo-client:build": "yarn codegen && yarn workspace dot-web-demo-client build",
-    "ocr-demo-client:dev": "yarn workspace dot-web-ocr-demo-client dev",
-    "ocr-demo-client:build": "yarn codegen && yarn workspace dot-web-ocr-demo-client build",
-    "client:codegen": "yarn workspace dot-web-common-client codegen",
-    "server:codegen": "yarn workspace dot-web-demo-server codegen",
-    "codegen": "yarn client:codegen & yarn server:codegen",
-    "build": "yarn workspaces run build",
-    "prettier:check": "prettier -l \"packages/**/*.{ts,tsx,js,md}\"",
-    "prettier": "prettier  --write \"packages/**/*.{ts,tsx,js,md}\"",
-    "lint": "yarn workspaces run lint",
-    "lint:fix": "yarn lint --fix",
-    "pr": "yarn run tsc && yarn run prettier:check && yarn run lint && yarn test",
-    "test": "yarn workspaces run test",
-    "test:ui": "yarn workspaces run test:ui",
-    "tsc": "yarn workspaces run tsc",
+    "preinstall": "npx only-allow pnpm",
+    "dev": "pnpm -r --parallel dev",
+    "web-demo:dev": "pnpm -r --parallel --filter dot-web-demo-server --filter dot-web-demo-client dev",
+    "ocr-demo:dev": "pnpm -r --parallel --filter dot-web-demo-server --filter dot-web-ocr-demo-client dev",
+    "server:start": "pnpm --filter dot-web-demo-server start",
+    "server:build": "pnpm --filter dot-web-demo-server build",
+    "web-demo-client:build": "pnpm codegen && pnpm --filter dot-web-demo-client build",
+    "ocr-demo-client:build": "pnpm codegen && pnpm --filter dot-web-ocr-demo-client build",
+    "codegen": "pnpm -r --parallel codegen",
+    "build": "pnpm -r --parallel build",
+    "lint": "pnpm -r --parallel lint",
+    "lint:fix": "pnpm lint --fix",
+    "pr": "pnpm tsc && pnpm lint && pnpm test",
+    "test": "pnpm -r --parallel test",
+    "test:ui": "pnpm -r --parallel test:ui",
+    "tsc": "pnpm -r --parallel tsc",
     "cy:ocr-demo:run": "cypress run --config-file cypress/cypress.ocrDemo.config.ts --headless --browser chrome",
     "cy:web-demo:run": "cypress run --config-file cypress/cypress.webDemo.config.ts --headless --browser chrome",
     "cy:ocr-demo:open": "cypress open --config-file cypress/cypress.ocrDemo.config.ts",
@@ -45,7 +36,7 @@
     "ci:web-demo:cy-run": "start-server-and-test web-demo:dev http://localhost:3001 cy:web-demo:run",
     "ci:ocr-demo:cy-run": "start-server-and-test ocr-demo:dev http://localhost:3002 cy:ocr-demo:run",
     "postinstall": "husky install",
-    "win-setup": "yarn config set script-shell \"C:\\Program Files\\Git\\bin\\bash.exe\""
+    "win-setup": "npm config set script-shell \"C:\\Program Files\\Git\\bin\\bash.exe\""
   },
   "devDependencies": {
     "@dot/eslint-config-react": "^0.0.2",
@@ -73,6 +64,7 @@
     "start-server-and-test": "^1.15.3",
     "typescript": "~4.9.5"
   },
+  "packageManager": "pnpm@7.5.2",
   "resolutions": {
     "@types/react": "^18.0.27"
   }
