@@ -10,7 +10,7 @@ ARG GITLAB_NPM_AUTH_TOKEN
 
 RUN npm config set @dot:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/ && \
   npm config set //gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm install -g pnpm@7.5.2 && \
+  npm install -g pnpm@8.6.9 && \
   pnpm install --frozen-lockfile && \
   pnpm server:build
 
@@ -31,7 +31,7 @@ COPY --from=builder /build/packages/server/dist ./packages/server/dist
 
 RUN npm config set @dot:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/ && \
   npm config set //gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm install -g pnpm@7.5.2 && \
+  npm install -g pnpm@8.6.9 && \
   pnpm install --frozen-lockfile
 
 

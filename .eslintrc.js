@@ -3,7 +3,7 @@
  */
  module.exports = {
   parserOptions: {
-    project: ['./packages/web-demo-client/tsconfig.json', './packages/ocr-demo-client/tsconfig.json', './cypress/tsconfig.json', './packages/common-client/tsconfig.json'],
+    project: ['./packages/web-demo-client/tsconfig.json', './packages/ocr-demo-client/tsconfig.json', './cypress/tsconfig.json', './packages/common-client/tsconfig.json', './tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
   globals: {
