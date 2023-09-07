@@ -100,17 +100,17 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@types/react-dom@18.2.7)(@types/react@18.2.15)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       countly-sdk-web:
         specifier: ^23.2.2
         version: 23.2.2
@@ -185,11 +185,11 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@types/react-dom@18.2.7)(@types/react@18.2.15)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.0.5
         version: 2.0.5(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
@@ -370,17 +370,17 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@types/react-dom@18.2.7)(@types/react@18.2.15)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 4.1.5
-        version: 4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 4.1.6
+        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       dot-web-common-client:
         specifier: workspace:*
         version: link:../common-client
@@ -3088,8 +3088,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@innovatrics/dot-auto-capture-ui@4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-q1PGliioVKfUVz6Hg6cGApC0oOCRy4lgt7e6qr2k4W4uU9MaNYQsXFr/miFcLfL950N+XtNhe0cz90YPsG0AiA==}
+  /@innovatrics/dot-auto-capture-ui@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-AAvQhze2StafX8DHfSP/I81VEG3Rcey10FKfE6IQk459m2Qhe5jhpWI8L6tUfFHxRyiqrJl0IwkSrfJzYilQiA==}
     dependencies:
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
@@ -3101,8 +3101,8 @@ packages:
       - react-is
     dev: false
 
-  /@innovatrics/dot-document-auto-capture@4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Wpg98Vqs/PNsRxitswHkU2D+BWOzSiQTgFXi+bb/FXf3iJlREHZi0Eq3h5AG7r1TS4jydGHBBg7pz4ad50C7ow==}
+  /@innovatrics/dot-document-auto-capture@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uCxkEQeH7V1zoAIgBfijbwF1bHclaXRPGbPDjWNwwgfAtBwDcm1nuH+gx0rkfdostgwdBrfvx0V9ADRlp+qDJA==}
     dependencies:
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
@@ -3114,8 +3114,8 @@ packages:
       - react-is
     dev: false
 
-  /@innovatrics/dot-face-auto-capture@4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-t/FrJ8FxmQq0+dEmeYwUPgj0wuCu7aZl5rz6rs/2hOEzCHKWXydny1nsS6X/U3gNeBcaAa/IGyx76RBwOGvYIA==}
+  /@innovatrics/dot-face-auto-capture@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-bcPRdn0Agft5BY72HfwWjWOnJu8d8IDeFJjepjzRq8F1DNs94d6EtU02li8yQW632JN6aAA+zBzg+b5gIttwWw==}
     dependencies:
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
@@ -3127,8 +3127,8 @@ packages:
       - react-is
     dev: false
 
-  /@innovatrics/dot-magnifeye-liveness@4.1.5(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-fa1GSQA3dJmgZFpP8MA3AcmhvvUubvSzgo8rqPU7URdNcgw18m+RjidHaC5+HpWhJHrOevIUtYgx6b5TMaKTmg==}
+  /@innovatrics/dot-magnifeye-liveness@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-LcJKtqiuD98lQkqZOUkR0bvxwkqNmrXMWp48pOnkjZvP4TI4iNiPtYHXV09XmuwgPErs6shk+n1K+W+pH/odCA==}
     dependencies:
       '@preact/signals': 1.2.0(preact@10.16.0)
       preact: 10.16.0
