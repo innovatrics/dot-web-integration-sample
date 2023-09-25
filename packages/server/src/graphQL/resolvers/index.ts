@@ -1,19 +1,15 @@
 import type {
-  AssertionType,
   ContactFormRequest,
-  CreateCustomerLivenessSelfieResponse,
   CreateDocumentPageResponse,
-  CreateMagnifeyeLivenessSelfieResponse,
+  CreateLivenessRecordsResponse,
   CroppedImageLinks,
   CroppedImagesResponse,
   CroppedSelfieResponse,
   CustomerDocumentPages,
   DetectFaceResponse,
   DetectSelfieResponse,
-  DocumentAdvice,
   EvaluateCustomerLivenessResponse,
   EvaluateLivenessType,
-  FaceDetectionProperties,
   FaceQualityResponse,
   GetAppInfoResponse,
   GetCustomerResponse,
@@ -21,15 +17,16 @@ import type {
   ImageDimensions,
   InspectCustomerResponse,
   InspectDocumentResponse,
-  Source,
+  MutationCreateDocumentPageWithContentArgs,
+  MutationCreateDocumentPageWithImageArgs,
+  MutationCreateFaceArgs,
   StoreCustomerOnboardingStatus,
   StoreCustomerResponse,
 } from '../../types/graphqlTypes';
 
-import { createCustomerLivenessResolver } from './createCustomerLivenessResolver';
-import { createDocumentPageResolver } from './createDocumentPageResolver';
+import { createDocumentPageWithImageResolver, createDocumentWithContentResolver } from './createDocumentPageResolver';
 import { createFaceResolver } from './createFaceResolver';
-import { createMagnifeyeLivenessResolver } from './createMagnifeyeLivenessResolver';
+import { createLivenessRecordsResolver } from './createLivenessRecordsResolver';
 import { createSelfieResolver } from './createSelfieResolver';
 import { deleteCustomerResolver } from './deleteCustomerResolver';
 import { evaluateCustomerLivenessResolver } from './evaluateCustomerLivenessResolver';
@@ -99,25 +96,17 @@ const resolvers = {
     deleteCustomer(_: unknown, args: { customerApiLink: string }): Promise<void> {
       return deleteCustomerResolver(args.customerApiLink);
     },
-    createDocumentPage(
+    createDocumentPageWithImage(
       _: unknown,
-      args: {
-        customerApiLink?: string;
-        documentAdvice?: DocumentAdvice;
-        image: string;
-        isDocumentCreated: boolean;
-        pageType?: string;
-        sources?: Source[];
-      },
+      args: MutationCreateDocumentPageWithImageArgs,
     ): Promise<CreateDocumentPageResponse> {
-      return createDocumentPageResolver(
-        args.image,
-        args.isDocumentCreated,
-        args.pageType,
-        args.documentAdvice,
-        args.customerApiLink,
-        args.sources,
-      );
+      return createDocumentPageWithImageResolver(args);
+    },
+    createDocumentPageWithContent(
+      _: unknown,
+      args: MutationCreateDocumentPageWithContentArgs,
+    ): Promise<CreateDocumentPageResponse> {
+      return createDocumentWithContentResolver(args);
     },
     createSelfie(
       _: unknown,
@@ -125,36 +114,18 @@ const resolvers = {
     ): Promise<DetectSelfieResponse> {
       return createSelfieResolver(args.image, args.customerApiLink, args.selfieLink);
     },
-    createCustomerLiveness(
+    createLivenessRecords(
       _: unknown,
       args: {
-        assertionType?: `${AssertionType}`;
-        customerApiLink?: string;
-        image?: string;
-        isLivenessCreated?: boolean;
-        selfieLink?: string;
-      },
-    ): Promise<CreateCustomerLivenessSelfieResponse> {
-      return createCustomerLivenessResolver(
-        args.image,
-        args.assertionType,
-        args.isLivenessCreated,
-        args.customerApiLink,
-        args.selfieLink,
-      );
-    },
-    createMagnifeyeLiveness(
-      _: unknown,
-      args: {
+        content: string;
         customerApiLink?: string;
         isLivenessCreated?: boolean;
-        magnifeyeMessage: string;
       },
-    ): Promise<CreateMagnifeyeLivenessSelfieResponse> {
-      return createMagnifeyeLivenessResolver(args.magnifeyeMessage, args.customerApiLink, args.isLivenessCreated);
+    ): Promise<CreateLivenessRecordsResponse> {
+      return createLivenessRecordsResolver(args.content, args.customerApiLink, args.isLivenessCreated);
     },
-    createFace(_: unknown, args: { detection?: FaceDetectionProperties; image: string }): Promise<DetectFaceResponse> {
-      return createFaceResolver(args.image, args.detection);
+    createFace(_: unknown, args: MutationCreateFaceArgs): Promise<DetectFaceResponse> {
+      return createFaceResolver(args);
     },
     postContactForm(_: unknown, args: { contactFormData: ContactFormRequest; recaptchaToken: string }): Promise<void> {
       return postContactFormResolver(args.contactFormData, args.recaptchaToken);

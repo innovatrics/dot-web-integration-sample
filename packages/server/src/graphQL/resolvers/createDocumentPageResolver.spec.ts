@@ -3,54 +3,108 @@ import { customerApiLink, customerApiLinkError, customerLinks } from '../../test
 
 import resolvers from '.';
 
-describe('#createDocumentPage', () => {
-  it('should get correct response when document is not created', async () => {
-    const result = resolvers.Mutation.createDocumentPage(null, {
-      image: 'image.jpg',
-      isDocumentCreated: false,
-      customerApiLink,
+describe('#createDocumentPageResolver', () => {
+  describe('createDocumentPageWithContent', () => {
+    it('should get correct response when document is not created', async () => {
+      const result = resolvers.Mutation.createDocumentPageWithContent(null, {
+        content: 'message',
+        isDocumentCreated: false,
+        customerApiLink,
+      });
+
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
     });
 
-    await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
+    it('should get correct response when document is created', async () => {
+      const result = resolvers.Mutation.createDocumentPageWithContent(null, {
+        content: 'message',
+        isDocumentCreated: true,
+        customerApiLink,
+      });
+
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
+    });
+
+    it('should get correct response when advice is present', async () => {
+      const documentAdvice = {
+        classification: {
+          countries: ['INO'],
+          types: [],
+          editions: [],
+          machineReadableTravelDocuments: [],
+        },
+      };
+
+      const result = resolvers.Mutation.createDocumentPageWithContent(null, {
+        content: 'message',
+        isDocumentCreated: false,
+        customerApiLink,
+        documentAdvice,
+      });
+
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
+    });
+
+    it('should throw error when customerApiLink is invalid', async () => {
+      const result = resolvers.Mutation.createDocumentPageWithContent(null, {
+        content: 'message',
+        isDocumentCreated: true,
+        customerApiLink: customerApiLinkError,
+      });
+
+      await expect(result).rejects.toThrow();
+    });
   });
 
-  it('should get correct response when document is created', async () => {
-    const result = resolvers.Mutation.createDocumentPage(null, {
-      image: 'image.jpg',
-      isDocumentCreated: true,
-      customerApiLink,
+  describe('#createDocumentPageWithImage', () => {
+    it('should get correct response when document is not created', async () => {
+      const result = resolvers.Mutation.createDocumentPageWithImage(null, {
+        image: 'image.jpg',
+        isDocumentCreated: false,
+        customerApiLink,
+      });
+
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
     });
 
-    await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
-  });
+    it('should get correct response when document is created', async () => {
+      const result = resolvers.Mutation.createDocumentPageWithImage(null, {
+        image: 'image.jpg',
+        isDocumentCreated: true,
+        customerApiLink,
+      });
 
-  it('should get correct response when advice is present', async () => {
-    const documentAdvice = {
-      classification: {
-        countries: ['INO'],
-        types: [],
-        editions: [],
-        machineReadableTravelDocuments: [],
-      },
-    };
-
-    const result = resolvers.Mutation.createDocumentPage(null, {
-      image: 'image.jpg',
-      isDocumentCreated: false,
-      customerApiLink,
-      documentAdvice,
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
     });
 
-    await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
-  });
+    it('should get correct response when advice is present', async () => {
+      const documentAdvice = {
+        classification: {
+          countries: ['INO'],
+          types: [],
+          editions: [],
+          machineReadableTravelDocuments: [],
+        },
+      };
 
-  it('should throw error when customerApiLink is invalid', async () => {
-    const result = resolvers.Mutation.createDocumentPage(null, {
-      image: 'image.jpg',
-      isDocumentCreated: true,
-      customerApiLink: customerApiLinkError,
+      const result = resolvers.Mutation.createDocumentPageWithImage(null, {
+        image: 'image.jpg',
+        isDocumentCreated: false,
+        customerApiLink,
+        documentAdvice,
+      });
+
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponse, ...customerLinks });
     });
 
-    await expect(result).rejects.toThrow();
+    it('should throw error when customerApiLink is invalid', async () => {
+      const result = resolvers.Mutation.createDocumentPageWithImage(null, {
+        image: 'image.jpg',
+        isDocumentCreated: true,
+        customerApiLink: customerApiLinkError,
+      });
+
+      await expect(result).rejects.toThrow();
+    });
   });
 });

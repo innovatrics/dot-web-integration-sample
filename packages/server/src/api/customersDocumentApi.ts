@@ -12,6 +12,21 @@ import type {
 } from '../types/restResponseTypes';
 
 import { serverConnection } from './rest/serverConnection';
+import { convertBase64ToByteArray } from './utils';
+
+export const createDocumentPageOctetStreamApi = async (
+  customerApiLink: string,
+  content: string,
+): Promise<CreateDocumentPageRestResponse> => {
+  const apiPath = `${customerApiLink}/document/pages`;
+  const messageByteArray = convertBase64ToByteArray(content);
+
+  const response = await serverConnection.put<CreateDocumentPageRestResponse>(apiPath, messageByteArray, {
+    headers: { 'Content-Type': 'application/octet-stream' },
+  });
+
+  return response.data;
+};
 
 export const createDocumentPageApi = async (
   customerApiLink: string,

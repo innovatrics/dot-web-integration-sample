@@ -1,9 +1,8 @@
 import type {
   BiometricMultiValueAttribute,
-  CreateCustomerLivenessSelfieErrorCode,
   CreateDocumentPageResponseErrorCode,
   CreateDocumentPageResponseWarning,
-  CreateMagnifeyeLivenessSelfieErrorCode,
+  CreateLivenessRecordsErrorCode,
   CustomerDocumentLinks,
   CustomerSelfieInspection,
   DetectFaceResponseErrorCode,
@@ -19,8 +18,8 @@ import type {
   InspectCustomerLinks,
   InspectDocumentPortrait,
   InspectDocumentVisualZone,
-  MagnifeyeDetection,
-  MagnifeyeSelfieLink,
+  LivenessRecordsDetection,
+  LivenessRecordsSelfieLink,
   MetadataDocumentType,
   Mrz,
   MrzInspection,
@@ -489,41 +488,27 @@ export type CroppedSelfieImageRestResponse = {
 /**
  *
  * @export
- * @type CreateCustomerLivenessSelfieRestResponse
+ * @type CreateLivenessRecordsRestResponse
  */
-export type CreateCustomerLivenessSelfieRestResponse = {
+export type CreateLivenessRecordsRestResponse = {
   /**
    *
-   * @type {CreateCustomerLivenessSelfieErrorCode}
-   * @memberof CreateCustomerLivenessSelfieRestResponse
+   * @type {CreateLivenessRecordsErrorCode}
+   * @memberof CreateLivenessRecordsRestResponse
    */
-  errorCode?: CreateCustomerLivenessSelfieErrorCode;
-};
-
-/**
- *
- * @export
- * @type CreateMagnifeyeLivenessSelfieRestResponse
- */
-export type CreateMagnifeyeLivenessSelfieRestResponse = {
+  errorCode?: CreateLivenessRecordsErrorCode;
   /**
    *
-   * @type {CreateMagnifeyeLivenessSelfieErrorCode}
-   * @memberof CreateMagnifeyeLivenessSelfieRestResponse
+   * @type {LivenessRecordsSelfieLink}
+   * @memberof CreateLivenessRecordsRestResponse
    */
-  errorCode?: CreateMagnifeyeLivenessSelfieErrorCode;
+  links: LivenessRecordsSelfieLink;
   /**
    *
-   * @type {MagnifeyeSelfieLink}
-   * @memberof CreateMagnifeyeLivenessSelfieRestResponse
+   * @type {LivenessRecordsDetection}
+   * @memberof CreateLivenessRecordsRestResponse
    */
-  links: MagnifeyeSelfieLink;
-  /**
-   *
-   * @type {MagnifeyeDetection}
-   * @memberof CreateMagnifeyeLivenessSelfieRestResponse
-   */
-  selfie: MagnifeyeDetection;
+  selfie: LivenessRecordsDetection;
 };
 
 /**

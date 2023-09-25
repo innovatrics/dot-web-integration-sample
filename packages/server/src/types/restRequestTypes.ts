@@ -1,7 +1,6 @@
 import type {
-  AssertionType,
   EvaluateLivenessType,
-  FaceDetectionPropertiesMode,
+  FaceDetectionProperties,
   ImageDimensions,
   Source,
   StoreCustomerOnboardingStatus,
@@ -102,46 +101,6 @@ export type DocumentPageAdvice = {
 };
 
 /**
- * The face size ratio configuration. The minimum have to be less then the maximum.
- * @export
- * @type FaceSizeRatio
- */
-export type FaceSizeRatio = {
-  /**
-   * The maximum face size ratio
-   * @type {number}
-   * @memberof FaceSizeRatio
-   */
-  max: number;
-  /**
-   * The minimum face size ratio
-   * @type {number}
-   * @memberof FaceSizeRatio
-   */
-  min: number;
-};
-
-/**
- * The face detection properties
- * @export
- * @type FaceDetectionProperties
- */
-export type FaceDetectionProperties = {
-  /**
-   *
-   * @type {FaceSizeRatio | null}
-   * @memberof FaceDetectionProperties
-   */
-  faceSizeRatio?: FaceSizeRatio | null;
-  /**
-   * The face detection mode. The `strict` detection detects face but returns error if multiple faces are detected in the image. The `free` detection detects faces in the image and returns the biggest one with warning if there are multiple faces detected.
-   * @type {FaceDetectionPropertiesMode}
-   * @memberof FaceDetectionProperties
-   */
-  mode?: FaceDetectionPropertiesMode;
-};
-
-/**
  *
  * @export
  * @type CreateCustomerDocumentRequest
@@ -205,36 +164,6 @@ export type CustomerLivenessSelfieOrigin = {
   link: string;
 };
 
-export type CreateCustomerLivenessSelfieRestRequest = {
-  /**
-   *
-   * @enum {AssertionType}
-   * @memberof CreateCustomerLivenessSelfieRestRequest
-   */
-  assertion?: AssertionType;
-  /**
-   *
-   * @type {Image}
-   * @memberof CreateCustomerLivenessSelfieRestRequest
-   */
-  image?: Image;
-  /**
-   *
-   * @type {CustomerLivenessSelfieOrigin}}
-   * @memberof CreateCustomerLivenessSelfieRestRequest
-   */
-  selfieOrigin?: CustomerLivenessSelfieOrigin;
-};
-
-export type CreateMagnifeyeLivenessSelfieRestRequest = {
-  /**
-   *
-   * @type {Uint8Array}
-   * @memberof CreateMagnifeyeLivenessSelfieRestRequest
-   */
-  magnifeyeMessage?: Uint8Array;
-};
-
 /**
  *
  * @export
@@ -254,7 +183,6 @@ export type DetectFaceRestRequest = {
    */
   image: Image;
 };
-
 /**
  *
  * @export

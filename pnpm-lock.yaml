@@ -100,17 +100,17 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@types/react-dom@18.2.7)(@types/react@18.2.15)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       countly-sdk-web:
         specifier: ^23.2.2
         version: 23.2.2
@@ -185,11 +185,11 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@types/react-dom@18.2.7)(@types/react@18.2.15)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.0.5
         version: 2.0.5(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
@@ -370,17 +370,17 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@types/react-dom@18.2.7)(@types/react@18.2.15)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 4.1.6
-        version: 4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+        specifier: 5.0.3
+        version: 5.0.3(react-dom@18.2.0)(react@18.2.0)
       dot-web-common-client:
         specifier: workspace:*
         version: link:../common-client
@@ -2034,24 +2034,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@babel/traverse@7.22.10(supports-color@5.5.0):
-    resolution: {integrity: sha512-Q/urqV4pRByiNNpb/f5OSv28ZlGJiFiiTh+GAHktbIrkPhPbl90+uW6SmpoLyZqutrg9AEaEf3Q/ZBRHBXgxig==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/code-frame': 7.22.10
-      '@babel/generator': 7.22.10
-      '@babel/helper-environment-visitor': 7.22.5
-      '@babel/helper-function-name': 7.22.5
-      '@babel/helper-hoist-variables': 7.22.5
-      '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.22.10
-      '@babel/types': 7.22.10
-      debug: 4.3.4(supports-color@5.5.0)
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@babel/types@7.22.10:
     resolution: {integrity: sha512-obaoigiLrlDZ7TUQln/8m4mSqIW2QFeOrCQc9r+xsaHGNoplVNYlRVpsfE8Vj35GEm2ZH4ZhrNYogs/3fj85kg==}
     engines: {node: '>=6.9.0'}
@@ -2204,14 +2186,6 @@ packages:
 
   /@emotion/memoize@0.8.1:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
-    dev: false
-
-  /@emotion/stylis@0.8.5:
-    resolution: {integrity: sha512-h6KtPihKFn3T9fuIrwvXXUOwlx3rfUvfZIcP5a6rh8Y7zjE3O06hT5Ss4S/YI1AYhuZ1kjaE/5EaOOI2NqSylQ==}
-    dev: false
-
-  /@emotion/unitless@0.7.5:
-    resolution: {integrity: sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==}
     dev: false
 
   /@emotion/unitless@0.8.1:
@@ -3088,57 +3062,59 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@innovatrics/dot-auto-capture-ui@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-AAvQhze2StafX8DHfSP/I81VEG3Rcey10FKfE6IQk459m2Qhe5jhpWI8L6tUfFHxRyiqrJl0IwkSrfJzYilQiA==}
+  /@innovatrics/dot-auto-capture-ui@5.0.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-7VOsSdFR0erJpidQ4w3CvjG2Gkork4nASw3gUHVfDzDrbSsQHOvKBji2pKBhjhBQnrA+uKdFX7k+FgPB7Tvo/Q==}
     dependencies:
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
-      styled-components: 5.3.11(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      styled-components: 6.0.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
-      - '@babel/core'
+      - babel-plugin-styled-components
       - react
       - react-dom
-      - react-is
+      - supports-color
     dev: false
 
-  /@innovatrics/dot-document-auto-capture@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-uCxkEQeH7V1zoAIgBfijbwF1bHclaXRPGbPDjWNwwgfAtBwDcm1nuH+gx0rkfdostgwdBrfvx0V9ADRlp+qDJA==}
+  /@innovatrics/dot-document-auto-capture@5.0.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JX/pfU7tWmdat/OHCa13Cc9FA3NRXZHPT0HVk/pXDAx5eKlIpz+gyjvyxVD8VRpMWxur6iZ1Nxg6OxZYBkOkcg==}
     dependencies:
+      comlink: 4.4.1
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
-      styled-components: 5.3.11(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      styled-components: 6.0.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
-      - '@babel/core'
+      - babel-plugin-styled-components
       - react
       - react-dom
-      - react-is
+      - supports-color
     dev: false
 
-  /@innovatrics/dot-face-auto-capture@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-bcPRdn0Agft5BY72HfwWjWOnJu8d8IDeFJjepjzRq8F1DNs94d6EtU02li8yQW632JN6aAA+zBzg+b5gIttwWw==}
+  /@innovatrics/dot-face-auto-capture@5.0.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ishGfAEYKpJSw5EEqdfFwiPzECjgUV//FM52xz0mbEA40WXkkEUy/l5fAKQqMa2Nt8oiu3qdiJy8GGbb8j8JfQ==}
     dependencies:
+      comlink: 4.4.1
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
-      styled-components: 5.3.11(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      styled-components: 6.0.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
-      - '@babel/core'
+      - babel-plugin-styled-components
       - react
       - react-dom
-      - react-is
+      - supports-color
     dev: false
 
-  /@innovatrics/dot-magnifeye-liveness@4.1.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-LcJKtqiuD98lQkqZOUkR0bvxwkqNmrXMWp48pOnkjZvP4TI4iNiPtYHXV09XmuwgPErs6shk+n1K+W+pH/odCA==}
+  /@innovatrics/dot-magnifeye-liveness@5.0.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-aPzFtNfIDRhaUj0v+NQYLm86/axpvm1MwGrdFZjxfsmcuSdlk0ewAO++5A6O4+eMSU19BJjx0Z9C0Y/1Yh9LlQ==}
     dependencies:
       '@preact/signals': 1.2.0(preact@10.16.0)
       preact: 10.16.0
       preact-custom-element: 4.2.1(preact@10.16.0)
-      styled-components: 5.3.11(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      styled-components: 6.0.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
-      - '@babel/core'
+      - babel-plugin-styled-components
       - react
       - react-dom
-      - react-is
+      - supports-color
     dev: false
 
   /@isaacs/cliui@8.0.2:
@@ -5190,21 +5166,6 @@ packages:
       - supports-color
     dev: false
 
-  /babel-plugin-styled-components@2.1.4(@babel/core@7.22.10)(styled-components@5.3.11):
-    resolution: {integrity: sha512-Xgp9g+A/cG47sUyRwwYxGM4bR/jDRg5N6it/8+HxCnbT5XNKSKDT9xm4oag/osgqjC2It/vH0yXsomOG6k558g==}
-    peerDependencies:
-      styled-components: '>= 2'
-    dependencies:
-      '@babel/helper-annotate-as-pure': 7.22.5
-      '@babel/helper-module-imports': 7.22.5
-      '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.10)
-      lodash: 4.17.21
-      picomatch: 2.3.1
-      styled-components: 5.3.11(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - '@babel/core'
-    dev: false
-
   /babel-plugin-syntax-trailing-function-commas@7.0.0-beta.0:
     resolution: {integrity: sha512-Xj9XuRuz3nTSbaTXWv3itLOcxyF4oPD8douBBmj7U9BBC6nEBYfyOJYQMf/8PJAFotC62UY5dFfIGEPr7WswzQ==}
     dev: true
@@ -5647,6 +5608,10 @@ packages:
     dependencies:
       delayed-stream: 1.0.0
 
+  /comlink@4.4.1:
+    resolution: {integrity: sha512-+1dlx0aY5Jo1vHy/tSsIGpSkN4tS9rZSW8FIhG0JH/crs9wwweswIo/POr451r7bZww3hFbPAKnTpimzL/mm4Q==}
+    dev: false
+
   /commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
@@ -5918,19 +5883,6 @@ packages:
       ms: 2.1.3
       supports-color: 8.1.1
     dev: true
-
-  /debug@4.3.4(supports-color@5.5.0):
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
-      supports-color: 5.5.0
-    dev: false
 
   /debug@4.3.4(supports-color@8.1.1):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -9203,6 +9155,7 @@ packages:
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: true
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
@@ -9920,31 +9873,6 @@ packages:
     dependencies:
       acorn: 8.10.0
     dev: true
-
-  /styled-components@5.3.11(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>= 16.8.0'
-      react-dom: '>= 16.8.0'
-      react-is: '>= 16.8.0'
-    dependencies:
-      '@babel/helper-module-imports': 7.22.5
-      '@babel/traverse': 7.22.10(supports-color@5.5.0)
-      '@emotion/is-prop-valid': 1.2.1
-      '@emotion/stylis': 0.8.5
-      '@emotion/unitless': 0.7.5
-      babel-plugin-styled-components: 2.1.4(@babel/core@7.22.10)(styled-components@5.3.11)
-      css-to-react-native: 3.2.0
-      hoist-non-react-statics: 3.3.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-is: 18.2.0
-      shallowequal: 1.1.0
-      supports-color: 5.5.0
-    transitivePeerDependencies:
-      - '@babel/core'
-    dev: false
 
   /styled-components@6.0.4(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-lRJt4vg8hKJhlVG+VKz8QEqPCXKyTryZZ59odyK0UC0HHV3u/mshWTfSay8NpkN0Xijw1iN9r0Leld3dcCcp/w==}

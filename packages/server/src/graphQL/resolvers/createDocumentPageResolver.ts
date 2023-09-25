@@ -1,32 +1,48 @@
-import type { CreateDocumentPageResponse, DocumentAdvice, Source } from '../../types/graphqlTypes';
-import type { CreateCustomerDocumentRestRequest, CreateDocumentPageRestRequest } from '../../types/restRequestTypes';
+import type {
+  CreateDocumentPageResponse,
+  MutationCreateDocumentPageWithContentArgs,
+  MutationCreateDocumentPageWithImageArgs,
+} from '../../types/graphqlTypes';
+import type { CreateDocumentPageRestRequest } from '../../types/restRequestTypes';
 
-import { createDocumentApi, createDocumentPageApi } from '../../api/customersDocumentApi';
+import { createDocumentPageApi, createDocumentPageOctetStreamApi } from '../../api/customersDocumentApi';
 import { createImage } from '../../api/utils';
 import createCustomer from '../../api/utils/createCustomer';
+import { createDocument } from '../../api/utils/createDocument';
 
-export const createDocumentPageResolver = async (
-  image: string,
-  isDocumentCreated: boolean,
-  pageType?: string,
-  documentAdvice?: DocumentAdvice,
-  customerApiLink?: string,
-  sources?: Source[],
-): Promise<CreateDocumentPageResponse> => {
+export async function createDocumentWithContentResolver({
+  content,
+  customerApiLink,
+  isDocumentCreated,
+  ...args
+}: MutationCreateDocumentPageWithContentArgs): Promise<CreateDocumentPageResponse> {
   const customer = await createCustomer(customerApiLink);
 
   if (!isDocumentCreated) {
-    const createDocumentRequest: CreateCustomerDocumentRestRequest = {};
+    await createDocument(customer, args);
+  }
 
-    if (documentAdvice) {
-      createDocumentRequest.advice = documentAdvice;
-    }
+  const response = await createDocumentPageOctetStreamApi(customer, content);
 
-    if (sources) {
-      createDocumentRequest.sources = sources;
-    }
+  return {
+    ...response,
+    links: {
+      customer,
+    },
+  };
+}
 
-    await createDocumentApi(customer, createDocumentRequest);
+export async function createDocumentPageWithImageResolver({
+  customerApiLink,
+  image,
+  isDocumentCreated,
+  pageType,
+  ...args
+}: MutationCreateDocumentPageWithImageArgs): Promise<CreateDocumentPageResponse> {
+  const customer = await createCustomer(customerApiLink);
+
+  if (!isDocumentCreated) {
+    await createDocument(customer, args);
   }
 
   const createDocumentPageRequest: CreateDocumentPageRestRequest = {
@@ -49,4 +65,4 @@ export const createDocumentPageResolver = async (
       customer,
     },
   };
-};
+}

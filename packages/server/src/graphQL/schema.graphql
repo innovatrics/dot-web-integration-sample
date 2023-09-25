@@ -21,20 +21,8 @@ enum CreateCustomerLivenessSelfieWarning {
   MULTIPLE_FACES_DETECTED
 }
 
-enum CreateCustomerLivenessSelfieErrorCode {
-  NO_FACE_DETECTED
-}
-
-enum CreateMagnifeyeLivenessSelfieErrorCode {
+enum CreateLivenessRecordsErrorCode {
   INVALID_DATA
-}
-
-enum AssertionType {
-  EYE_GAZE_TOP_LEFT
-  EYE_GAZE_TOP_RIGHT
-  EYE_GAZE_BOTTOM_LEFT
-  EYE_GAZE_BOTTOM_RIGHT
-  NONE
 }
 
 enum DetectFaceResponseWarnings {
@@ -79,11 +67,11 @@ type SelfLinks {
   self: String!
 }
 
-type MagnifeyeSelfieLink {
+type LivenessRecordsSelfieLink {
   selfie: String
 }
 
-type MagnifeyeDetection {
+type LivenessRecordsDetection {
   detection: FaceDetection
 }
 
@@ -452,15 +440,10 @@ type DetectSelfieResponse {
   links: Links!
 }
 
-type CreateCustomerLivenessSelfieResponse {
-  errorCode: CreateCustomerLivenessSelfieErrorCode
-  links: CustomerLinks!
-}
-
-type CreateMagnifeyeLivenessSelfieResponse {
-  errorCode: CreateMagnifeyeLivenessSelfieErrorCode
-  selfie: MagnifeyeDetection
-  links: MagnifeyeSelfieLink!
+type CreateLivenessRecordsResponse {
+  errorCode: CreateLivenessRecordsErrorCode
+  selfie: LivenessRecordsDetection
+  links: LivenessRecordsSelfieLink!
   customerLinks: CustomerLinks!
 }
 
@@ -519,6 +502,16 @@ type InspectCustomerLinks {
 type InspectCustomerResponse {
   selfieInspection: CustomerSelfieInspection
   links: InspectCustomerLinks!
+  security: SecurityInspection
+}
+
+type SecurityInspection {
+  videoInjection: VideoInjection
+}
+
+type VideoInjection {
+  evaluated: Boolean
+  detected: Boolean
 }
 
 type CustomerLiveness {
@@ -611,7 +604,14 @@ type Query {
 
 type Mutation {
   deleteCustomer(customerApiLink: String!): Void
-  createDocumentPage(
+  createDocumentPageWithContent(
+    content: String!
+    isDocumentCreated: Boolean!
+    documentAdvice: DocumentAdvice
+    customerApiLink: String
+    sources: [Source!]
+  ): CreateDocumentPageResponse
+  createDocumentPageWithImage(
     image: String!
     isDocumentCreated: Boolean!
     pageType: String
@@ -620,18 +620,11 @@ type Mutation {
     sources: [Source!]
   ): CreateDocumentPageResponse
   createSelfie(image: String, customerApiLink: String, selfieLink: String): DetectSelfieResponse
-  createCustomerLiveness(
-    image: String
-    isLivenessCreated: Boolean
-    assertionType: AssertionType
-    customerApiLink: String
-    selfieLink: String
-  ): CreateCustomerLivenessSelfieResponse
-  createMagnifeyeLiveness(
-    magnifeyeMessage: String!
+  createLivenessRecords(
+    content: String!
     customerApiLink: String
     isLivenessCreated: Boolean
-  ): CreateMagnifeyeLivenessSelfieResponse
+  ): CreateLivenessRecordsResponse
   createFace(image: String!, detection: FaceDetectionProperties): DetectFaceResponse
   postContactForm(contactFormData: ContactFormRequest!, recaptchaToken: String!): Void
 }
