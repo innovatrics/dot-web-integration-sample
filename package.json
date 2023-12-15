@@ -1,6 +1,6 @@
 {
   "name": "dot-web-demo",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -21,6 +21,7 @@
     "test": "vitest run",
     "test:ui": "pnpm -r --parallel test:ui",
     "tsc": "pnpm -r --parallel tsc",
+    "bump:version": "VERSION=$v pnpm --r bump:version && npm pkg set version=$v",
     "cy:ocr-demo:run": "cypress run --config-file cypress/cypress.ocrDemo.config.ts --headless --browser chrome",
     "cy:web-demo:run": "cypress run --config-file cypress/cypress.webDemo.config.ts --headless --browser chrome",
     "cy:ocr-demo:open": "cypress open --config-file cypress/cypress.ocrDemo.config.ts",
