@@ -1,14 +1,14 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   settings: {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".ts",]
-      }
-    }
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts'],
+      },
+    },
   },
   parserOptions: {
-    project: ['./tsconfig.json',],
+    project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
   env: {
@@ -18,19 +18,18 @@ module.exports = {
     __PACKAGE_JSON_VERSION__: true,
   },
   root: true,
-  extends: [
-    '@dot/eslint-config-typescript',
-  ],
+  extends: ['@dot/eslint-config-typescript'],
   rules: {
-    "no-console": "off",
-    "@typescript-eslint/naming-convention": ["error",
+    'no-console': 'off',
+    '@typescript-eslint/naming-convention': [
+      'error',
       {
-        "selector": "property",
-        "filter": "__typename",
-        "format": null
-      }
+        selector: 'property',
+        filter: '__typename',
+        format: null,
+      },
     ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 
     // sometimes the variable has the underscore at the beginning,
     // for example `__typename` in graphql.
@@ -38,7 +37,7 @@ module.exports = {
     // signalize that a method is private-ish, without having
     // to enforce it.
     'no-underscore-dangle': 'off',
-    "@typescript-eslint/no-non-null-assertion": "off",
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
-  ignorePatterns: ["api.ts", "graphqlTypes.ts"],
+  ignorePatterns: ['api.ts', 'graphqlTypes.ts'],
 };

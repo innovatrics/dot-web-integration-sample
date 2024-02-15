@@ -1,6 +1,6 @@
 node_modules
 dist
-.eslintrc.js
+.eslintrc.cjs
 prettier.config.js
 graphqlTypes.ts
 pnpm-lock.yaml

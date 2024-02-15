@@ -1,5 +1,5 @@
 #build app
-FROM node:hydrogen-alpine as builder
+FROM node:iron-alpine as builder
 
 WORKDIR /build
 
@@ -10,12 +10,12 @@ ARG GITLAB_NPM_AUTH_TOKEN
 
 RUN npm config set @dot:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/ && \
   npm config set //gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm install -g pnpm@8.6.9 && \
+  npm install -g pnpm@8.12.1 && \
   pnpm install --frozen-lockfile && \
   pnpm server:build
 
 #build prod image
-FROM node:hydrogen-alpine
+FROM node:iron-alpine
 
 WORKDIR /usr/src/app
 
@@ -31,7 +31,7 @@ COPY --from=builder /build/packages/server/dist ./packages/server/dist
 
 RUN npm config set @dot:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/ && \
   npm config set //gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm install -g pnpm@8.6.9 && \
+  npm install -g pnpm@8.12.1 && \
   pnpm install --frozen-lockfile
 
 
