@@ -100,17 +100,17 @@ importers:
         specifier: 1.0.9
         version: 1.0.9(@types/react-dom@18.2.18)(@types/react@18.2.15)(framer-motion@10.16.16)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)(swiper@11.0.5)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       countly-sdk-web:
         specifier: ^23.12.1
         version: 23.12.1
@@ -185,11 +185,11 @@ importers:
         specifier: 1.0.9
         version: 1.0.9(@types/react-dom@18.2.18)(@types/react@18.2.15)(framer-motion@10.16.16)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)(swiper@11.0.5)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.0.6
         version: 2.0.6(@types/react-dom@18.2.18)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
@@ -370,17 +370,17 @@ importers:
         specifier: 1.0.9
         version: 1.0.9(@types/react-dom@18.2.18)(@types/react@18.2.15)(framer-motion@10.16.16)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)(swiper@11.0.5)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 5.2.4
-        version: 5.2.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       dot-web-common-client:
         specifier: workspace:*
         version: link:../common-client
@@ -2525,8 +2525,8 @@ packages:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
     dev: true
 
-  /@innovatrics/dot-auto-capture-ui@5.2.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-8RJ2oi0IBIaz7NaylERNpIn8q95RI07euOOSescCfoXXR+JGeY4Wk0C5lka/P2ULL0q4RN3NNYcY1YWDIQ/EpQ==}
+  /@innovatrics/dot-auto-capture-ui@5.2.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-KIzQQJXgtyqvOpY5niVO8DfL9m7hsbscuYWgkeBI1Mw0A/aE1LweFxKF5xkcwDGQP68zCtzlY6qbo/jVhzoyuw==}
     dependencies:
       preact: 10.19.4
       preact-custom-element: 4.3.0(preact@10.19.4)
@@ -2536,21 +2536,8 @@ packages:
       - react-dom
     dev: false
 
-  /@innovatrics/dot-document-auto-capture@5.2.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-HxKgkHGfARCKVosX4VaCMqihJUM2A6RG9Xln+cx0b4Z3zK1XknnbXgkiR6uB/TEUOrBNgQ7bbeBHTRiSb4tIkQ==}
-    dependencies:
-      '@preact/signals': 1.2.2(preact@10.19.4)
-      comlink: 4.4.1
-      preact: 10.19.4
-      preact-custom-element: 4.3.0(preact@10.19.4)
-      styled-components: 6.1.1(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - react
-      - react-dom
-    dev: false
-
-  /@innovatrics/dot-face-auto-capture@5.2.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-6z3HS2tw4Vc7oODz6sJvZBYQTWzxE7RG4cAWfQ0ejjQLigzi+bN1oxlVBceLhdIvhceFkSrdVHydbKcG3gk/xA==}
+  /@innovatrics/dot-document-auto-capture@5.2.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-f3UuMMkh61jJ/x1O/v8Bu5nfWTU/NQaF4vJIeGOi2EfHZcckzORrlktzkC3OWRkR7uqqN93ZNfcqLJOUVfhFsw==}
     dependencies:
       '@preact/signals': 1.2.2(preact@10.19.4)
       comlink: 4.4.1
@@ -2562,8 +2549,21 @@ packages:
       - react-dom
     dev: false
 
-  /@innovatrics/dot-magnifeye-liveness@5.2.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-rV5M60eFxVmshRQ6Vac12X562/x2W18lOEZ6FtHUC+21jLXpZWg6rLf5NEQJihbY6xFzwtO44VASS29eWrtx5A==}
+  /@innovatrics/dot-face-auto-capture@5.2.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-yM882zYlaqj28/+pNLwAyvsZASGEJJccc2rSEnL0haIOMQ286gkPlb28frybZC6BH4jIB7FQoK3kzeX+VnKI/Q==}
+    dependencies:
+      '@preact/signals': 1.2.2(preact@10.19.4)
+      comlink: 4.4.1
+      preact: 10.19.4
+      preact-custom-element: 4.3.0(preact@10.19.4)
+      styled-components: 6.1.1(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
+  /@innovatrics/dot-magnifeye-liveness@5.2.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-yP+0IEi5X1v3WkSjqfYNTqP6LlMpYLh/NdLll2AyZupaQALNzeXiQ0lsc5+rIH9V92+Uq+yOl+Wp8udzSXEgRg==}
     dependencies:
       '@preact/signals': 1.2.2(preact@10.19.4)
       preact: 10.19.4
