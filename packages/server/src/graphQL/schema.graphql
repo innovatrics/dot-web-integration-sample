@@ -48,6 +48,7 @@ enum EvaluateLivenessType {
   EYE_GAZE_LIVENESS
   PASSIVE_LIVENESS
   MAGNIFEYE_LIVENESS
+  SMILE_LIVENESS
 }
 
 enum Source {
