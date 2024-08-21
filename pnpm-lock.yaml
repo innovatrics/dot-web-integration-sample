@@ -100,17 +100,17 @@ importers:
         specifier: 1.0.11-snapshot.3
         version: 1.0.11-snapshot.3(@radix-ui/react-dropdown-menu@2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-radio-group@1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-switch@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-tabs@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.3.19(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(swiper@11.1.8)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       countly-sdk-web:
         specifier: ^24.4.0
         version: 24.4.0
@@ -185,11 +185,11 @@ importers:
         specifier: 1.0.11-snapshot.3
         version: 1.0.11-snapshot.3(@radix-ui/react-dropdown-menu@2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-radio-group@1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-switch@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-tabs@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.3.19(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(swiper@11.1.8)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.1.1
         version: 2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -373,20 +373,20 @@ importers:
         specifier: 1.0.11-snapshot.3
         version: 1.0.11-snapshot.3(@radix-ui/react-dropdown-menu@2.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-radio-group@1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-switch@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@radix-ui/react-tabs@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(framer-motion@11.3.19(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(swiper@11.1.8)
       '@innovatrics/dot-auto-capture-ui':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-document-auto-capture':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-face-auto-capture':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-magnifeye-liveness':
-        specifier: 6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@innovatrics/dot-smile-liveness':
-        specifier: ^6.1.3
-        version: 6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 6.1.4
+        version: 6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-radio-group':
         specifier: ^1.2.0
         version: 1.2.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1719,20 +1719,20 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
 
-  '@innovatrics/dot-auto-capture-ui@6.1.3':
-    resolution: {integrity: sha512-lYo4If+PnMPEiYeRsT9YgnUityHOxc9X7HqL+VOk6BsrnL0MhDLvEskGf4s844atb0w5Mjzuzlwpdr3pY0/X+A==}
+  '@innovatrics/dot-auto-capture-ui@6.1.4':
+    resolution: {integrity: sha512-/WgEFKkCPGXbLKihqmHWsXH+dIAwNco4tNFWCpB3+Fb+/t4bloG++wzz1Ry9E4Q+3FcyniCpVDazpITTLRjm2A==}
 
-  '@innovatrics/dot-document-auto-capture@6.1.3':
-    resolution: {integrity: sha512-V3Ru5eE5EGF4/DWGtzSxnmKGLM6Y4w+c8KEDcYoVQPKOwrggPxcySagWkoTcKZXz0xVrbngpUcBu9bJh8lPqCA==}
+  '@innovatrics/dot-document-auto-capture@6.1.4':
+    resolution: {integrity: sha512-wKkB7tIMZc2iUWBWthiV5RB/TO9ozY8Uxsd7UiRbVye8UdTn3EvwALNKIkymflQ7fZ7dPVvhX9X92zOXD8GweQ==}
 
-  '@innovatrics/dot-face-auto-capture@6.1.3':
-    resolution: {integrity: sha512-kcxdD/eXVx4nmTkyHpQZZv7DmmjuhfJSF86sL7x7l6jHv9YQ9PZOjYLHD9Wl9NvBSjcxsaaigeECMkABM2ALww==}
+  '@innovatrics/dot-face-auto-capture@6.1.4':
+    resolution: {integrity: sha512-V8H3A/rZXAC0s6jU/5k6d60GtfrYgC3aEGk1r/nvlXxMa1TC8pemG6l3fRYLW9bPl+YCLjG2Ub7TUA+w7/yRig==}
 
-  '@innovatrics/dot-magnifeye-liveness@6.1.3':
-    resolution: {integrity: sha512-90V9lEcXiSNp+Toukk8sqD4wZxo6eDTuy/DSrJnxGRXlTNmO2zN66CaQJzUC5nmBvwKDoyD+yhH0LLPpT0bTZQ==}
+  '@innovatrics/dot-magnifeye-liveness@6.1.4':
+    resolution: {integrity: sha512-PToaDRPe0CsFZWwZfddX3Aq6me2SGTGJTb2s+342fOB4qdgrFgx6Etw1u0uHYvB77YCVLn9XYpoPozzUpdo5jA==}
 
-  '@innovatrics/dot-smile-liveness@6.1.3':
-    resolution: {integrity: sha512-OToCdOO+OpZiWEb8LaC/bCQvGjRlwYxio575AmlFJ+LM1PyRaWUrp736FUd48l17SGUa/kdKsHX6gmXk3ErR9A==}
+  '@innovatrics/dot-smile-liveness@6.1.4':
+    resolution: {integrity: sha512-Eo3a4MQ6QXmSRQ2J3bubHL5xooradUSOa6CdsGPbkPflrlOqOPSV8dpimQFxkVTdJJw2P2WMnLcIEZKK02IzuA==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -7835,7 +7835,7 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@innovatrics/dot-auto-capture-ui@6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@innovatrics/dot-auto-capture-ui@6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       preact: 10.23.1
       preact-custom-element: 4.3.0(preact@10.23.1)
@@ -7844,18 +7844,7 @@ snapshots:
       - react
       - react-dom
 
-  '@innovatrics/dot-document-auto-capture@6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@preact/signals': 1.3.0(preact@10.23.1)
-      comlink: 4.4.1
-      preact: 10.23.1
-      preact-custom-element: 4.3.0(preact@10.23.1)
-      styled-components: 6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    transitivePeerDependencies:
-      - react
-      - react-dom
-
-  '@innovatrics/dot-face-auto-capture@6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@innovatrics/dot-document-auto-capture@6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@preact/signals': 1.3.0(preact@10.23.1)
       comlink: 4.4.1
@@ -7866,7 +7855,18 @@ snapshots:
       - react
       - react-dom
 
-  '@innovatrics/dot-magnifeye-liveness@6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@innovatrics/dot-face-auto-capture@6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@preact/signals': 1.3.0(preact@10.23.1)
+      comlink: 4.4.1
+      preact: 10.23.1
+      preact-custom-element: 4.3.0(preact@10.23.1)
+      styled-components: 6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
+  '@innovatrics/dot-magnifeye-liveness@6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@preact/signals': 1.3.0(preact@10.23.1)
       preact: 10.23.1
@@ -7876,7 +7876,7 @@ snapshots:
       - react
       - react-dom
 
-  '@innovatrics/dot-smile-liveness@6.1.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@innovatrics/dot-smile-liveness@6.1.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@preact/signals': 1.3.0(preact@10.23.1)
       preact: 10.23.1
