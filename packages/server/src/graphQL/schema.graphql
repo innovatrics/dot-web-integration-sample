@@ -2,6 +2,7 @@ scalar Void
 
 enum CreateDocumentPageResponseWarning {
   DOCUMENT_TYPE_NOT_RECOGNIZED
+  MISSING_BACK_PAGE
 }
 
 enum CreateDocumentPageResponseErrorCode {

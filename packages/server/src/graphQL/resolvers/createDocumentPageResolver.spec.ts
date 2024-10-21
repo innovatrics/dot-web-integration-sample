@@ -1,5 +1,6 @@
 import createDocumentPageResponse from '../../api/mocks/data/createDocumentPageResponse.json';
-import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
+import createDocumentPageResponseWithWarning from '../../api/mocks/data/createDocumentPageResponseWithWarning.json';
+import { customerApiLink, customerApiLinkError, customerLinks, serverConnectionMock } from '../../test';
 
 import resolvers from '.';
 
@@ -54,9 +55,27 @@ describe('#createDocumentPageResolver', () => {
 
       await expect(result).rejects.toThrow();
     });
+
+    it('should map warnings from api response correctly', async () => {
+      serverConnectionMock
+        .onPut(`${customerApiLink}/document/pages`)
+        .reply(() => [200, createDocumentPageResponseWithWarning]);
+
+      const result = resolvers.Mutation.createDocumentPageWithContent(null, {
+        content: 'message',
+        isDocumentCreated: false,
+        customerApiLink,
+      });
+
+      await expect(result).resolves.toEqual({ ...createDocumentPageResponseWithWarning, ...customerLinks });
+    });
   });
 
   describe('#createDocumentPageWithImage', () => {
+    beforeAll(() => {
+      serverConnectionMock.onPut(`${customerApiLink}/document/pages`).reply(() => [200, createDocumentPageResponse]);
+    });
+
     it('should get correct response when document is not created', async () => {
       const result = resolvers.Mutation.createDocumentPageWithImage(null, {
         image: 'image.jpg',

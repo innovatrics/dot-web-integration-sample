@@ -1,0 +1,33 @@
+{
+  "documentType": {
+    "country": "ino",
+    "edition": "2020",
+    "type": "identity-card",
+    "machineReadableTravelDocument": "TD1"
+  },
+  "pageType": "front",
+  "detection": {
+    "confidence": 0.981,
+    "coordinates": {
+      "topLeftCorner": {
+        "x": 61,
+        "y": 506
+      },
+      "topRightCorner": {
+        "x": 1131,
+        "y": 509
+      },
+      "bottomLeftCorner": {
+        "x": 45,
+        "y": 1186
+      },
+      "bottomRightCorner": {
+        "x": 1148,
+        "y": 1199
+      }
+    }
+  },
+  "warnings": [
+    "MISSING_BACK_PAGE"
+  ]
+}
