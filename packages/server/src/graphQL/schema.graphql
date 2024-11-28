@@ -2,7 +2,9 @@ scalar Void
 
 enum CreateDocumentPageResponseWarning {
   DOCUMENT_TYPE_NOT_RECOGNIZED
+  MISSING_FRONT_PAGE
   MISSING_BACK_PAGE
+  PORTRAIT_NOT_GUARANTEED_OF_THE_SAME_PERSON
 }
 
 enum CreateDocumentPageResponseErrorCode {
