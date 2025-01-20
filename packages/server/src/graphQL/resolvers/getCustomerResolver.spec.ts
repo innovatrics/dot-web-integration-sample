@@ -19,7 +19,6 @@ describe('#customer', () => {
             edition: '2020',
             machineReadableTravelDocument: TravelDocumentType.TD1,
             type: 'National ID',
-            isDocumentSupported: true,
           },
         },
       },

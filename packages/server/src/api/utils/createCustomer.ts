@@ -105,6 +105,5 @@ export const getDocumentTypeDetails = (document?: CustomerDocument): ParsedDocum
     type: getDocumentType(document, travelDocumentType),
     edition: document?.type?.edition,
     machineReadableTravelDocument: travelDocumentType,
-    isDocumentSupported: Boolean(document?.type),
   };
 };

@@ -1,6 +1,6 @@
 {
   "name": "dot-web-demo",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "main": "index.js",
   "license": "MIT",
   "private": true,

@@ -80,7 +80,6 @@ describe('#createCustomer', () => {
         edition: '2020',
         type: 'National ID',
         machineReadableTravelDocument: undefined,
-        isDocumentSupported: true,
       };
 
       expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
@@ -100,7 +99,6 @@ describe('#createCustomer', () => {
         edition: '2020',
         type: 'National ID',
         machineReadableTravelDocument: undefined,
-        isDocumentSupported: true,
       };
 
       expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
@@ -120,7 +118,6 @@ describe('#createCustomer', () => {
         type: 'National ID',
         machineReadableTravelDocument: undefined,
         edition: undefined,
-        isDocumentSupported: true,
       };
 
       expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
@@ -141,7 +138,6 @@ describe('#createCustomer', () => {
         type: 'Foreigner Residence',
         machineReadableTravelDocument: TravelDocumentType.TD1,
         edition: '2020',
-        isDocumentSupported: true,
       };
 
       expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
@@ -163,7 +159,6 @@ describe('#createCustomer', () => {
         type: 'Foreigner Residence',
         machineReadableTravelDocument: TravelDocumentType.TD1,
         edition: undefined,
-        isDocumentSupported: true,
       };
 
       expect(getDocumentTypeDetails(document)).toEqual(expectedResult);
@@ -175,7 +170,6 @@ describe('#createCustomer', () => {
         type: undefined,
         machineReadableTravelDocument: undefined,
         edition: undefined,
-        isDocumentSupported: false,
       };
 
       expect(getDocumentTypeDetails(undefined)).toEqual(expectedResult);

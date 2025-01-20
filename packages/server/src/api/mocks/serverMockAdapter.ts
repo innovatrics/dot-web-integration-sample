@@ -24,6 +24,7 @@ import inspectCustomerResponse from './data/inspectCustomerResponse.json';
 import inspectDocumentResponse from './data/inspectDocumentResponse.json';
 import normalizedDocumentImageBackResponse from './data/normalizedDocumentImageBackResponse.json';
 import normalizedDocumentImageFrontResponse from './data/normalizedDocumentImageFrontResponse.json';
+import trustEvaluationEvaluateResponse from './data/trustEvaluationEvaluateResponse.json';
 
 const HTTP_OK = 200;
 const HTTP_INTERNAL_SERVER_ERROR = 500;
@@ -111,6 +112,10 @@ function storeCustomer() {
 
 function appInfo() {
   return [HTTP_OK, getAppInfoResponse];
+}
+
+function trustEvaluationEvaluate() {
+  return [HTTP_OK, trustEvaluationEvaluateResponse];
 }
 
 function error() {
@@ -223,6 +228,10 @@ export const initServerMocks = (axios: AxiosInstance): MockAdapter => {
   const appInfoLink = '/api/v1/info';
 
   mock.onGet(appInfoLink).reply(appInfo);
+
+  const evaluateTrustFactorsUrl = `${customerApiLink}/trust-evaluation/evaluate`;
+
+  mock.onPut(evaluateTrustFactorsUrl).reply(trustEvaluationEvaluate);
 
   mock.onAny().reply(() => [500, { errorMessage: 'Requested API URL was not mocked' }]);
 

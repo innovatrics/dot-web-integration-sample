@@ -230,3 +230,19 @@ export type ContactFormRestRequest = {
   message: string;
   name: string;
 };
+
+export type TrustFactorDefinition = {
+  booleanConfiguration?: 'REJECT_IF_TRUE' | 'REVIEW_IF_TRUE' | 'REJECT_IF_FALSE' | 'REVIEW_IF_FALSE';
+  name: string;
+  scoreConfiguration?: {
+    rejectHigh?: number;
+    rejectLow?: number;
+    reviewHigh?: number;
+    reviewLow?: number;
+  };
+  type: 'SCORE' | 'BOOLEAN';
+};
+
+export type PutTrustEvaluationRequest = {
+  trustFactorDefinitions: Array<TrustFactorDefinition>;
+};

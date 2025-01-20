@@ -10,6 +10,7 @@ import type {
   DetectSelfieResponse,
   EvaluateCustomerLivenessResponse,
   EvaluateLivenessType,
+  EvaluateTrustFactorsResponse,
   FaceQualityResponse,
   GetAppInfoResponse,
   GetCustomerResponse,
@@ -17,6 +18,7 @@ import type {
   ImageDimensions,
   InspectCustomerResponse,
   InspectDocumentResponse,
+  LivenessType,
   MutationCreateDocumentPageWithContentArgs,
   MutationCreateDocumentPageWithImageArgs,
   MutationCreateFaceArgs,
@@ -30,6 +32,7 @@ import { createLivenessRecordsResolver } from './createLivenessRecordsResolver';
 import { createSelfieResolver } from './createSelfieResolver';
 import { deleteCustomerResolver } from './deleteCustomerResolver';
 import { evaluateCustomerLivenessResolver } from './evaluateCustomerLivenessResolver';
+import { evaluateTrustFactorsResolver } from './evaluateTrustFactors';
 import { getAppInfoResolver } from './getAppInfoResolver';
 import { getCroppedImagesResolver } from './getCroppedImagesResolver';
 import { getCroppedSelfieResolver } from './getCroppedSelfieResolver';
@@ -83,13 +86,17 @@ const resolvers = {
     ): Promise<StoreCustomerResponse> {
       return storeCustomerResolver(args.customerApiLink, args.onboardingStatus);
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     metadata(_: unknown): Promise<GetMetadataResponse> {
       return getMetadataResolver();
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     appInfo(_: unknown): Promise<GetAppInfoResponse> {
       return getAppInfoResolver();
+    },
+    evaluateTrustFactors(
+      _: unknown,
+      args: { customerApiLink: string; livenessType: LivenessType },
+    ): Promise<EvaluateTrustFactorsResponse> {
+      return evaluateTrustFactorsResolver(args.customerApiLink, args.livenessType);
     },
   },
   Mutation: {

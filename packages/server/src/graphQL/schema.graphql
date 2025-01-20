@@ -10,6 +10,7 @@ enum CreateDocumentPageResponseWarning {
 enum CreateDocumentPageResponseErrorCode {
   NO_CARD_CORNERS_DETECTED
   PAGE_DOESNT_MATCH_DOCUMENT_TYPE_OF_PREVIOUS_PAGE
+  INVALID_DATA
 }
 
 enum DetectSelfieWarnings {
@@ -184,6 +185,7 @@ type DocumentType {
   edition: String
   type: String
   machineReadableTravelDocument: String
+  supportLevel: String
 }
 
 type ParsedDocumentType {
@@ -191,7 +193,6 @@ type ParsedDocumentType {
   edition: String
   type: String
   machineReadableTravelDocument: TravelDocumentType
-  isDocumentSupported: Boolean
 }
 
 type DocumentCoordinates {
@@ -582,6 +583,33 @@ type GetAppInfoResponse {
   iFaceVersion: String
 }
 
+type TrustFactorEvaluationResult {
+  trustFactorName: String
+  result: String
+}
+
+type TrustFactorWarning {
+  warning: String
+  trustFactorName: String
+}
+
+type TrustFactorError {
+  error: String
+  trustFactorName: String
+}
+
+type TrustEvaluation {
+  result: String!
+  trustFactorEvaluationResults: [TrustFactorEvaluationResult!]
+  warnings: [TrustFactorWarning!]
+  errors: [TrustFactorError!]
+}
+
+type EvaluateTrustFactorsResponse {
+  trustEvaluation: TrustEvaluation!
+  links: SelfLinks!
+}
+
 scalar Void
 
 input ContactFormRequest {
@@ -590,6 +618,12 @@ input ContactFormRequest {
   email: String!
   message: String!
   checked: Boolean!
+}
+
+enum LivenessType {
+  PASSIVE
+  MAGNIFEYE
+  SMILE
 }
 
 type Query {
@@ -604,6 +638,7 @@ type Query {
   evaluateCustomerLiveness(type: EvaluateLivenessType!, customerApiLink: String!): EvaluateCustomerLivenessResponse
   storeCustomer(customerApiLink: String!, onboardingStatus: StoreCustomerOnboardingStatus!): StoreCustomerResponse
   appInfo: GetAppInfoResponse
+  evaluateTrustFactors(customerApiLink: String!, livenessType: LivenessType!): EvaluateTrustFactorsResponse
 }
 
 type Mutation {
