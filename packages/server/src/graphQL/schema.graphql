@@ -94,11 +94,6 @@ type Point {
   y: Int!
 }
 
-enum StoreCustomerOnboardingStatus {
-  IN_PROGRESS
-  FINISHED
-}
-
 input Pages {
   front: String
   back: String
@@ -567,16 +562,6 @@ type CroppedSelfieResponse {
   selfie: String
 }
 
-type StoreCustomerApiError {
-  status: Int
-  error: String
-  path: String
-}
-
-type StoreCustomerResponse {
-  apiError: StoreCustomerApiError
-}
-
 type GetAppInfoResponse {
   disVersion: String
   samVersion: String
@@ -636,7 +621,6 @@ type Query {
   croppedImages(imageLinks: CroppedImageLinks!): CroppedImagesResponse
   croppedSelfie(faceApiLink: String!, dimensions: ImageDimensions): CroppedSelfieResponse
   evaluateCustomerLiveness(type: EvaluateLivenessType!, customerApiLink: String!): EvaluateCustomerLivenessResponse
-  storeCustomer(customerApiLink: String!, onboardingStatus: StoreCustomerOnboardingStatus!): StoreCustomerResponse
   appInfo: GetAppInfoResponse
   evaluateTrustFactors(customerApiLink: String!, livenessType: LivenessType!): EvaluateTrustFactorsResponse
 }

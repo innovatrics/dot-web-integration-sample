@@ -1,9 +1,7 @@
-import type { StoreCustomerRequest } from '../types/restRequestTypes';
 import type {
   CreateCustomerRestResponse,
   GetCustomerRestResponse,
   InspectCustomerRestResponse,
-  StoreCustomerRestResponse,
 } from '../types/restResponseTypes';
 
 import { serverConnection } from './rest/serverConnection';
@@ -30,15 +28,4 @@ export const inspectCustomerApi = async (customerApiLink: string): Promise<Inspe
 
 export const deleteCustomerApi = async (customerApiLink: string): Promise<void> => {
   await serverConnection.delete(customerApiLink);
-};
-
-export const storeCustomerApi = async (
-  customerApiLink: string,
-  request: StoreCustomerRequest,
-): Promise<StoreCustomerRestResponse> => {
-  const apiPath = `${customerApiLink}/store`;
-
-  const response = await serverConnection.post<StoreCustomerRestResponse>(apiPath, request);
-
-  return response.data;
 };

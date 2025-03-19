@@ -5,7 +5,7 @@ import nestedInputMap from './data/nestedInputMap';
 import nestedOutputArray from './data/nestedOutputArray';
 import objectInputMap from './data/objectInputMap';
 import objectOutputArray from './data/objectOutputArray';
-import { convertJsonToUrlencoded, createImage, isStoreEndpoint, isStringUrl, mapToArray } from './index';
+import { convertJsonToUrlencoded, createImage, isStringUrl, mapToArray } from './index';
 
 describe('#Utils', () => {
   describe('createImage', () => {
@@ -120,22 +120,6 @@ describe('#Utils', () => {
       });
 
       expect(res).toEqual(nestableOutputArray);
-    });
-  });
-
-  describe('isStoreEndpoint', () => {
-    const customerId = '604ae77d-d121-4f13-9c68-d507582c2843';
-
-    it('should return true, when url ends with /store', () => {
-      expect(isStoreEndpoint(`/api/v1/customers/${customerId}/store`)).toBe(true);
-    });
-
-    it('should return true, when url is correct and /store is in path', () => {
-      expect(isStoreEndpoint(`/api/v1/customers/${customerId}/store/something`)).toBe(true);
-    });
-
-    it('should return false, when url is not in customer onboarding collection ', () => {
-      expect(isStoreEndpoint(`/something/${customerId}/store/something`)).toBe(false);
     });
   });
 

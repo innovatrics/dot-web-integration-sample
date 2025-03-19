@@ -30,10 +30,6 @@ export const mapToArray = <T>(inputMap: { [key: string]: T } = {}): Array<T & { 
   });
 };
 
-export const isStoreEndpoint = (url: string) => {
-  return /.*\/customers\/[a-zA-Z0-9-]*\/store/.test(url);
-};
-
 /**
  * Check if code is being run with test
  */

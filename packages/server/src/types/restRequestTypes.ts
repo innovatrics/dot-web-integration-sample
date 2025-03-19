@@ -1,10 +1,4 @@
-import type {
-  EvaluateLivenessType,
-  FaceDetectionProperties,
-  ImageDimensions,
-  Source,
-  StoreCustomerOnboardingStatus,
-} from './graphqlTypes';
+import type { EvaluateLivenessType, FaceDetectionProperties, ImageDimensions, Source } from './graphqlTypes';
 
 /**
  * Image provided as Base64 encoded string or via URL. Data or URL have to be provided.
@@ -203,16 +197,6 @@ export type EvaluateCustomerLivenessRestRequest = {
  * @type ImageDimensionsRestRequest
  */
 export type ImageDimensionsRestRequest = ImageDimensions;
-
-/**
- *
- * @export
- * @type StoreCustomerRequest
- */
-export type StoreCustomerRequest = {
-  externalId?: string;
-  onboardingStatus: StoreCustomerOnboardingStatus;
-};
 
 /**
  * ContactFormRestRequest is an object with a name, company, email, message, and checked property,

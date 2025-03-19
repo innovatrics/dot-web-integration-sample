@@ -106,10 +106,6 @@ function getMetadata() {
   return [HTTP_OK, getMetadataResponse];
 }
 
-function storeCustomer() {
-  return [HTTP_NO_CONTENT];
-}
-
 function appInfo() {
   return [HTTP_OK, getAppInfoResponse];
 }
@@ -220,10 +216,6 @@ export const initServerMocks = (axios: AxiosInstance): MockAdapter => {
   const metadataApiLink = '/api/v1/metadata';
 
   mock.onGet(metadataApiLink).reply(getMetadata);
-
-  const storeCustomerUrl = `${customerApiLink}/store`;
-
-  mock.onPost(storeCustomerUrl).reply(storeCustomer);
 
   const appInfoLink = '/api/v1/info';
 

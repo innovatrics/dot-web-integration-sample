@@ -22,8 +22,6 @@ import type {
   MutationCreateDocumentPageWithContentArgs,
   MutationCreateDocumentPageWithImageArgs,
   MutationCreateFaceArgs,
-  StoreCustomerOnboardingStatus,
-  StoreCustomerResponse,
 } from '../../types/graphqlTypes';
 
 import { createDocumentPageWithImageResolver, createDocumentWithContentResolver } from './createDocumentPageResolver';
@@ -43,7 +41,6 @@ import { inspectCustomerResolver } from './inspectCustomerResolver';
 import { inspectDocumentResolver } from './inspectDocumentResolver';
 import { normalizedDocumentImagesResolver } from './normalizedDocumentImagesResolver';
 import { postContactFormResolver } from './postContactFormResolver';
-import { storeCustomerResolver } from './storeCustomerResolver';
 
 const resolvers = {
   Query: {
@@ -79,12 +76,6 @@ const resolvers = {
       args: { customerApiLink: string; type: `${EvaluateLivenessType}` },
     ): Promise<EvaluateCustomerLivenessResponse> {
       return evaluateCustomerLivenessResolver(args.type, args.customerApiLink);
-    },
-    storeCustomer(
-      _: unknown,
-      args: { customerApiLink: string; onboardingStatus: StoreCustomerOnboardingStatus },
-    ): Promise<StoreCustomerResponse> {
-      return storeCustomerResolver(args.customerApiLink, args.onboardingStatus);
     },
     metadata(_: unknown): Promise<GetMetadataResponse> {
       return getMetadataResolver();

@@ -677,34 +677,6 @@ export type CroppedImageRestResponse = {
   data: string;
 };
 
-/**
- *
- * @export
- * @type StoreCustomerRestResponse
- */
-export type StoreCustomerRestResponse = {
-  /**
-   * @type {string}
-   * @memberof StoreCustomerRestResponse
-   */
-  error: string;
-  /**
-   * @type {string}
-   * @memberof StoreCustomerRestResponse
-   */
-  path: string;
-  /**
-   * @type {number}
-   * @memberof StoreCustomerRestResponse
-   */
-  status: number;
-  /**
-   * @type {number}
-   * @memberof StoreCustomerRestResponse
-   */
-  timestamp: number;
-};
-
 type AppInfoBuild = {
   artifact: string;
   group: string;

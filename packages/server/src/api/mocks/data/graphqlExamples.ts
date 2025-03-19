@@ -293,26 +293,6 @@ Variables:
 }
 
 ----------------------------------------------------------------
-storeCustomer Query
-
-query StoreCustomer($customerApiLink: String!) {
-  storeCustomer(customerApiLink: $customerApiLink) {
-    customerId
-    trustCenterId
-    apiError {
-      status
-      path
-      error
-    }
-  }
-}
-
-Variables:
-{
-  "customerApiLink": "api/v1/customers/123",
-}
-
-----------------------------------------------------------------
 appInfo Query
 
 query AppInfo {
