@@ -1,6 +1,6 @@
 {
   "name": "dot-web-demo-server",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "NodeJS GraphQL demo server.",
   "main": "dist/src/server.js",
   "license": "MIT",

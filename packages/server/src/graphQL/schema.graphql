@@ -379,8 +379,8 @@ type InspectDocumentVisualZone {
 type DetectFaceResponse {
   detection: FaceDetection
   links: SelfLinks
-  errorCode: DetectFaceResponseErrorCode
-  warnings: [DetectFaceResponseWarnings!]
+  errorCode: String
+  warnings: [String!]
 }
 
 type FaceAttribute {
@@ -423,8 +423,8 @@ type CreateDocumentPageResponse {
   documentType: DocumentType
   pageType: String
   detection: DocumentDetection
-  warnings: [CreateDocumentPageResponseWarning!]
-  errorCode: CreateDocumentPageResponseErrorCode
+  warnings: [String!]
+  errorCode: String
   links: CustomerLinks!
 }
 
@@ -435,13 +435,13 @@ type GetCustomerResponse {
 
 type DetectSelfieResponse {
   detection: FaceDetection
-  errorCode: DetectSelfieErrorCode
-  warnings: [DetectSelfieWarnings!]
+  errorCode: String
+  warnings: [String!]
   links: Links!
 }
 
 type CreateLivenessRecordsResponse {
-  errorCode: CreateLivenessRecordsErrorCode
+  errorCode: String
   selfie: LivenessRecordsDetection
   links: LivenessRecordsSelfieLink!
   customerLinks: CustomerLinks!
@@ -516,7 +516,7 @@ type VideoInjection {
 
 type CustomerLiveness {
   score: Float
-  errorCode: EvaluateLivenessErrorCode
+  errorCode: String
 }
 
 type EvaluateCustomerLivenessResponse {
