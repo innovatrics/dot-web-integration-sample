@@ -566,6 +566,38 @@ export type EvaluateCustomerLivenessRestResponse = {
 /**
  *
  * @export
+ * @type EvaluateCustomerDeepfakeRestResponse
+ */
+export type EvaluateCustomerDeepfakeRestResponse = {
+  /**
+   *
+   * @type {{score: number}}
+   * @memberof EvaluateCustomerDeepfakeRestResponse
+   */
+  evaluationOnEyeGaze?: { score: number };
+  /**
+   *
+   * @type {{ score: number }}
+   * @memberof EvaluateCustomerDeepfakeRestResponse
+   */
+  evaluationOnMagnifeye?: { score: number };
+  /**
+   *
+   * @type {{score: number}}
+   * @memberof EvaluateCustomerDeepfakeRestResponse
+   */
+  evaluationOnPassive?: { score: number };
+  /**
+   *
+   * @type {{score: number}}
+   * @memberof EvaluateCustomerDeepfakeRestResponse
+   */
+  evaluationOnSmile?: { score: number };
+};
+
+/**
+ *
+ * @export
  * @type CreateCustomerLivenessRestResponse
  */
 export type CreateCustomerLivenessRestResponse = {

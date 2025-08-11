@@ -8,6 +8,7 @@ import type {
   CustomerDocumentPages,
   DetectFaceResponse,
   DetectSelfieResponse,
+  EvaluateCustomerDeepfakeResponse,
   EvaluateCustomerLivenessResponse,
   EvaluateLivenessType,
   EvaluateTrustFactorsResponse,
@@ -29,6 +30,7 @@ import { createFaceResolver } from './createFaceResolver';
 import { createLivenessRecordsResolver } from './createLivenessRecordsResolver';
 import { createSelfieResolver } from './createSelfieResolver';
 import { deleteCustomerResolver } from './deleteCustomerResolver';
+import { evaluateCustomerDeepfakeResolver } from './evaluateCustomerDeepfakeResolver';
 import { evaluateCustomerLivenessResolver } from './evaluateCustomerLivenessResolver';
 import { evaluateTrustFactorsResolver } from './evaluateTrustFactors';
 import { getAppInfoResolver } from './getAppInfoResolver';
@@ -76,6 +78,12 @@ const resolvers = {
       args: { customerApiLink: string; type: `${EvaluateLivenessType}` },
     ): Promise<EvaluateCustomerLivenessResponse> {
       return evaluateCustomerLivenessResolver(args.type, args.customerApiLink);
+    },
+    evaluateCustomerDeepfake(
+      _: unknown,
+      args: { customerApiLink: string; type: `${LivenessType}` },
+    ): Promise<EvaluateCustomerDeepfakeResponse> {
+      return evaluateCustomerDeepfakeResolver(args.type, args.customerApiLink);
     },
     metadata(_: unknown): Promise<GetMetadataResponse> {
       return getMetadataResolver();

@@ -1,4 +1,10 @@
-import type { EvaluateLivenessType, FaceDetectionProperties, ImageDimensions, Source } from './graphqlTypes';
+import type {
+  EvaluateLivenessType,
+  FaceDetectionProperties,
+  ImageDimensions,
+  LivenessType,
+  Source,
+} from './graphqlTypes';
 
 /**
  * Image provided as Base64 encoded string or via URL. Data or URL have to be provided.
@@ -189,6 +195,19 @@ export type EvaluateCustomerLivenessRestRequest = {
    * @memberof EvaluateCustomerLivenessRestRequest
    */
   type: EvaluateLivenessType;
+};
+
+/**
+ *
+ * @export
+ * @type EvaluateCustomerDeepfakeRequest
+ */
+export type EvaluateCustomerDeepfakeRestRequest = {
+  /**
+   * @type  {`${LivenessType}`[]}
+   * @memberof EvaluateCustomerDeepfakeRestRequest
+   */
+  livenessResources: `${LivenessType}`[];
 };
 
 /**

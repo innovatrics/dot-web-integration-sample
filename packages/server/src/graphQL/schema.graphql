@@ -524,6 +524,22 @@ type EvaluateCustomerLivenessResponse {
   links: CustomerLinks!
 }
 
+type CustmerDeepfakeScore {
+  score: Float!
+}
+
+type CustomerDeepfake {
+  evaluationOnPassive: CustmerDeepfakeScore
+  evaluationOnSmile: CustmerDeepfakeScore
+  evaluationOnEyeGaze: CustmerDeepfakeScore
+  evaluationOnMagnifeye: CustmerDeepfakeScore
+}
+
+type EvaluateCustomerDeepfakeResponse {
+  deepfakeDetection: CustomerDeepfake
+  links: CustomerLinks!
+}
+
 type MetadataDocumentType {
   country: String
   edition: String
@@ -621,6 +637,7 @@ type Query {
   croppedImages(imageLinks: CroppedImageLinks!): CroppedImagesResponse
   croppedSelfie(faceApiLink: String!, dimensions: ImageDimensions): CroppedSelfieResponse
   evaluateCustomerLiveness(type: EvaluateLivenessType!, customerApiLink: String!): EvaluateCustomerLivenessResponse
+  evaluateCustomerDeepfake(customerApiLink: String!, type: LivenessType!): EvaluateCustomerDeepfakeResponse
   appInfo: GetAppInfoResponse
   evaluateTrustFactors(customerApiLink: String!, livenessType: LivenessType!): EvaluateTrustFactorsResponse
 }

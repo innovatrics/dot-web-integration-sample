@@ -1,7 +1,11 @@
-import type { EvaluateCustomerLivenessRestRequest } from '../types/restRequestTypes';
+import type {
+  EvaluateCustomerDeepfakeRestRequest,
+  EvaluateCustomerLivenessRestRequest,
+} from '../types/restRequestTypes';
 import type {
   CreateCustomerLivenessRestResponse,
   CreateLivenessRecordsRestResponse,
+  EvaluateCustomerDeepfakeRestResponse,
   EvaluateCustomerLivenessRestResponse,
 } from '../types/restResponseTypes';
 
@@ -23,6 +27,21 @@ export const evaluateCustomerLivenessApi = async (
 ): Promise<EvaluateCustomerLivenessRestResponse> => {
   const apiPath = `${customerApiLink}/liveness/evaluation`;
   const response = await serverConnection.post<EvaluateCustomerLivenessRestResponse>(apiPath, request);
+
+  return response.data;
+};
+
+export const evaluateCustomerDeepfakeApi = async (
+  customerApiLink: string,
+  { livenessResources }: EvaluateCustomerDeepfakeRestRequest,
+): Promise<EvaluateCustomerDeepfakeRestResponse> => {
+  const apiPath = `${customerApiLink}/liveness/evaluation/extended`;
+  const payload = {
+    type: 'DEEPFAKE',
+    livenessResources,
+  };
+
+  const response = await serverConnection.post<EvaluateCustomerDeepfakeRestResponse>(apiPath, payload);
 
   return response.data;
 };

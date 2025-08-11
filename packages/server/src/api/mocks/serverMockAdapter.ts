@@ -13,6 +13,7 @@ import createfaceResponse from './data/createFaceResponse.json';
 import createMagnifeyeLivenessResponse from './data/createMagnifeyeLivenessResponse.json';
 import createSelfieResponse from './data/createSelfieResponse.json';
 import croppedSelfieResponse from './data/croppedSelfieResponse.json';
+import evaluateCustomerDeepfakeResponse from './data/evaluateCustomerDeepfakeResponse.json';
 import evaluateCustomerLivenessResponse from './data/evaluateCustomerLivenessResponse.json';
 import getAppInfoResponse from './data/getAppInfoResponse.json';
 import getCroppedImagePortraitResponse from './data/getCroppedImagePortraitResponse.json';
@@ -84,6 +85,10 @@ function getFaceQuality() {
 
 function evaluateCustomerLiveness() {
   return [HTTP_OK, evaluateCustomerLivenessResponse];
+}
+
+function evaluateCustomerDeepfake() {
+  return [HTTP_OK, evaluateCustomerDeepfakeResponse];
 }
 
 function getNormalizedDocumentImageFront() {
@@ -168,6 +173,10 @@ export const initServerMocks = (axios: AxiosInstance): MockAdapter => {
   const evaluateCustomerLivenessUrl = `${customerApiLink}/liveness/evaluation`;
 
   mock.onPost(evaluateCustomerLivenessUrl).reply(evaluateCustomerLiveness);
+
+  const evaluateCustomerDeepfakeUrl = `${customerApiLink}/liveness/evaluation/extended`;
+
+  mock.onPost(evaluateCustomerDeepfakeUrl).reply(evaluateCustomerDeepfake);
 
   const createCustomerLivenessSelfieUrl = `${customerApiLink}/liveness/selfies`;
 
