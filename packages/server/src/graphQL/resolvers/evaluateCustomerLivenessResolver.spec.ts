@@ -1,8 +1,10 @@
-import evaluateCustomerLivenessResponse from '../../api/mocks/data/evaluateCustomerLivenessResponse.json';
-import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
-import { EvaluateLivenessType } from '../../types/graphqlTypes';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import evaluateCustomerLivenessResponse from '../../api/mocks/data/evaluateCustomerLivenessResponse.json' with { type: 'json' };
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test/index.js';
+import { EvaluateLivenessType } from '../../types/graphqlTypes.js';
+
+import resolvers from './index.js';
 
 describe('#evaluateCustomerLiveness', () => {
   it('should get correct response', async () => {

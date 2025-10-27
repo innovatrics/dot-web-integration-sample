@@ -4,7 +4,7 @@ import type {
   ImageDimensions,
   LivenessType,
   Source,
-} from './graphqlTypes';
+} from './graphqlTypes.js';
 
 /**
  * Image provided as Base64 encoded string or via URL. Data or URL have to be provided.

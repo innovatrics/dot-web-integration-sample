@@ -1,7 +1,9 @@
-import createMagnifeyeLivenessResponse from '../../api/mocks/data/createMagnifeyeLivenessResponse.json';
-import { customerApiLink, customerApiLinkError } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import createMagnifeyeLivenessResponse from '../../api/mocks/data/createMagnifeyeLivenessResponse.json' with { type: 'json' };
+import { customerApiLink, customerApiLinkError } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#createMagnifeyeLiveness', () => {
   it('should get correct response when magnifeye message is present', async () => {

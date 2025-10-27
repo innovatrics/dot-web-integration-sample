@@ -1,7 +1,7 @@
-import type { MutationCreateDocumentPageWithContentArgs } from '../../types/graphqlTypes';
-import type { CreateCustomerDocumentRestRequest } from '../../types/restRequestTypes';
+import type { MutationCreateDocumentPageWithContentArgs } from '../../types/graphqlTypes.js';
+import type { CreateCustomerDocumentRestRequest } from '../../types/restRequestTypes.js';
 
-import { createDocumentApi } from '../customersDocumentApi';
+import { createDocumentApi } from '../customersDocumentApi.js';
 
 export async function createDocument(
   customer: string,

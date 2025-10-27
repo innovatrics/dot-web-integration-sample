@@ -1,8 +1,10 @@
-import evaluateCustomerDeepfakeResponse from '../../api/mocks/data/evaluateCustomerDeepfakeResponse.json';
-import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
-import { LivenessType } from '../../types/graphqlTypes';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import evaluateCustomerDeepfakeResponse from '../../api/mocks/data/evaluateCustomerDeepfakeResponse.json' with { type: 'json' };
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test/index.js';
+import { LivenessType } from '../../types/graphqlTypes.js';
+
+import resolvers from './index.js';
 
 describe('#evaluateCustomerDeepfake', () => {
   it('should get correct response', async () => {

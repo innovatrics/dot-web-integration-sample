@@ -1,10 +1,12 @@
-import type { Customer } from '../../types/graphqlTypes';
+import type { Customer } from '../../types/graphqlTypes.js';
 
-import getCustomerResponse from '../../api/mocks/data/getCustomerResponse.json';
-import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
-import { TravelDocumentType } from '../../types/graphqlTypes';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import getCustomerResponse from '../../api/mocks/data/getCustomerResponse.json' with { type: 'json' };
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test/index.js';
+import { TravelDocumentType } from '../../types/graphqlTypes.js';
+
+import resolvers from './index.js';
 
 describe('#customer', () => {
   it('should get correct response when customerApiLink is present', async () => {

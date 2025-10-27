@@ -2,7 +2,7 @@ import type { AxiosInstance } from 'axios';
 
 import MockAdapter from 'axios-mock-adapter';
 
-import validateRecaptchaResponse from './data/validateRecaptchaResponse.json';
+import validateRecaptchaResponse from './data/validateRecaptchaResponse.json' with { type: 'json' };
 
 const HTTP_OK = 200;
 

@@ -1,9 +1,9 @@
-import type { AxiosApiError } from '../../types/serverTypes';
+import type { AxiosApiError } from '../../types/serverTypes.js';
 import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 import { AxiosError, AxiosHeaders } from 'axios';
 
-import { parseApiError } from './serverConnection';
+import { parseApiError } from './serverConnection.js';
 
 describe('#Server connection utils', () => {
   const config: InternalAxiosRequestConfig = { url: '/test/123', method: 'post', headers: new AxiosHeaders() };

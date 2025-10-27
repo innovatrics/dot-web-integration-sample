@@ -1,10 +1,9 @@
-import type { GetAppInfoRestResponse } from '../types/restResponseTypes';
+import type { GetAppInfoRestResponse } from '../types/restResponseTypes.js';
 
-import { serverConnection } from './rest/serverConnection';
+import { disClient } from './rest/serverConnection.js';
 
 export const getAppInfoApi = async (): Promise<GetAppInfoRestResponse> => {
-  const apiPath = `/api/v1/info`;
-  const response = await serverConnection.get<GetAppInfoRestResponse>(apiPath);
+  const response = await disClient.api.info();
 
   return response.data;
 };

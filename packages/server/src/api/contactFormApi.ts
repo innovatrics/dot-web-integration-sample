@@ -1,9 +1,9 @@
-import type { ContactFormRestRequest } from '../types/restRequestTypes';
+import type { ContactFormRestRequest } from '../types/restRequestTypes.js';
 
-import env from '../dotenv';
+import env from '../dotenv.js';
 
-import { contactFormConnection, googleRecaptchaConnection } from './rest/serverConnection';
-import { convertJsonToUrlencoded } from './utils';
+import { contactFormConnection, googleRecaptchaConnection } from './rest/serverConnection.js';
+import { convertJsonToUrlencoded } from './utils/index.js';
 
 const validateRecaptcha = async (recaptchaToken: string) => {
   const body = {

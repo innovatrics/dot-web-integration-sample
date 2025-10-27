@@ -1,10 +1,10 @@
-import type { Connection } from '../../../types/serverTypes';
+import type { Connection } from '../../../types/serverTypes.js';
 import type { AxiosError } from 'axios';
 
 import { GraphQLError } from 'graphql';
 
-import { isTestRunning } from '../../utils';
-import { parseApiError } from '../../utils/serverConnection';
+import { isTestRunning } from '../../utils/index.js';
+import { parseApiError } from '../../utils/serverConnection.js';
 
 /**
  * It takes an error object and a connection object, parses the error object, and throws a new

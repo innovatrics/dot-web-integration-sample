@@ -3,9 +3,13 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "module": "commonjs",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "ES2022",
+    "esModuleInterop": true,
     "declaration": false,
-    "declarationMap": false
+    "declarationMap": false,
+    "resolveJsonModule": true
   },
   "include": ["./src/**/*", "vitest.config.ts"]
 }

@@ -1,7 +1,9 @@
-import createCustomerSelfieResponse from '../../api/mocks/data/createSelfieResponse.json';
-import { createLinks, customerApiLink, customerApiLinkError } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import createCustomerSelfieResponse from '../../api/mocks/data/createSelfieResponse.json' with { type: 'json' };
+import { createLinks, customerApiLink, customerApiLinkError } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#createSelfie', () => {
   it('should get correct response when customer is not created', async () => {

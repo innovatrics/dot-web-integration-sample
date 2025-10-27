@@ -1,8 +1,8 @@
-import { initContactFormaMocks } from '../api/mocks/contactFormMockAdapter';
-import { initRecaptchaMocks } from '../api/mocks/recaptchaMockAdapter';
-import { initServerMocks } from '../api/mocks/serverMockAdapter';
-import { contactFormConnection, googleRecaptchaConnection, serverConnection } from '../api/rest/serverConnection';
+import { initContactFormaMocks } from '../api/mocks/contactFormMockAdapter.js';
+import { initRecaptchaMocks } from '../api/mocks/recaptchaMockAdapter.js';
+import { initServerMocks } from '../api/mocks/serverMockAdapter.js';
+import { contactFormConnection, disClient, googleRecaptchaConnection } from '../api/rest/serverConnection.js';
 
-initServerMocks(serverConnection);
+initServerMocks(disClient.instance);
 initRecaptchaMocks(googleRecaptchaConnection);
 initContactFormaMocks(contactFormConnection);

@@ -1,6 +1,8 @@
-import { contactFormConnectionMock, recaptchaConnectionMock } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import { contactFormConnectionMock, recaptchaConnectionMock } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#postContactForm', () => {
   const contactFormData = {

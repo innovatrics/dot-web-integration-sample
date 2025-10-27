@@ -1,11 +1,11 @@
-import type { ParsedDocumentType } from '../../types/graphqlTypes';
-import type { CustomerDocument } from '../../types/restResponseTypes';
-import type { Countries } from '../../types/serverTypes';
+import type { ParsedDocumentType } from '../../types/graphqlTypes.js';
+import type { CustomerDocument } from '../../types/restResponseTypes.js';
+import type { Countries } from '../../types/serverTypes.js';
 
-import countriesJson from '../../assets/countries.json';
-import { DOCUMENT_CODES_ID, DOCUMENT_TYPE } from '../../constants';
-import { TravelDocumentType } from '../../types/graphqlTypes';
-import { createCustomerApi } from '../customersApi';
+import countriesJson from '../../assets/countries.json' with { type: 'json' };
+import { DOCUMENT_CODES_ID, DOCUMENT_TYPE } from '../../constants.js';
+import { TravelDocumentType } from '../../types/graphqlTypes.js';
+import { createCustomerApi } from '../customersApi.js';
 
 const createCustomer = async (customerApiLink?: string): Promise<string> => {
   if (!customerApiLink) {

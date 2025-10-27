@@ -2,10 +2,10 @@ import type { AxiosError, AxiosResponse } from 'axios';
 
 import { GraphQLError } from 'graphql';
 
-import { Connection } from '../../../types/serverTypes';
-import { isTestRunning } from '../../utils';
+import { Connection } from '../../../types/serverTypes.js';
+import { isTestRunning } from '../../utils/index.js';
 
-import { onRejected } from './common';
+import { onRejected } from './common.js';
 
 /**
  * If the error is a network error, then show a network error message, otherwise show the error message

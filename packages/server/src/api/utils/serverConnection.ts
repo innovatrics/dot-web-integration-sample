@@ -1,6 +1,6 @@
-import type { AxiosApiError, ParsedError } from '../../types/serverTypes';
+import type { AxiosApiError, ParsedError } from '../../types/serverTypes.js';
 
-import { DEFAULT_ERROR } from '../../constants';
+import { DEFAULT_ERROR } from '../../constants.js';
 
 export const parseApiError = (error: AxiosApiError): ParsedError => {
   // when axios instance was not able to call service at all

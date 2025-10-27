@@ -1,11 +1,11 @@
-import base64TestString from './data/base64TestString';
-import imageBase64TestString from './data/imageBase64TestString';
-import nestableOutputArray from './data/nestableOutputArray';
-import nestedInputMap from './data/nestedInputMap';
-import nestedOutputArray from './data/nestedOutputArray';
-import objectInputMap from './data/objectInputMap';
-import objectOutputArray from './data/objectOutputArray';
-import { convertJsonToUrlencoded, createImage, isStringUrl, mapToArray } from './index';
+import base64TestString from './data/base64TestString.js';
+import imageBase64TestString from './data/imageBase64TestString.js';
+import nestableOutputArray from './data/nestableOutputArray.js';
+import nestedInputMap from './data/nestedInputMap.js';
+import nestedOutputArray from './data/nestedOutputArray.js';
+import objectInputMap from './data/objectInputMap.js';
+import objectOutputArray from './data/objectOutputArray.js';
+import { convertJsonToUrlencoded, createImage, isStringUrl, mapToArray } from './index.js';
 
 describe('#Utils', () => {
   describe('createImage', () => {

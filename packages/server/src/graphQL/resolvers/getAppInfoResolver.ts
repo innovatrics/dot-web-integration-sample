@@ -1,6 +1,6 @@
-import type { GetAppInfoResponse } from '../../types/graphqlTypes';
+import type { GetAppInfoResponse } from '../../types/graphqlTypes.js';
 
-import { getAppInfoApi } from '../../api/getAppInfoApi';
+import { getAppInfoApi } from '../../api/getAppInfoApi.js';
 
 export const getAppInfoResolver = async (): Promise<GetAppInfoResponse> => {
   const appInfoResponse = await getAppInfoApi();

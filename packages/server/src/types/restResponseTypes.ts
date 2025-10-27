@@ -26,7 +26,7 @@ import type {
   MultiValueAttribute,
   PageTamperingInspection,
   SelfLinks,
-} from './graphqlTypes';
+} from './graphqlTypes.js';
 
 /**
  * The customer. The date format is `YYYY-MM-DD` and the gender format is: `M` for male, `F` for female.
@@ -172,7 +172,7 @@ export type CustomerDocument = {
    * @type {DocumentType}
    * @memberof CustomerDocument
    */
-  type: DocumentType;
+  type?: DocumentType;
 };
 
 /**

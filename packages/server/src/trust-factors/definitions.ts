@@ -1,4 +1,4 @@
-import type { TrustFactorDefinition } from '../types/restRequestTypes';
+import type { TrustFactorDefinition } from '../types/restRequestTypes.js';
 
 export const baseTrustFactorDefinitions: Array<TrustFactorDefinition> = [
   {

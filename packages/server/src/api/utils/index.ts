@@ -1,4 +1,4 @@
-import type { Image } from '../../types/restRequestTypes';
+import type { Image } from '../../types/restRequestTypes.js';
 
 export const isStringUrl = (string: string): boolean => {
   try {

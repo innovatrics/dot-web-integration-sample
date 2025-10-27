@@ -1,14 +1,14 @@
-import type { CustomerDocument } from '../../types/restResponseTypes';
+import type { CustomerDocument } from '../../types/restResponseTypes.js';
 
-import { TravelDocumentType } from '../../types/graphqlTypes';
-import createCustomerResponse from '../mocks/data/createCustomerResponse.json';
+import { TravelDocumentType } from '../../types/graphqlTypes.js';
+import createCustomerResponse from '../mocks/data/createCustomerResponse.json' with { type: 'json' };
 
 import createCustomer, {
   getCountry,
   getDocumentType,
   getDocumentTypeDetails,
   getUnsupportedDocumentType,
-} from './createCustomer';
+} from './createCustomer.js';
 
 describe('#createCustomer', () => {
   describe('createCustomer', () => {

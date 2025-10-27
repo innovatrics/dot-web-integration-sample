@@ -1,7 +1,9 @@
-import getFaceQualityResponse from '../../api/mocks/data/getFaceQualityResponse.json';
-import { faceApiLink, faceApiLinkError, faceLinks } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import getFaceQualityResponse from '../../api/mocks/data/getFaceQualityResponse.json' with { type: 'json' };
+import { faceApiLink, faceApiLinkError, faceLinks } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#faceQuality', () => {
   it('should get correct response when faceApiLink is present', async () => {

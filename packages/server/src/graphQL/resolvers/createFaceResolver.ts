@@ -1,8 +1,8 @@
-import type { DetectFaceResponse, MutationCreateFaceArgs } from '../../types/graphqlTypes';
-import type { DetectFaceRestRequest } from '../../types/restRequestTypes';
+import type { DetectFaceResponse, MutationCreateFaceArgs } from '../../types/graphqlTypes.js';
+import type { DetectFaceRestRequest } from '../../types/restRequestTypes.js';
 
-import { createFaceApi } from '../../api/faceOperationsApi';
-import { createImage } from '../../api/utils';
+import { createFaceApi } from '../../api/faceOperationsApi.js';
+import { createImage } from '../../api/utils/index.js';
 
 export const createFaceResolver = async ({ detection, image }: MutationCreateFaceArgs): Promise<DetectFaceResponse> => {
   const request: DetectFaceRestRequest = {

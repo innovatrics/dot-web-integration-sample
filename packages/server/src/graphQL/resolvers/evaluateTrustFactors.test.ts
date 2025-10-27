@@ -1,7 +1,9 @@
-import { customerApiLink } from '../../test';
-import { LivenessType } from '../../types/graphqlTypes';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import { customerApiLink } from '../../test/index.js';
+import { LivenessType } from '../../types/graphqlTypes.js';
+
+import resolvers from './index.js';
 
 describe('#evaluateTrustFactors', () => {
   it('should get correct response', async () => {

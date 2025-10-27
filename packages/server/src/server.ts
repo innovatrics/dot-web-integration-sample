@@ -1,16 +1,16 @@
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
-import { json } from 'body-parser';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import { hostname } from 'os';
 
-import { initServerMocks, isMockAdapterEnabled } from './api/mocks/serverMockAdapter';
-import { serverConnection } from './api/rest/serverConnection';
-import env from './dotenv';
-import resolvers from './graphQL/resolvers';
-import typeDefs from './graphQL/schema';
-import probeRouter from './router/probeRouter';
+import { initServerMocks } from './api/mocks/serverMockAdapter.js';
+import { disClient } from './api/rest/serverConnection.js';
+import env from './dotenv.js';
+import resolvers from './graphQL/resolvers/index.js';
+import typeDefs from './graphQL/schema.js';
+import probeRouter from './router/probeRouter.js';
 
 const main = async () => {
   const { SERVER_PORT = 8000 } = env;
@@ -25,14 +25,14 @@ const main = async () => {
   app.use(
     '/graphql',
     cors<cors.CorsRequest>(),
-    json({ limit: '20mb' }),
+    bodyParser.json({ limit: '20mb' }),
     expressMiddleware(apolloServer, {
       context: async ({ req }) => ({ token: req.headers.token }),
     }),
   );
 
-  if (isMockAdapterEnabled()) {
-    initServerMocks(serverConnection);
+  if (env.MOCKS_ENABLED) {
+    initServerMocks(disClient.instance);
   }
 
   app.use('/_alive', probeRouter);

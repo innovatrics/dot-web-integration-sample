@@ -2,13 +2,13 @@ import type {
   CreateDocumentPageResponse,
   MutationCreateDocumentPageWithContentArgs,
   MutationCreateDocumentPageWithImageArgs,
-} from '../../types/graphqlTypes';
-import type { CreateDocumentPageRestRequest } from '../../types/restRequestTypes';
+} from '../../types/graphqlTypes.js';
+import type { CreateDocumentPageRestRequest } from '../../types/restRequestTypes.js';
 
-import { createDocumentPageApi, createDocumentPageOctetStreamApi } from '../../api/customersDocumentApi';
-import { createImage } from '../../api/utils';
-import createCustomer from '../../api/utils/createCustomer';
-import { createDocument } from '../../api/utils/createDocument';
+import { createDocumentPageApi, createDocumentPageOctetStreamApi } from '../../api/customersDocumentApi.js';
+import createCustomer from '../../api/utils/createCustomer.js';
+import { createDocument } from '../../api/utils/createDocument.js';
+import { createImage } from '../../api/utils/index.js';
 
 export async function createDocumentWithContentResolver({
   content,

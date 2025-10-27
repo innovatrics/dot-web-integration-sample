@@ -1,6 +1,8 @@
-import { faceApiLink } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import { faceApiLink } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#croppedSelfie', () => {
   it('should get correct response object', async () => {

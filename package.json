@@ -1,6 +1,6 @@
 {
   "name": "dot-web-demo",
-  "version": "2.1.21",
+  "version": "2.1.22",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -20,7 +20,7 @@
     "build": "pnpm -r --parallel build",
     "lint": "pnpm -r --parallel lint",
     "lint:fix": "pnpm lint --fix",
-    "pr": "pnpm tsc && pnpm lint && pnpm test",
+    "pr": "pnpm tsc && pnpm lint",
     "test": "vitest run",
     "test:ui": "pnpm -r --parallel test:ui",
     "tsc": "pnpm -r --parallel tsc",

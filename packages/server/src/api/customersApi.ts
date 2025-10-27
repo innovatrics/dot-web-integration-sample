@@ -1,31 +1,30 @@
-import type {
-  CreateCustomerRestResponse,
-  GetCustomerRestResponse,
-  InspectCustomerRestResponse,
-} from '../types/restResponseTypes';
+import type { CreateCustomerResponse, CustomerInspectResponse, GetCustomerResponse } from '@innovatrics/dis-client-sdk';
 
-import { serverConnection } from './rest/serverConnection';
+import { disClient } from './rest/serverConnection.js';
+import { getLastURLSegment } from './utils/getLastURLSegment.js';
 
-export const createCustomerApi = async (): Promise<CreateCustomerRestResponse> => {
-  const apiPath = `/api/v1/customers`;
-  const response = await serverConnection.post<CreateCustomerRestResponse>(apiPath);
+export const createCustomerApi = async (): Promise<CreateCustomerResponse> => {
+  const response = await disClient.api.createCustomer();
 
   return response.data;
 };
 
-export const getCustomerApi = async (customerApiLink: string): Promise<GetCustomerRestResponse> => {
-  const response = await serverConnection.get<GetCustomerRestResponse>(customerApiLink);
+export const getCustomerApi = async (customerApiLink: string): Promise<GetCustomerResponse> => {
+  const customerId = getLastURLSegment(customerApiLink);
+  const response = await disClient.api.getCustomer(customerId);
 
   return response.data;
 };
 
-export const inspectCustomerApi = async (customerApiLink: string): Promise<InspectCustomerRestResponse> => {
-  const apiPath = `${customerApiLink}/inspect`;
-  const response = await serverConnection.post<InspectCustomerRestResponse>(apiPath);
+export const inspectCustomerApi = async (customerApiLink: string): Promise<CustomerInspectResponse> => {
+  const customerId = getLastURLSegment(customerApiLink);
+  const response = await disClient.api.inspect(customerId);
 
   return response.data;
 };
 
 export const deleteCustomerApi = async (customerApiLink: string): Promise<void> => {
-  await serverConnection.delete(customerApiLink);
+  const customerId = getLastURLSegment(customerApiLink);
+
+  await disClient.api.deleteCustomer(customerId);
 };

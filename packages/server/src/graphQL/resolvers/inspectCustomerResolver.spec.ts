@@ -1,7 +1,9 @@
-import inspectCustomerResponse from '../../api/mocks/data/inspectCustomerResponse.json';
-import { customerApiLink, customerApiLinkError, customerLinks } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import inspectCustomerResponse from '../../api/mocks/data/inspectCustomerResponse.json' with { type: 'json' };
+import { customerApiLink, customerApiLinkError, customerLinks } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#inspectCustomer', () => {
   it('should get correct response when customerApiLink is present', async () => {

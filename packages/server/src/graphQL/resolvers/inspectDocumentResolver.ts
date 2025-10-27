@@ -1,7 +1,7 @@
-import type { InspectDocumentResponse } from '../../types/graphqlTypes';
+import type { InspectDocumentResponse } from '../../types/graphqlTypes.js';
 
-import { inspectDocumentApi } from '../../api/customersDocumentApi';
-import { mapToArray } from '../../api/utils';
+import { inspectDocumentApi } from '../../api/customersDocumentApi.js';
+import { mapToArray } from '../../api/utils/index.js';
 
 export const inspectDocumentResolver = async (customerApiLink: string): Promise<InspectDocumentResponse> => {
   const response = await inspectDocumentApi(customerApiLink);

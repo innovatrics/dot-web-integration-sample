@@ -1,9 +1,9 @@
-import type { DetectSelfieResponse } from '../../types/graphqlTypes';
-import type { DetectSelfieRestRequest } from '../../types/restRequestTypes';
+import type { DetectSelfieResponse } from '../../types/graphqlTypes.js';
+import type { DetectSelfieRestRequest } from '../../types/restRequestTypes.js';
 
-import { createCustomerSelfieApi } from '../../api/customersSelfieApi';
-import { createImage } from '../../api/utils';
-import createCustomer from '../../api/utils/createCustomer';
+import { createCustomerSelfieApi } from '../../api/customersSelfieApi.js';
+import createCustomer from '../../api/utils/createCustomer.js';
+import { createImage } from '../../api/utils/index.js';
 
 export const createSelfieResolver = async (
   image?: string,

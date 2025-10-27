@@ -1,4 +1,6 @@
-import resolvers from '.';
+import { expect } from 'vitest';
+
+import resolvers from './index.js';
 
 describe('#appInfo', () => {
   it('should get correct response when API is live and ready', async () => {

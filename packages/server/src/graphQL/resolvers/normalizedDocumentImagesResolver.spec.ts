@@ -1,6 +1,8 @@
-import { customerApiLink } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import { customerApiLink } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#normalizedDocumentImage', () => {
   it('should get correct response object with front and back keys', async () => {

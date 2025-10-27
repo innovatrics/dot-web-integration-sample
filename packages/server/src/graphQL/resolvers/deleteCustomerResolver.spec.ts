@@ -1,6 +1,8 @@
-import { customerApiLink, customerApiLinkError } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import { customerApiLink, customerApiLinkError } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#deleteCustomer', () => {
   it('should delete customer correctly', async () => {

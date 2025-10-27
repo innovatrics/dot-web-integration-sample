@@ -1,9 +1,9 @@
 import type { AxiosError, AxiosResponse } from 'axios';
 
-import { Connection } from '../../../types/serverTypes';
-import { isTestRunning } from '../../utils';
+import { Connection } from '../../../types/serverTypes.js';
+import { isTestRunning } from '../../utils/index.js';
 
-import { onRejected } from './common';
+import { onRejected } from './common.js';
 
 /**
  * If the error is a server error, then log the error message and error code

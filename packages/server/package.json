@@ -1,14 +1,15 @@
 {
   "name": "dot-web-demo-server",
-  "version": "2.1.21",
+  "version": "2.1.22",
   "description": "NodeJS GraphQL demo server.",
   "main": "dist/src/server.js",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "scripts": {
     "start:local": "pnpm build && pnpm start",
     "start": "node dist/src/server.js",
-    "dev": "pnpm codegen && nodemon src/server.ts",
+    "dev": "pnpm codegen && tsx watch src/server.ts",
     "build": "rimraf dist && pnpm codegen && tsc && cp src/graphQL/schema.graphql dist/src/graphQL/schema.graphql",
     "codegen": "graphql-codegen --config ./graphql-codegen.yml",
     "test": "vitest run",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@apollo/server": "^4.10.5",
+    "@innovatrics/dis-client-sdk": "1.4.1",
     "@types/cors": "^2.8.17",
     "axios": "^1.7.2",
     "axios-mock-adapter": "^1.22.0",
@@ -26,7 +28,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "graphql": "^16.9.0"
+    "graphql": "^16.9.0",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@graphql-codegen/add": "^5.0.3",
@@ -40,6 +43,7 @@
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "tsc-watch": "^6.2.0",
+    "tsx": "^4.20.5",
     "typescript": "^5.5.4",
     "vitest": "^2.0.4"
   }

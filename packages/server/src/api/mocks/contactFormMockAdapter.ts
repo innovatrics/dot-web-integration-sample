@@ -2,7 +2,7 @@ import type { AxiosInstance } from 'axios';
 
 import MockAdapter from 'axios-mock-adapter';
 
-import postContactFormResponse from './data/postContactFormResponse.json';
+import postContactFormResponse from './data/postContactFormResponse.json' with { type: 'json' };
 
 const HTTP_OK = 200;
 

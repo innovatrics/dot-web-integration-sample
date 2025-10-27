@@ -1,8 +1,8 @@
-import type { Customer, GetCustomerResponse } from '../../types/graphqlTypes';
+import type { Customer, GetCustomerResponse } from '../../types/graphqlTypes.js';
 
-import { getCustomerApi } from '../../api/customersApi';
-import { mapToArray } from '../../api/utils';
-import { getDocumentTypeDetails } from '../../api/utils/createCustomer';
+import { getCustomerApi } from '../../api/customersApi.js';
+import { getDocumentTypeDetails } from '../../api/utils/createCustomer.js';
+import { mapToArray } from '../../api/utils/index.js';
 
 export const getCustomerResolver = async (customerApiLink: string): Promise<GetCustomerResponse> => {
   const response = await getCustomerApi(customerApiLink);

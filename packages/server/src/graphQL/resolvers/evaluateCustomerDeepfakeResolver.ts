@@ -1,13 +1,22 @@
-import type { EvaluateCustomerDeepfakeResponse, LivenessType } from '../../types/graphqlTypes';
-import type { EvaluateCustomerDeepfakeRestRequest } from '../../types/restRequestTypes';
+import type { EvaluateCustomerDeepfakeResponse } from '../../types/graphqlTypes.js';
+import type { EvaluateExtendedLivenessRequest } from '@innovatrics/dis-client-sdk';
 
-import { evaluateCustomerDeepfakeApi } from '../../api/customersLivenessApi';
+import { evaluateCustomerDeepfakeApi } from '../../api/customersLivenessApi.js';
+import { LivenessType } from '../../types/graphqlTypes.js';
 
 export const evaluateCustomerDeepfakeResolver = async (
   type: `${LivenessType}`,
   customerApiLink: string,
 ): Promise<EvaluateCustomerDeepfakeResponse> => {
-  const request: EvaluateCustomerDeepfakeRestRequest = {
+  if (type === LivenessType.MULTI_RANGE) {
+    return {
+      deepfakeDetection: {},
+      links: { customer: customerApiLink },
+    };
+  }
+
+  const request: EvaluateExtendedLivenessRequest = {
+    type: 'DEEPFAKE',
     livenessResources: [type],
   };
 

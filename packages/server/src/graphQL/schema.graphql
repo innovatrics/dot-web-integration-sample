@@ -53,6 +53,7 @@ enum EvaluateLivenessType {
   PASSIVE_LIVENESS
   MAGNIFEYE_LIVENESS
   SMILE_LIVENESS
+  MULTI_RANGE_LIVENESS
 }
 
 enum Source {
@@ -447,6 +448,14 @@ type CreateLivenessRecordsResponse {
   customerLinks: CustomerLinks!
 }
 
+type CreateLivenessRecordsChallengeResponse {
+  details: MultiRangeLivenessChallengeDetails
+}
+
+type MultiRangeLivenessChallengeDetails {
+  challengeSequence: [String!]
+}
+
 type PageTamperingInspection {
   colorProfileChangeDetected: Boolean
   looksLikeScreenshot: Boolean
@@ -495,7 +504,7 @@ type CustomerSelfieInspection {
 }
 
 type InspectCustomerLinks {
-  documentInspection: String!
+  documentInspection: String
   customer: String!
 }
 
@@ -625,6 +634,7 @@ enum LivenessType {
   PASSIVE
   MAGNIFEYE
   SMILE
+  MULTI_RANGE
 }
 
 type Query {
@@ -665,6 +675,11 @@ type Mutation {
     customerApiLink: String
     isLivenessCreated: Boolean
   ): CreateLivenessRecordsResponse
+  createLivenessRecordsChallenge(
+    livenessType: EvaluateLivenessType!
+    customerApiLink: String
+    isLivenessCreated: Boolean
+  ): CreateLivenessRecordsChallengeResponse
   createFace(image: String!, detection: FaceDetectionProperties): DetectFaceResponse
   postContactForm(contactFormData: ContactFormRequest!, recaptchaToken: String!): Void
 }

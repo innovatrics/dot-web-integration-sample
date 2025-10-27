@@ -2,11 +2,11 @@ import type { AxiosError, AxiosResponse } from 'axios';
 
 import { GraphQLError } from 'graphql';
 
-import { RECAPTCHA_FULFILLED_SCORE } from '../../../constants';
-import { Connection } from '../../../types/serverTypes';
-import { isTestRunning } from '../../utils';
+import { RECAPTCHA_FULFILLED_SCORE } from '../../../constants.js';
+import { Connection } from '../../../types/serverTypes.js';
+import { isTestRunning } from '../../utils/index.js';
 
-import { onRejected } from './common';
+import { onRejected } from './common.js';
 
 /**
  * If the error is a recaptcha error, then log the error and return a rejected promise

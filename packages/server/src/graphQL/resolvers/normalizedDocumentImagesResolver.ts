@@ -1,6 +1,6 @@
-import type { CustomerDocumentPages, ImageDimensions } from '../../types/graphqlTypes';
+import type { CustomerDocumentPages, ImageDimensions } from '../../types/graphqlTypes.js';
 
-import { getNormalizedImage } from '../../api/customersDocumentApi';
+import { getNormalizedImage } from '../../api/customersDocumentApi.js';
 
 type NormalizedDocumentImagesResponse = Omit<CustomerDocumentPages, '__typename'>;
 

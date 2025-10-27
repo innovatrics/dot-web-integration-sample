@@ -1,11 +1,12 @@
-import type { EvaluateTrustFactorsResponse } from '../types/graphqlTypes';
-import type { PutTrustEvaluationRequest } from '../types/restRequestTypes';
+import type { PutTrustEvaluationRequest } from '../types/restRequestTypes.js';
 
-import { serverConnection } from './rest/serverConnection';
+import { disClient } from './rest/serverConnection.js';
+import { getLastURLSegment } from './utils/getLastURLSegment.js';
 
 export async function evaluateTrustFactors(customerApiLink: string, payload: PutTrustEvaluationRequest) {
-  const apiPath = `${customerApiLink}/trust-evaluation/evaluate`;
-  const response = await serverConnection.put<EvaluateTrustFactorsResponse>(apiPath, payload);
+  const customerId = getLastURLSegment(customerApiLink);
+
+  const response = await disClient.api.evaluateTrustFactors(customerId, payload);
 
   return response.data;
 }

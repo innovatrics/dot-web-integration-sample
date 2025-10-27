@@ -1,7 +1,7 @@
-import type { CreateLivenessRecordsResponse } from '../../types/graphqlTypes';
+import type { CreateLivenessRecordsResponse } from '../../types/graphqlTypes.js';
 
-import { createCustomerLivenessApi, createLivenessRecordsApi } from '../../api/customersLivenessApi';
-import createCustomer from '../../api/utils/createCustomer';
+import { createCustomerLivenessApi, createLivenessRecordsApi } from '../../api/customersLivenessApi.js';
+import createCustomer from '../../api/utils/createCustomer.js';
 
 export const createLivenessRecordsResolver = async (
   content: string,

@@ -1,10 +1,12 @@
-import type { FaceDetectionProperties } from '../../types/graphqlTypes';
+import type { FaceDetectionProperties } from '../../types/graphqlTypes.js';
 
-import createFaceResponse from '../../api/mocks/data/createFaceResponse.json';
-import { faceLinks } from '../../test';
-import { FaceDetectionPropertiesMode } from '../../types/graphqlTypes';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import createFaceResponse from '../../api/mocks/data/createFaceResponse.json' with { type: 'json' };
+import { faceLinks } from '../../test/index.js';
+import { FaceDetectionPropertiesMode } from '../../types/graphqlTypes.js';
+
+import resolvers from './index.js';
 
 describe('#createFace', () => {
   it('should get correct response when FaceDetectionProperties is not set', async () => {

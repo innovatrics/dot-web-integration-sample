@@ -11,7 +11,6 @@ import type {
   EvaluateCustomerDeepfakeResponse,
   EvaluateCustomerLivenessResponse,
   EvaluateLivenessType,
-  EvaluateTrustFactorsResponse,
   FaceQualityResponse,
   GetAppInfoResponse,
   GetCustomerResponse,
@@ -23,26 +22,35 @@ import type {
   MutationCreateDocumentPageWithContentArgs,
   MutationCreateDocumentPageWithImageArgs,
   MutationCreateFaceArgs,
-} from '../../types/graphqlTypes';
+} from '../../types/graphqlTypes.js';
+import type {
+  LivenessChallengeRequest,
+  LivenessChallengeResponse,
+  TrustEvaluationResponse,
+} from '@innovatrics/dis-client-sdk';
 
-import { createDocumentPageWithImageResolver, createDocumentWithContentResolver } from './createDocumentPageResolver';
-import { createFaceResolver } from './createFaceResolver';
-import { createLivenessRecordsResolver } from './createLivenessRecordsResolver';
-import { createSelfieResolver } from './createSelfieResolver';
-import { deleteCustomerResolver } from './deleteCustomerResolver';
-import { evaluateCustomerDeepfakeResolver } from './evaluateCustomerDeepfakeResolver';
-import { evaluateCustomerLivenessResolver } from './evaluateCustomerLivenessResolver';
-import { evaluateTrustFactorsResolver } from './evaluateTrustFactors';
-import { getAppInfoResolver } from './getAppInfoResolver';
-import { getCroppedImagesResolver } from './getCroppedImagesResolver';
-import { getCroppedSelfieResolver } from './getCroppedSelfieResolver';
-import { getCustomerResolver } from './getCustomerResolver';
-import { getFaceQualityResolver } from './getFaceQualityResolver';
-import { getMetadataResolver } from './getMetadataResolver';
-import { inspectCustomerResolver } from './inspectCustomerResolver';
-import { inspectDocumentResolver } from './inspectDocumentResolver';
-import { normalizedDocumentImagesResolver } from './normalizedDocumentImagesResolver';
-import { postContactFormResolver } from './postContactFormResolver';
+import {
+  createDocumentPageWithImageResolver,
+  createDocumentWithContentResolver,
+} from './createDocumentPageResolver.js';
+import { createFaceResolver } from './createFaceResolver.js';
+import { createLivenessRecordsChallengeResolver } from './createLivenessRecordsChallengeResolver.js';
+import { createLivenessRecordsResolver } from './createLivenessRecordsResolver.js';
+import { createSelfieResolver } from './createSelfieResolver.js';
+import { deleteCustomerResolver } from './deleteCustomerResolver.js';
+import { evaluateCustomerDeepfakeResolver } from './evaluateCustomerDeepfakeResolver.js';
+import { evaluateCustomerLivenessResolver } from './evaluateCustomerLivenessResolver.js';
+import { evaluateTrustFactorsResolver } from './evaluateTrustFactors.js';
+import { getAppInfoResolver } from './getAppInfoResolver.js';
+import { getCroppedImagesResolver } from './getCroppedImagesResolver.js';
+import { getCroppedSelfieResolver } from './getCroppedSelfieResolver.js';
+import { getCustomerResolver } from './getCustomerResolver.js';
+import { getFaceQualityResolver } from './getFaceQualityResolver.js';
+import { getMetadataResolver } from './getMetadataResolver.js';
+import { inspectCustomerResolver } from './inspectCustomerResolver.js';
+import { inspectDocumentResolver } from './inspectDocumentResolver.js';
+import { normalizedDocumentImagesResolver } from './normalizedDocumentImagesResolver.js';
+import { postContactFormResolver } from './postContactFormResolver.js';
 
 const resolvers = {
   Query: {
@@ -94,7 +102,7 @@ const resolvers = {
     evaluateTrustFactors(
       _: unknown,
       args: { customerApiLink: string; livenessType: LivenessType },
-    ): Promise<EvaluateTrustFactorsResponse> {
+    ): Promise<TrustEvaluationResponse> {
       return evaluateTrustFactorsResolver(args.customerApiLink, args.livenessType);
     },
   },
@@ -129,6 +137,12 @@ const resolvers = {
       },
     ): Promise<CreateLivenessRecordsResponse> {
       return createLivenessRecordsResolver(args.content, args.customerApiLink, args.isLivenessCreated);
+    },
+    createLivenessRecordsChallenge(
+      _: unknown,
+      args: { customerApiLink?: string; isLivenessCreated?: boolean; livenessType: LivenessChallengeRequest['type'] },
+    ): Promise<LivenessChallengeResponse> {
+      return createLivenessRecordsChallengeResolver(args.livenessType, args.customerApiLink, args.isLivenessCreated);
     },
     createFace(_: unknown, args: MutationCreateFaceArgs): Promise<DetectFaceResponse> {
       return createFaceResolver(args);

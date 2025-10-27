@@ -1,8 +1,10 @@
-import createDocumentPageResponse from '../../api/mocks/data/createDocumentPageResponse.json';
-import createDocumentPageResponseWithWarning from '../../api/mocks/data/createDocumentPageResponseWithWarning.json';
-import { customerApiLink, customerApiLinkError, customerLinks, serverConnectionMock } from '../../test';
+import { expect } from 'vitest';
 
-import resolvers from '.';
+import createDocumentPageResponse from '../../api/mocks/data/createDocumentPageResponse.json' with { type: 'json' };
+import createDocumentPageResponseWithWarning from '../../api/mocks/data/createDocumentPageResponseWithWarning.json' with { type: 'json' };
+import { customerApiLink, customerApiLinkError, customerLinks, serverConnectionMock } from '../../test/index.js';
+
+import resolvers from './index.js';
 
 describe('#createDocumentPageResolver', () => {
   describe('createDocumentPageWithContent', () => {

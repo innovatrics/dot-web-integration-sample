@@ -1,14 +1,14 @@
-import type { EvaluateTrustFactorsResponse } from '../../types/graphqlTypes';
-import type { TrustFactorDefinition } from '../../types/restRequestTypes';
+import type { TrustFactorDefinition } from '../../types/restRequestTypes.js';
+import type { TrustEvaluationResponse } from '@innovatrics/dis-client-sdk';
 
-import { evaluateTrustFactors } from '../../api/trustEvaluatorApi';
+import { evaluateTrustFactors } from '../../api/trustEvaluatorApi.js';
 import {
   baseTrustFactorDefinitions,
   magnifeyeLivenessTrustFactorDefinitions,
   passiveLivenessTrustFactorDefinitions,
   smileLivenessTrustFactorDefinitions,
-} from '../../trust-factors/definitions';
-import { LivenessType } from '../../types/graphqlTypes';
+} from '../../trust-factors/definitions.js';
+import { LivenessType } from '../../types/graphqlTypes.js';
 
 function getLivenessTrustFactors(livenessType: LivenessType): Array<TrustFactorDefinition> {
   switch (livenessType) {
@@ -16,6 +16,8 @@ function getLivenessTrustFactors(livenessType: LivenessType): Array<TrustFactorD
       return magnifeyeLivenessTrustFactorDefinitions;
     case LivenessType.SMILE:
       return smileLivenessTrustFactorDefinitions;
+    case LivenessType.MULTI_RANGE:
+      return [];
     case LivenessType.PASSIVE:
     default:
       return passiveLivenessTrustFactorDefinitions;
@@ -25,7 +27,7 @@ function getLivenessTrustFactors(livenessType: LivenessType): Array<TrustFactorD
 export async function evaluateTrustFactorsResolver(
   customerApiLink: string,
   livenessType: LivenessType,
-): Promise<EvaluateTrustFactorsResponse> {
+): Promise<TrustEvaluationResponse> {
   const livenessTrustFactors = getLivenessTrustFactors(livenessType);
   const payload = {
     trustFactorDefinitions: [...baseTrustFactorDefinitions, ...livenessTrustFactors],
