@@ -1,11 +1,12 @@
 {
   "name": "dot-web-demo",
-  "version": "2.1.22",
+  "version": "2.1.23",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "copy:components": "sh copy-components.sh",
     "dev": "pnpm -r --parallel dev",
     "web-demo:dev": "pnpm -r --parallel --filter dot-web-demo-server --filter dot-web-demo-client dev",
     "ocr-demo:dev": "pnpm -r --parallel --filter dot-web-demo-server --filter dot-web-ocr-demo-client dev",
