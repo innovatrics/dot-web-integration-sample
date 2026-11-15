@@ -1,7 +1,6 @@
 import type { CreateCustomerResponse, CustomerInspectResponse, GetCustomerResponse } from '@innovatrics/dis-client-sdk';
 
-import { disClient } from './rest/serverConnection.js';
-import { getLastURLSegment } from './utils/getLastURLSegment.js';
+import { disClient } from './connection/serverConnection.ts';
 
 export const createCustomerApi = async (): Promise<CreateCustomerResponse> => {
   const response = await disClient.api.createCustomer();
@@ -9,22 +8,18 @@ export const createCustomerApi = async (): Promise<CreateCustomerResponse> => {
   return response.data;
 };
 
-export const getCustomerApi = async (customerApiLink: string): Promise<GetCustomerResponse> => {
-  const customerId = getLastURLSegment(customerApiLink);
+export const getCustomerApi = async (customerId: string): Promise<GetCustomerResponse> => {
   const response = await disClient.api.getCustomer(customerId);
 
   return response.data;
 };
 
-export const inspectCustomerApi = async (customerApiLink: string): Promise<CustomerInspectResponse> => {
-  const customerId = getLastURLSegment(customerApiLink);
+export const inspectCustomerApi = async (customerId: string): Promise<CustomerInspectResponse> => {
   const response = await disClient.api.inspect(customerId);
 
   return response.data;
 };
 
-export const deleteCustomerApi = async (customerApiLink: string): Promise<void> => {
-  const customerId = getLastURLSegment(customerApiLink);
-
+export const deleteCustomerApi = async (customerId: string): Promise<void> => {
   await disClient.api.deleteCustomer(customerId);
 };

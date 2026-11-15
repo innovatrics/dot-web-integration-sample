@@ -1,33 +1,42 @@
-import type { DetectSelfieRestRequest, ImageDimensionsRestRequest } from '../types/restRequestTypes.js';
-import type { CroppedSelfieImageRestResponse, DetectSelfieRestResponse } from '../types/restResponseTypes.js';
+import type { CreateSelfieRequest } from '@innovatrics/dis-client-sdk';
+import type { ImageDimensions } from '../types/index.ts';
 
-import { disClient } from './rest/serverConnection.js';
-import { getLastURLSegment } from './utils/getLastURLSegment.js';
+import { disClient } from './connection/serverConnection.ts';
+import { getLastURLSegment } from './utils/index.ts';
 
-export const createCustomerSelfieApi = async (
-  customerApiLink: string,
-  request: DetectSelfieRestRequest,
-): Promise<DetectSelfieRestResponse> => {
-  const apiPath = `${customerApiLink}/selfie`;
+export const createCustomerSelfieApi = async (customerId: string, payload: CreateSelfieRequest) => {
+  const response = await disClient.api.createSelfie(customerId, payload);
 
-  const response = await disClient.request<DetectSelfieRestResponse>({
-    method: 'PUT',
-    path: apiPath,
-    secure: true,
-    body: request,
+  return response.data;
+};
+
+export const createCustomerSelfie2Api = async (customerId: string, payload: Buffer<ArrayBufferLike>) => {
+  const response = await disClient.api.createSelfie2(customerId, payload);
+
+  return response.data;
+};
+
+export const getCroppedSelfieApi = async (faceId: string, dimensions?: ImageDimensions) => {
+  const response = await disClient.api.doCrop(faceId, {
+    ...dimensions,
   });
 
   return response.data;
 };
 
-export const getCroppedSelfieApi = async (
-  faceApiLink: string,
-  dimensions?: ImageDimensionsRestRequest,
-): Promise<CroppedSelfieImageRestResponse> => {
-  const customerId = getLastURLSegment(faceApiLink);
+export const getSelfieImageApi = async (customerId: string) => {
+  const response = await disClient.api.getSelfieImage(customerId);
 
-  const response = await disClient.api.doCrop(customerId, {
-    ...dimensions,
+  return response.data;
+};
+
+export const createLivenessSelfieApi = async (customerApiLink: string) => {
+  const customerId = getLastURLSegment(customerApiLink);
+  const response = await disClient.api.createLivenessSelfie(customerId, {
+    assertion: 'NONE',
+    selfieOrigin: {
+      link: customerApiLink,
+    },
   });
 
   return response.data;

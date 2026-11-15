@@ -1,6 +1,5 @@
 const nestedOutputArray = [
   {
-    name: 'a',
     a: {
       a: {
         a: 1,
@@ -11,9 +10,9 @@ const nestedOutputArray = [
         b: 2,
       },
     },
+    name: 'a',
   },
   {
-    name: 'b',
     a: {
       a: {
         a: 3,
@@ -24,6 +23,7 @@ const nestedOutputArray = [
         b: 4,
       },
     },
+    name: 'b',
   },
 ];
 

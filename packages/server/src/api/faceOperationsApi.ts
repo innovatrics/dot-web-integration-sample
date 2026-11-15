@@ -1,10 +1,9 @@
-import type { DetectFaceRestRequest } from '../types/restRequestTypes.js';
-import type { CreateFaceResponse, FaceQualityResponse } from '@innovatrics/dis-client-sdk';
+import type { CreateFaceRequest, CreateFaceResponse, FaceQualityResponse } from '@innovatrics/dis-client-sdk';
 
-import { disClient } from './rest/serverConnection.js';
-import { getLastURLSegment } from './utils/getLastURLSegment.js';
+import { disClient } from './connection/serverConnection.ts';
+import { getLastURLSegment } from './utils/index.ts';
 
-export const createFaceApi = async (request: DetectFaceRestRequest): Promise<CreateFaceResponse> => {
+export const detectFaceApi = async (request: CreateFaceRequest): Promise<CreateFaceResponse> => {
   const response = await disClient.api.detectFace(request);
 
   return response.data;
@@ -13,6 +12,18 @@ export const createFaceApi = async (request: DetectFaceRestRequest): Promise<Cre
 export const checkQualityApi = async (faceApiLink: string): Promise<FaceQualityResponse> => {
   const customerId = getLastURLSegment(faceApiLink);
   const response = await disClient.api.checkQuality(customerId);
+
+  return response.data;
+};
+
+export const evaluateAspectsApi = async (faceId: string) => {
+  const response = await disClient.api.evaluateAspects(faceId);
+
+  return response.data;
+};
+
+export const cropApi = async (faceId: string) => {
+  const response = await disClient.api.doCrop(faceId);
 
   return response.data;
 };

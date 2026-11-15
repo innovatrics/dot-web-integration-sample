@@ -1,44 +1,34 @@
-#build app
-FROM node:iron-alpine as builder
-
-WORKDIR /build
-
-COPY package.json pnpm-lock.yaml .npmrc pnpm-workspace.yaml tsconfig.json ./
-COPY packages/server ./packages/server
-
-ARG GITLAB_NPM_AUTH_TOKEN
-
-RUN npm config set @dot:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/ && \
-  npm config set //gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm config set @innovatrics:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/2683/packages/npm/ && \
-  npm config set //gitlab.ba.innovatrics.net/api/v4/projects/2683/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm install -g pnpm@9.6.0 && \
-  pnpm install --frozen-lockfile && \
-  pnpm server:build
-
-#build prod image
-FROM node:iron-alpine
+FROM node:24.22.2-alpine3.24 AS deps
 
 WORKDIR /usr/src/app
 
-ARG GITLAB_NPM_AUTH_TOKEN
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json ./
+COPY packages/server ./packages/server
 
-COPY --from=builder /build/pnpm-lock.yaml ./pnpm-lock.yaml
-COPY --from=builder /build/pnpm-workspace.yaml ./pnpm-workspace.yaml
-COPY --from=builder /build/.npmrc ./.npmrc
-COPY --from=builder /build/package.json ./package.json
+RUN corepack enable
 
-COPY --from=builder /build/packages/server/package.json ./packages/server/package.json
-COPY --from=builder /build/packages/server/dist ./packages/server/dist
+# The token is read from a BuildKit secret so it never lands in an image layer or the build history.
+# --ignore-scripts: the root `prepare` runs husky, a dev dependency that --prod does not install.
+RUN --mount=type=secret,id=npm_token \
+  printf '%s\n' \
+    '@innovatrics:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/2683/packages/npm/' \
+    '@dot:registry=https://gitlab.ba.innovatrics.net/api/v4/packages/npm/' \
+    '//gitlab.ba.innovatrics.net/api/v4/projects/2683/packages/npm/:_authToken=${NPM_TOKEN}' \
+    '//gitlab.ba.innovatrics.net/api/v4/packages/npm/:_authToken=${NPM_TOKEN}' \
+    '//gitlab.ba.innovatrics.net/api/v4/projects/:_authToken=${NPM_TOKEN}' > "$HOME/.npmrc" && \
+  NPM_TOKEN="$(cat /run/secrets/npm_token)" pnpm install --frozen-lockfile --prod --ignore-scripts --filter dot-web-demo-server && \
+  rm "$HOME/.npmrc"
 
-RUN npm config set @dot:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/ && \
-  npm config set //gitlab.ba.innovatrics.net/api/v4/projects/1675/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm config set @innovatrics:registry=https://gitlab.ba.innovatrics.net/api/v4/projects/2683/packages/npm/ && \
-  npm config set //gitlab.ba.innovatrics.net/api/v4/projects/2683/packages/npm/:_authToken=$GITLAB_NPM_AUTH_TOKEN && \
-  npm install -g pnpm@9.6.0 && \
-  pnpm install --frozen-lockfile
+FROM node:24.22.2-alpine3.24 AS runner
 
+WORKDIR /usr/src/app
 
-ENV NODE_ENV production
+COPY --from=deps --chown=node:node /usr/src/app ./
 
-CMD ["pnpm", "server:start"]
+ENV NODE_ENV="production"
+
+USER node
+
+WORKDIR /usr/src/app/packages/server
+
+CMD ["node", "src/server.ts"]

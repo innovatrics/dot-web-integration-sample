@@ -1,10 +1,9 @@
 class RequiredError extends Error {
+  public field = '';
+
   name = 'RequiredError';
 
-  constructor(
-    public field: string,
-    msg?: string,
-  ) {
+  constructor(_field: string, msg?: string) {
     super(msg);
   }
 }

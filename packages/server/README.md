@@ -1,14 +1,14 @@
 # DOT Web Demo Server
 
 Purpose of this application is to demonstrate integration on [Innovatrics Digital Identity Service (DIS)](https://developers.innovatrics.com/digital-onboarding/technical/remote/dot-dis/latest/documentation/) for [online identity verification](https://developers.innovatrics.com/digital-onboarding/docs/use-cases/onboarding/) use case.  
-Application is based on Node.js using [apollo-server-express](https://github.com/apollographql/apollo-server#readme) as main dependency which provide GraphQL API for FE client.
+The service is built on top of Node.js with Express and exposes a REST API consumed by the demo clients.
 
 ## Prerequisites
 
 - linux or macOS
 - node version manager (optional)
 - Node.js lts/gallium
-- yarn
+- pnpm
 
 ### Environment variables
 
@@ -21,17 +21,11 @@ Run all scripts from the project root.
 First, install all dependencies:
 
 ```
-yarn
+pnpm install
 ```
 
-Then generate GraphQL types from schema:
+And finally run the application in development mode:
 
 ```
-yarn codegen
-```
-
-And finally run application:
-
-```
-yarn dev
+pnpm dev
 ```

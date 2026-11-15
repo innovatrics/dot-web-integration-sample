@@ -1,18 +1,14 @@
 import type {
-  CreateCustomerDocumentRestRequest,
-  CreateDocumentPageRestRequest,
-  ImageDimensionsRestRequest,
-} from '../types/restRequestTypes.js';
-import type { CroppedImageRestResponse, NormalizedDocumentImagesRestResponse } from '../types/restResponseTypes.js';
-import type {
+  CreateDocumentPageRequest,
   CreateDocumentPageResponse,
+  CreateDocumentRequest,
   CreateDocumentResponse,
   DocumentInspectResponse,
 } from '@innovatrics/dis-client-sdk';
+import type { ImageDimensions, ImagesRestResponse } from '../types/index.ts';
 
-import { disClient } from './rest/serverConnection.js';
-import { getLastURLSegment } from './utils/getLastURLSegment.js';
-import { convertBase64ToByteArray } from './utils/index.js';
+import { disClient } from './connection/serverConnection.ts';
+import { convertBase64ToByteArray, getLastURLSegment } from './utils/index.ts';
 
 export const createDocumentPageOctetStreamApi = async (
   customerApiLink: string,
@@ -29,7 +25,7 @@ export const createDocumentPageOctetStreamApi = async (
 
 export const createDocumentPageApi = async (
   customerApiLink: string,
-  request: CreateDocumentPageRestRequest,
+  request: CreateDocumentPageRequest,
 ): Promise<CreateDocumentPageResponse> => {
   const customerId = getLastURLSegment(customerApiLink);
   const response = await disClient.api.createDocumentPage(customerId, request);
@@ -39,7 +35,7 @@ export const createDocumentPageApi = async (
 
 export const createDocumentApi = async (
   customerApiLink: string,
-  request: CreateCustomerDocumentRestRequest,
+  request: CreateDocumentRequest,
 ): Promise<CreateDocumentResponse> => {
   const customerId = getLastURLSegment(customerApiLink);
   const response = await disClient.api.createDocument(customerId, request);
@@ -47,8 +43,7 @@ export const createDocumentApi = async (
   return response.data;
 };
 
-export const inspectDocumentApi = async (customerApiLink: string): Promise<DocumentInspectResponse> => {
-  const customerId = getLastURLSegment(customerApiLink);
+export const inspectDocumentApi = async (customerId: string): Promise<DocumentInspectResponse> => {
   const response = await disClient.api.documentInspect(customerId);
 
   return response.data;
@@ -56,13 +51,13 @@ export const inspectDocumentApi = async (customerApiLink: string): Promise<Docum
 
 export const getNormalizedImage = async (
   pageApiLink: string,
-  dimensions?: ImageDimensionsRestRequest,
-): Promise<NormalizedDocumentImagesRestResponse> => {
-  const response = await disClient.request<NormalizedDocumentImagesRestResponse>({
+  dimensions?: ImageDimensions,
+): Promise<ImagesRestResponse> => {
+  const response = await disClient.request<ImagesRestResponse>({
     method: 'GET',
     path: pageApiLink,
-    secure: true,
     query: { ...dimensions },
+    secure: true,
   });
 
   return response.data;
@@ -70,13 +65,13 @@ export const getNormalizedImage = async (
 
 export const getCroppedImage = async (
   pageApiLink: string,
-  dimensions?: ImageDimensionsRestRequest,
-): Promise<CroppedImageRestResponse> => {
-  const response = await disClient.request<CroppedImageRestResponse>({
+  dimensions?: ImageDimensions,
+): Promise<ImagesRestResponse> => {
+  const response = await disClient.request<ImagesRestResponse>({
     method: 'GET',
     path: pageApiLink,
-    secure: true,
     query: { ...dimensions },
+    secure: true,
   });
 
   return response.data;

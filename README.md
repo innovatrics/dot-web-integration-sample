@@ -1,69 +1,31 @@
-# DOT Web Demo
+# DOT Web Demo Server
 
-## Project structure
+Purpose of this application is to demonstrate integration on [Innovatrics Digital Identity Service (DIS)](https://developers.innovatrics.com/digital-onboarding/technical/remote/dot-dis/latest/documentation/) for [online identity verification](https://developers.innovatrics.com/digital-onboarding/docs/use-cases/onboarding/) use case.  
+The service is built on top of Node.js with Express and exposes a REST API consumed by the demo clients.
 
-- [Server](#server) - `/packages/server`
+## Prerequisites
 
-## Project setup
-
-### Prerequisites
-
-- node lts/gallium
-- yarn
-- git bash (windows users only)
-
-### Run project locally
-
-- Install yarn:
-
-```
-npm install -g yarn
-```
-
-- If you use _nvm_, select right version of _NodeJS_ with:
-
-```
-nvm use
-```
-
-- Create `.env` file in the project root directory. Copy content of `.env.sample` into `.env`.
-
-- **(Windows users only)** run `yarn win-setup` in order to setup bash shell for yarn
-
-### Available scripts
-
-Run all scripts from the project root.
-
-To install dependencies run:
-
-```
-yarn
-```
-
-To generate GraphQL types from schema:
-
-```
-yarn server:codegen
-```
-
-> **_Note:_** Types will be generated to _/packages/server/src/graphqlTypes.ts_ from schema located in _packages/server/src/graphQL/schema.graphql_.
-
-To start _NodeJS_ server with hot-reload on _PORT_ specified in `.env` file:
-
-```
-yarn server:dev
-```
-
-To build and start _NodeJS_ server.
-
-```
-yarn server:build
-```
+- linux or macOS
+- node version manager (optional)
+- Node.js lts/gallium
+- pnpm
 
 ### Environment variables
 
-Specify envrionment variables in your `.env` file. Available variables are:
+Default variables are provided in `.env.example`. Only `AUTH_TOKEN` needs to by sourced. Please, contact Innovatrics sales representative to obtain the authorization token.
 
-- DOCUMENT_IDENTITY_SERVICE - url to [DOT Document server](https://developers.innovatrics.com/digital-onboarding/technical/remote/document-server/latest/documentation/.)
-- SERVER_PORT - [apollo-server-express](https://www.npmjs.com/package/apollo-server-express) port. Default value is 8000
-- AUTH_TOKEN - Authorization token for DIS API calls. In order to obtain AUTH_TOKEN, please [contact](https://developers.innovatrics.com/digital-onboarding/#contact-us) our sales department
+## Project setup
+
+Run all scripts from the project root.
+
+First, install all dependencies:
+
+```
+pnpm install
+```
+
+And finally run the application in development mode:
+
+```
+pnpm dev
+```

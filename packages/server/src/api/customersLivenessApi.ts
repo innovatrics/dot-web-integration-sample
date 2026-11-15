@@ -1,22 +1,17 @@
-import type { EvaluateCustomerLivenessRestRequest } from '../types/restRequestTypes.js';
-import type {
-  CreateCustomerLivenessRestResponse,
-  EvaluateCustomerDeepfakeRestResponse,
-} from '../types/restResponseTypes.js';
 import type {
   CreateCustomerLivenessRecordResponse,
+  CreateCustomerLivenessResponse,
+  EvaluateCustomerLivenessRequest,
   EvaluateCustomerLivenessResponse,
   EvaluateExtendedLivenessRequest,
+  EvaluateExtendedLivenessResponse,
   LivenessChallengeRequest,
-  LivenessChallengeResponse,
 } from '@innovatrics/dis-client-sdk';
 
-import { disClient } from './rest/serverConnection.js';
-import { getLastURLSegment } from './utils/getLastURLSegment.js';
+import { disClient } from './connection/serverConnection.ts';
+import { getLastURLSegment } from './utils/index.ts';
 
-export const createCustomerLivenessApi = async (
-  customerApiLink: string,
-): Promise<CreateCustomerLivenessRestResponse> => {
+export const createCustomerLivenessApi = async (customerApiLink: string): Promise<CreateCustomerLivenessResponse> => {
   const customerId = getLastURLSegment(customerApiLink);
   const response = await disClient.api.createLiveness(customerId);
 
@@ -24,20 +19,22 @@ export const createCustomerLivenessApi = async (
 };
 
 export const evaluateCustomerLivenessApi = async (
-  customerApiLink: string,
-  request: EvaluateCustomerLivenessRestRequest,
+  customerId: string,
+  request: EvaluateCustomerLivenessRequest,
 ): Promise<EvaluateCustomerLivenessResponse> => {
-  const customerId = getLastURLSegment(customerApiLink);
   const response = await disClient.api.evaluateLiveness(customerId, request);
 
   return response.data;
 };
 
 export const evaluateCustomerDeepfakeApi = async (
-  customerApiLink: string,
-  payload: EvaluateExtendedLivenessRequest,
-): Promise<EvaluateCustomerDeepfakeRestResponse> => {
-  const customerId = getLastURLSegment(customerApiLink);
+  customerId: string,
+  livenessResources: EvaluateExtendedLivenessRequest['livenessResources'],
+): Promise<EvaluateExtendedLivenessResponse> => {
+  const payload: EvaluateExtendedLivenessRequest = {
+    livenessResources,
+    type: 'DEEPFAKE',
+  } as const;
 
   const response = await disClient.api.evaluateExtendedLiveness(customerId, payload);
 
@@ -45,11 +42,9 @@ export const evaluateCustomerDeepfakeApi = async (
 };
 
 export const createLivenessRecordsApi = async (
-  customerApiLink: string,
+  customerId: string,
   content: string,
 ): Promise<CreateCustomerLivenessRecordResponse> => {
-  const customerId = getLastURLSegment(customerApiLink);
-
   const buffer = Buffer.from(content, 'base64');
   const file = new File([buffer], 'image', { type: 'application/octet-stream' });
 
@@ -61,7 +56,7 @@ export const createLivenessRecordsApi = async (
 export const createLivenessRecordsChallengeApi = async (
   customerId: string,
   livenessType: LivenessChallengeRequest['type'],
-): Promise<LivenessChallengeResponse> => {
+) => {
   const response = await disClient.api.createLivenessRecordChallenge(customerId, { type: livenessType });
 
   return response.data;

@@ -1,5 +1,5 @@
+import path from 'node:path';
 import dotenv from 'dotenv';
-import path from 'path';
 import { z } from 'zod';
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -9,23 +9,50 @@ dotenv.config({
 });
 
 const envSchema = z.object({
-  NODE_ENV: z.string().optional(),
-  SERVER_PORT: z.coerce.number().int().min(0).max(65535),
+  ALLOWED_ORIGINS: z
+    .string()
+    .transform((val) => {
+      // Handle JSON-style input: '["a","b"]'
+      try {
+        const parsed = JSON.parse(val);
+        if (Array.isArray(parsed)) return parsed;
+      } catch {
+        // fall back to comma-separated string
+      }
+
+      // Handle comma-separated: "a,b,c"
+      return val
+        .split(',')
+        .map((v) => v.trim())
+        .filter(Boolean);
+    })
+    .pipe(z.array(z.string()))
+    .default([]),
+  AWS_ACCESS_KEY_ID: z.string().optional(),
+  AWS_ENDPOINT_URL: z.url().optional(),
+  AWS_REGION: z.string().nonempty('AWS_REGION must be set'),
+
+  AWS_S3_BUCKET_NAME: z.string().nonempty('AWS_S3_BUCKET_NAME must be set'),
+  AWS_SECRET_ACCESS_KEY: z.string().optional(),
+
+  DIS_AUDIENCE: z.string(),
+  DIS_AUTH_TOKEN: z.string().optional(),
+  DIS_CLIENT_ID: z.string(),
+  DIS_CLIENT_SECRET: z.string(),
+  DIS_TOKEN_URL: z.string(),
+  DIS_URL: z.string(),
+
   MOCKS_ENABLED: z.coerce.boolean().default(false),
-  DOCUMENT_IDENTITY_SERVICE_URL: z.string(),
-  DOCUMENT_IDENTITY_SERVICE_TOKEN_URL: z.string(),
-  DOCUMENT_IDENTITY_SERVICE_CLIENT_ID: z.string(),
-  DOCUMENT_IDENTITY_SERVICE_CLIENT_SECRET: z.string(),
-  DOCUMENT_IDENTITY_SERVICE_AUDIENCE: z.string(),
-  CONTACT_FORM_URL: z.string().optional(),
-  GOOGLE_RECAPTCHA_SITE_VERIFY_URL: z.string().optional(),
-  GOOGLE_RECAPTCHA_SECRET: z.string().optional(),
-  AUTH_TOKEN: z.string().optional(),
+  NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+  SERVER_PORT: z.coerce.number().int().min(0).max(65535),
+
+  FIREBASE_SERVICE_ACCOUNT_BASE64: z.string().describe('Base64-encoded Firebase service account JSON'),
+  LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).default('info'),
 });
 
 export type Env = z.infer<typeof envSchema>;
 
-export default (() => {
+export const ENV: Env = (() => {
   try {
     return envSchema.parse(process.env);
   } catch (error) {

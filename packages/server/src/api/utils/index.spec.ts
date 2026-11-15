@@ -1,11 +1,11 @@
-import base64TestString from './data/base64TestString.js';
-import imageBase64TestString from './data/imageBase64TestString.js';
-import nestableOutputArray from './data/nestableOutputArray.js';
-import nestedInputMap from './data/nestedInputMap.js';
-import nestedOutputArray from './data/nestedOutputArray.js';
-import objectInputMap from './data/objectInputMap.js';
-import objectOutputArray from './data/objectOutputArray.js';
-import { convertJsonToUrlencoded, createImage, isStringUrl, mapToArray } from './index.js';
+import base64TestString from './data/base64TestString.ts';
+import imageBase64TestString from './data/imageBase64TestString.ts';
+import nestableOutputArray from './data/nestableOutputArray.ts';
+import nestedInputMap from './data/nestedInputMap.ts';
+import nestedOutputArray from './data/nestedOutputArray.ts';
+import objectInputMap from './data/objectInputMap.ts';
+import objectOutputArray from './data/objectOutputArray.ts';
+import { convertJsonToUrlencoded, createImage, isStringUrl, mapToArray } from './index.ts';
 
 describe('#Utils', () => {
   describe('createImage', () => {
@@ -125,19 +125,18 @@ describe('#Utils', () => {
 
   describe('convertJsonToUrlencoded', () => {
     const values = {
-      'contact-form-name': 'Tester',
-      'contact-form-company': 'Innovatrics',
-      'contact-form-mail': 'tester@innovatrics.com',
-      'contact-form-text': 'One handy unit test',
       'acceptance-472': '1',
+      'contact-form-company': 'Innovatrics',
       'contact-form-lead-source-detail': 'DOT OCR demo',
+      'contact-form-mail': 'tester@innovatrics.com',
+      'contact-form-name': 'Tester',
       'contact-form-products': 'DOT',
+      'contact-form-text': 'One handy unit test',
     };
 
     it('should return valid encoded string when valid object is provided', () => {
       const validResult =
-        'contact-form-name=Tester&contact-form-company=Innovatrics&contact-form-mail=tester%40innovatrics.com&contact-form-text=One%20handy%20unit%20test&acceptance-472=1&contact-form-lead-source-detail=DOT%20OCR%20demo&contact-form-products=DOT';
-
+        'acceptance-472=1&contact-form-company=Innovatrics&contact-form-lead-source-detail=DOT%20OCR%20demo&contact-form-mail=tester%40innovatrics.com&contact-form-name=Tester&contact-form-products=DOT&contact-form-text=One%20handy%20unit%20test';
       expect(convertJsonToUrlencoded(values)).toEqual(validResult);
     });
   });

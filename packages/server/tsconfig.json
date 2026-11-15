@@ -2,14 +2,16 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "./dist",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "ES2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "esnext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowArbitraryExtensions": true,
     "esModuleInterop": true,
-    "declaration": false,
-    "declarationMap": false,
-    "resolveJsonModule": true
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true
   },
   "include": ["./src/**/*", "vitest.config.ts"]
 }

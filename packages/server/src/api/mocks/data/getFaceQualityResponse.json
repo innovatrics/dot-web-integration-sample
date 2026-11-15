@@ -1,90 +1,90 @@
 {
-  "sharpness": {
-      "score": 0.4872,
-      "preconditionsMet": true
+  "backgroundUniformity": {
+      "preconditionsMet": true,
+      "score": 0.4447
   },
   "brightness": {
-      "score": 0.3098,
-      "preconditionsMet": true
+      "preconditionsMet": true,
+      "score": 0.3098
   },
   "contrast": {
-      "score": 0.6595,
-      "preconditionsMet": true
+      "preconditionsMet": true,
+      "score": 0.6595
   },
-  "uniqueIntensityLevels": {
-      "score": 0.8949,
-      "preconditionsMet": true
+  "eyeDistance": {
+      "preconditionsMet": true,
+      "score": 52.9043
   },
-  "shadow": {
-      "score": 0.9762,
-      "preconditionsMet": true
+  "eyeGaze": {
+      "preconditionsMet": true,
+      "score": 0.7643
+  },
+  "faceRelativeArea": {
+      "preconditionsMet": true,
+      "score": 0.0827
+  },
+  "faceRelativeAreaInImage": {
+      "preconditionsMet": true,
+      "score": 1.0000
+  },
+  "faceSize": {
+      "preconditionsMet": true,
+      "score": 52.9043
+  },
+  "heavyFrame": {
+      "preconditionsMet": true,
+      "score": 0.3565
+  },
+  "leftEye": {
+      "preconditionsMet": true,
+      "score": 0.7786
+  },
+  "mouth": {
+      "preconditionsMet": true,
+      "score": 0.1464
   },
   "noseShadow": {
-      "score": 0.5336,
-      "preconditionsMet": true
-  },
-  "specularity": {
-      "score": 0.6406,
-      "preconditionsMet": true
-  },
-  "backgroundUniformity": {
-      "score": 0.4447,
-      "preconditionsMet": true
-  },
-  "redRightEye": {
-      "score": 0.3388,
-      "preconditionsMet": true
-  },
-  "redLeftEye": {
-      "score": 0.3923,
-      "preconditionsMet": true
-  },
-  "roll": {
-      "angle": 5,
-      "preconditionsMet": true
-  },
-  "yaw": {
-      "angle": 4,
-      "preconditionsMet": true
+      "preconditionsMet": true,
+      "score": 0.5336
   },
   "pitch": {
       "angle": 2,
       "preconditionsMet": true
   },
-  "eyeDistance": {
-      "score": 52.9043,
-      "preconditionsMet": true
+  "redLeftEye": {
+      "preconditionsMet": true,
+      "score": 0.3923
   },
-  "eyeGaze": {
-      "score": 0.7643,
-      "preconditionsMet": true
+  "redRightEye": {
+      "preconditionsMet": true,
+      "score": 0.3388
   },
   "rightEye": {
-      "score": 0.6180,
+      "preconditionsMet": true,
+      "score": 0.6180
+  },
+  "roll": {
+      "angle": 5,
       "preconditionsMet": true
   },
-  "leftEye": {
-      "score": 0.7786,
-      "preconditionsMet": true
+  "shadow": {
+      "preconditionsMet": true,
+      "score": 0.9762
   },
-  "mouth": {
-      "score": 0.1464,
-      "preconditionsMet": true
+  "sharpness": {
+      "preconditionsMet": true,
+      "score": 0.4872
   },
-  "heavyFrame": {
-      "score": 0.3565,
-      "preconditionsMet": true
+  "specularity": {
+      "preconditionsMet": true,
+      "score": 0.6406
   },
-  "faceSize": {
-      "score": 52.9043,
-      "preconditionsMet": true
+  "uniqueIntensityLevels": {
+      "preconditionsMet": true,
+      "score": 0.8949
   },
-  "faceRelativeArea": {
-      "score": 0.0827,
-      "preconditionsMet": true
-  },
-  "faceRelativeAreaInImage": {
-      "score": 1.0000,
+  "yaw": {
+      "angle": 4,
       "preconditionsMet": true
   }
 }

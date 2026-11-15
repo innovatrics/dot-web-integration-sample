@@ -1,23 +1,24 @@
 {
   "expired": true,
+  "links": { "customer": "123" },
   "mrzInspection": { "valid": true },
   "pageTampering": [
     {
-      "name": "front",
       "colorProfileChangeDetected": true,
-      "looksLikeScreenshot": true
+      "looksLikeScreenshot": true,
+      "name": "front"
     },
     {
-      "name": "back",
       "colorProfileChangeDetected": true,
-      "looksLikeScreenshot": true
+      "looksLikeScreenshot": true,
+      "name": "back"
     }
   ],
   "portraitInspection": {
-    "genderEstimate": "M",
-    "genderConsistency": { "viz": true, "mrz": true },
+    "ageDifferenceWith": { "dateOfBirth": 7 },
     "ageEstimate": 24,
-    "ageDifferenceWith": { "dateOfBirth": 7 }
+    "genderConsistency": { "mrz": true,"viz": true },
+    "genderEstimate": "M"
   },
   "visualZoneInspection": {
     "ocrConfidence": { "confidence": 0, "lowOcrConfidenceTexts": ["string"] },
@@ -32,6 +33,5 @@
       },
       "consistent": true
     }
-  },
-  "links": { "customer": "/api/v1/customers/123" }
+  }
 }

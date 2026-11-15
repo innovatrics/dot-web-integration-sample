@@ -1,8 +1,8 @@
-import type { MetadataRestResponse } from '../types/restResponseTypes.js';
+import type { DocumentMetadataResponse } from '@innovatrics/dis-client-sdk';
 
-import { disClient } from './rest/serverConnection.js';
+import { disClient } from './connection/serverConnection.ts';
 
-export const getMetadataApi = async (): Promise<MetadataRestResponse> => {
+export const getMetadataApi = async (): Promise<DocumentMetadataResponse> => {
   const response = await disClient.api.metadata();
 
   return response.data;

@@ -1,0 +1,133 @@
+{
+  "tf_definitions_base": {
+    "defaultValue": {
+      "value": [
+        {
+          "booleanConfiguration": "REJECT_IF_TRUE",
+          "name": "video_injection",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "document_liveness",
+          "scoreConfiguration": {
+            "rejectLow": 0.01
+          },
+          "type": "SCORE"
+        },
+        {
+          "booleanConfiguration": "REJECT_IF_FALSE",
+          "name": "document_not_expired",
+          "type": "BOOLEAN"
+        },
+        {
+          "booleanConfiguration": "REJECT_IF_FALSE",
+          "name": "mrz_checksum_valid",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "document_face_match",
+          "scoreConfiguration": {
+            "rejectLow": 0.325,
+            "reviewLow": 0.35
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "age_validation",
+          "scoreConfiguration": {
+            "rejectHigh": 20,
+            "reviewHigh": 15
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "deepfake_detection",
+          "scoreConfiguration": {
+            "rejectLow": 0.8359
+          },
+          "type": "SCORE"
+        }
+      ]
+    },
+    "valueType": "JSON"
+  },
+  "tf_definitions_passive_liveness": {
+    "defaultValue": {
+      "value": [
+        {
+          "name": "passive_liveness",
+          "scoreConfiguration": {
+            "rejectLow": 0.8,
+            "reviewLow": 0.84
+          },
+          "type": "SCORE"
+        }
+      ]
+    },
+    "valueType": "JSON"
+  },
+  "tf_definitions_smile_liveness": {
+    "defaultValue": {
+      "value": [
+        {
+          "name": "smile_liveness",
+          "scoreConfiguration": {
+            "rejectLow": 0.8,
+            "reviewLow": 0.84
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "smile_liveness_matching_thr",
+          "scoreConfiguration": {
+            "rejectLow": 0.6
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "smile_liveness_expression_neutral_thr",
+          "scoreConfiguration": {
+            "rejectLow": 0.5
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "smile_liveness_expression_smile_thr",
+          "scoreConfiguration": {
+            "rejectHigh": 0.5
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "smile_liveness_expression_difference_thr",
+          "scoreConfiguration": {
+            "rejectLow": 0.2
+          },
+          "type": "SCORE"
+        }
+      ]
+    },
+    "valueType": "JSON"
+  },
+  "tf_definitions_magnifeye_liveness": {
+    "defaultValue": {
+      "value": [
+        {
+          "name": "magnifeye_liveness",
+          "scoreConfiguration": {
+            "rejectLow": 0.82
+          },
+          "type": "SCORE"
+        },
+        {
+          "name": "magnifeye_liveness_similarity_thr",
+          "scoreConfiguration": {
+            "rejectLow": 0.6
+          },
+          "type": "SCORE"
+        }
+      ]
+    },
+    "valueType": "JSON"
+  }
+}

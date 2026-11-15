@@ -1,25 +1,25 @@
 {
+  "links": {
+    "selfie": "/api/v1/customers/{customerUuid}/selfie"
+  },
   "trustEvaluation": {
-    "result": "ACCEPT",
-    "trustFactorEvaluationResults": [
-      {
-        "trustFactorName": "passive_liveness",
-        "result": "ACCEPT"
-      }
-    ],
-    "warnings": [
-      {
-        "warning": "UNKNOWN_TRUST_FACTOR_DEFINITION",
-        "trustFactorName": "some_unknown_trust_factor"
-      }    ],
     "errors": [
       {
         "error": "INVALID_TRUST_FACTOR_DEFINITION",
         "trustFactorName": "some_invalid_trust_factor"
       }
-    ]
-  },
-  "links": {
-    "selfie": "/api/v1/customers/{customerUuid}/selfie"
+    ],
+    "result": "ACCEPT",
+    "trustFactorEvaluationResults": [
+      {
+        "result": "ACCEPT",
+        "trustFactorName": "passive_liveness"
+      }
+    ],
+    "warnings": [
+      {
+        "trustFactorName": "some_unknown_trust_factor",
+        "warning": "UNKNOWN_TRUST_FACTOR_DEFINITION"
+      }    ]
   }
 }

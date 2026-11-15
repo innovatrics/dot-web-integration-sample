@@ -1,9 +1,20 @@
-import type { Image } from '../../types/restRequestTypes.js';
+import type { Image } from '../../types/index.ts';
+import RequiredError from '../error/RequiredError.ts';
+
+export const getLastURLSegment = (link: string): string => {
+  const id = link.split('/').pop();
+
+  if (!id) {
+    throw new Error('Missing id');
+  }
+
+  return id;
+};
 
 export const isStringUrl = (string: string): boolean => {
   try {
     return Boolean(new URL(string));
-  } catch (e) {
+  } catch (_) {
     return false;
   }
 };
@@ -61,4 +72,32 @@ export const convertBase64ToByteArray = (base64String: string) => {
   const byteArray = new Uint8Array(buffer);
 
   return byteArray;
+};
+
+export const normalizeStringInput = (value: unknown): string | undefined => {
+  if (Array.isArray(value)) {
+    return value[0];
+  }
+
+  return typeof value === 'string' ? value : undefined;
+};
+
+export const ensureString = (value: unknown, field: string): string => {
+  const normalized = normalizeStringInput(value);
+
+  if (!normalized) {
+    throw new RequiredError(field, `${field} is required`);
+  }
+
+  return normalized;
+};
+
+export const ensureQueryParamsId = (params: Record<string, unknown>, prefix?: string): string => {
+  const { id } = params;
+
+  if (!id) {
+    throw new RequiredError('ID', `${prefix}Id is required`);
+  }
+
+  return id as string;
 };

@@ -4,25 +4,25 @@
     "valid": true
   },
   "pageTampering": {
-    "front": {
+    "back": {
       "colorProfileChangeDetected": true,
       "looksLikeScreenshot": true
     },
-    "back": {
+    "front": {
       "colorProfileChangeDetected": true,
       "looksLikeScreenshot": true
     }
   },
   "portraitInspection": {
-    "genderEstimate": "M",
-    "genderConsistency": {
-      "viz": true,
-      "mrz": true
-    },
-    "ageEstimate": 24,
     "ageDifferenceWith": {
       "dateOfBirth": 7
-    }
+    },
+    "ageEstimate": 24,
+    "genderConsistency": {
+      "mrz": true,
+      "viz": true
+    },
+    "genderEstimate": "M"
   },
   "visualZoneInspection": {
     "ocrConfidence": {

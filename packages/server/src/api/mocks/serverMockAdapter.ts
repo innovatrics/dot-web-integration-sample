@@ -3,16 +3,19 @@ import type { AxiosInstance } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import createCustomerLivenessResponse from './data/createCustomerLivenessResponse.json' with { type: 'json' };
-import createCustomerLivenessSelfieResponse from './data/createCustomerLivenessSelfieResponse.json' with { type: 'json' };
+import createCustomerLivenessSelfieResponse from './data/createCustomerLivenessSelfieResponse.json' with {
+  type: 'json',
+};
 import createCustomerResponse from './data/createCustomerResponse.json' with { type: 'json' };
 import createDocumentPageResponse from './data/createDocumentPageResponse.json' with { type: 'json' };
 import createDocumentResponse from './data/createDocumentResponse.json' with { type: 'json' };
 import createfaceResponse from './data/createFaceResponse.json' with { type: 'json' };
 import createMagnifeyeLivenessResponse from './data/createMagnifeyeLivenessResponse.json' with { type: 'json' };
-import createMultiRangeLivenessChallengeResponse from './data/createMultiRangeLivenessChallengeResponse.json' with { type: 'json' };
+import createMultiRangeLivenessChallengeResponse from './data/createMultiRangeLivenessChallengeResponse.json' with {
+  type: 'json',
+};
 import createSelfieResponse from './data/createSelfieResponse.json' with { type: 'json' };
 import croppedSelfieResponse from './data/croppedSelfieResponse.json' with { type: 'json' };
-import evaluateCustomerDeepfakeResponse from './data/evaluateCustomerDeepfakeResponse.json' with { type: 'json' };
 import evaluateCustomerLivenessResponse from './data/evaluateCustomerLivenessResponse.json' with { type: 'json' };
 import getAppInfoResponse from './data/getAppInfoResponse.json' with { type: 'json' };
 import getCroppedImagePortraitResponse from './data/getCroppedImagePortraitResponse.json' with { type: 'json' };
@@ -23,7 +26,9 @@ import getMetadataResponse from './data/getMetadataResponse.json' with { type: '
 import inspectCustomerResponse from './data/inspectCustomerResponse.json' with { type: 'json' };
 import inspectDocumentResponse from './data/inspectDocumentResponse.json' with { type: 'json' };
 import normalizedDocumentImageBackResponse from './data/normalizedDocumentImageBackResponse.json' with { type: 'json' };
-import normalizedDocumentImageFrontResponse from './data/normalizedDocumentImageFrontResponse.json' with { type: 'json' };
+import normalizedDocumentImageFrontResponse from './data/normalizedDocumentImageFrontResponse.json' with {
+  type: 'json',
+};
 import trustEvaluationEvaluateResponse from './data/trustEvaluationEvaluateResponse.json' with { type: 'json' };
 
 const HTTP_OK = 200;
@@ -88,10 +93,6 @@ function getFaceQuality() {
 
 function evaluateCustomerLiveness() {
   return [HTTP_OK, evaluateCustomerLivenessResponse];
-}
-
-function evaluateCustomerDeepfake() {
-  return [HTTP_OK, evaluateCustomerDeepfakeResponse];
 }
 
 function getNormalizedDocumentImageFront() {
@@ -172,10 +173,6 @@ export const initServerMocks = (axios: AxiosInstance): MockAdapter => {
   const evaluateCustomerLivenessUrl = `${customerApiLink}/liveness/evaluation`;
 
   mock.onPost(evaluateCustomerLivenessUrl).reply(evaluateCustomerLiveness);
-
-  const evaluateCustomerDeepfakeUrl = `${customerApiLink}/liveness/evaluation/extended`;
-
-  mock.onPost(evaluateCustomerDeepfakeUrl).reply(evaluateCustomerDeepfake);
 
   const createCustomerLivenessSelfieUrl = `${customerApiLink}/liveness/selfies`;
 

@@ -1,18 +1,18 @@
 const objectOutputArray = [
   {
-    name: 'a',
     a: 'a',
     b: 'b',
+    name: 'a',
   },
   {
-    name: 'b',
     a: 'c',
     b: 'd',
+    name: 'b',
   },
   {
-    name: 'c',
     a: 'e',
     b: 'f',
+    name: 'c',
   },
 ];
 

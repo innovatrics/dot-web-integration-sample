@@ -1,8 +1,19 @@
-import { initContactFormaMocks } from '../api/mocks/contactFormMockAdapter.js';
-import { initRecaptchaMocks } from '../api/mocks/recaptchaMockAdapter.js';
-import { initServerMocks } from '../api/mocks/serverMockAdapter.js';
-import { contactFormConnection, disClient, googleRecaptchaConnection } from '../api/rest/serverConnection.js';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import { disClient } from '../api/connection/serverConnection.ts';
+import { initServerMocks } from '../api/mocks/serverMockAdapter.ts';
+
+console.log('setting up server tests...');
 
 initServerMocks(disClient.instance);
-initRecaptchaMocks(googleRecaptchaConnection);
-initContactFormaMocks(contactFormConnection);
+
+const oauthMock = new MockAdapter(axios);
+const tokenUrl = process.env.DIS_TOKEN_URL;
+
+if (tokenUrl) {
+  oauthMock.onPost(tokenUrl).reply(200, {
+    access_token: 'mock-token',
+    expires_in: 3600,
+    token_type: 'Bearer',
+  });
+}

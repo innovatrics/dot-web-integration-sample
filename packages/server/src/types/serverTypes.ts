@@ -16,10 +16,7 @@ export type ParsedError = {
   path?: string;
 };
 
-export enum Connection {
-  CONTACT_FORM = 'CONTACT_FORM',
-  RECAPTCHA = 'RECAPTCHA',
-  SERVER = 'SERVER',
-}
-
-export type AxiosApiError = AxiosError<{ errorCode?: string; errorMessage?: string }>;
+export type AxiosApiError = AxiosError<{
+  errorCode?: string;
+  errorMessage?: string;
+}>;

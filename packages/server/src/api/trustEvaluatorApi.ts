@@ -1,11 +1,8 @@
-import type { PutTrustEvaluationRequest } from '../types/restRequestTypes.js';
+import type { TrustEvaluationRequest } from '@innovatrics/dis-client-sdk';
 
-import { disClient } from './rest/serverConnection.js';
-import { getLastURLSegment } from './utils/getLastURLSegment.js';
+import { disClient } from './connection/serverConnection.ts';
 
-export async function evaluateTrustFactors(customerApiLink: string, payload: PutTrustEvaluationRequest) {
-  const customerId = getLastURLSegment(customerApiLink);
-
+export async function evaluateTrustFactors(customerId: string, payload: TrustEvaluationRequest) {
   const response = await disClient.api.evaluateTrustFactors(customerId, payload);
 
   return response.data;
